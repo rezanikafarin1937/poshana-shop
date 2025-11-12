@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export interface IProductItemProps {
   id: string;
   title: string;
@@ -8,14 +9,15 @@ export interface IProductItemProps {
   description: string;
 }
 
-const ProductItem = ({title,price,image} : IProductItemProps) => {
-  console.log('image = ',image);
+// props === item
+const ProductItem = (item : IProductItemProps) => {
   return (
-    <div className="">
-      <img src={image} />
+
+<div className="w-full h-60 bg-gray-200 shadow-md">
+      <img src={item.image} className="w-full h-full object-cover"/>
       <div className="flex justify-between">
-        <p>قیمت محصول : {price}</p>
-        <p>عنوان : {title}</p>
+        <p>قیمت محصول : {item.price}</p>
+        <p>عنوان : {item.title}</p>
       </div>
     </div>
   );
