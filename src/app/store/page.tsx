@@ -13,7 +13,7 @@ export interface IProductItemProps {
 
 async function Store() {
   const result = await fetch("http://localhost:8000/products");
-  const items = await result.json();
+  const items = await result.json() as IProductItemProps[];
   return (
     <Container>
       <h1>Store</h1>
