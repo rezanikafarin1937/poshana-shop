@@ -3,6 +3,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Container from "../Container";
+import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -21,6 +22,8 @@ const Navbar = () => {
     },
   ];
 
+  const {cartTotalQty} = useShoppingCartContext()
+
   return (
     <nav className="bg-gray-300">
       <Container>
@@ -38,7 +41,9 @@ const Navbar = () => {
             ))}
           </ul>
           <ul className="p-4 text-[1rem] font-bold">
-            <li>
+            <li className="w-[150px]  bg-blue-400 flex flex-row justify-between align-">
+              <span className="px-2 py-1 bg-red-600 text-white rounded-full">{cartTotalQty}</span>
+              <span className="mx-8"></span>
               <Link href="/cart">سبد خرید</Link>
             </li>
           </ul>

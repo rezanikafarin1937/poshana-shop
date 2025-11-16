@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "@/components/Container";
+import CartButton from "@/components/CartButton";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -22,8 +23,11 @@ async function page({ params }: ProductPageProps) {
       <div dir="rtl">
         <h1>Product {id}</h1>
         <h2>{product.title}</h2>
-        <img src={product.image} />
+        <div className="w-60 h-60 bg-gray-200 shadow-md">
+          <img src={product.image} className="w-full h-full object-cover" />
+        </div>
         <div>قیمت : {product.price}</div>
+        <CartButton id={id}/>
         <h3>توضیحات</h3>
         <p>{product.description}</p>
       </div>
