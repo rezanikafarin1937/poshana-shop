@@ -26,7 +26,7 @@ async function page({ params }: ProductPageProps) {
         <div className="w-60 h-60 bg-gray-200 shadow-md">
           <img src={product.image} className="w-full h-full object-cover" />
         </div>
-        <div>قیمت : {product.price}</div>
+        <div className="font-bold text-xl">قیمت : {product.price.toLocaleString('fa')}</div>
         <CartButton id={id}/>
         <h3>توضیحات</h3>
         <p>{product.description}</p>

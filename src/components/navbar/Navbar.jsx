@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Container from "../Container";
@@ -20,6 +19,10 @@ const Navbar = () => {
       title: "فروشگاه",
       link: "/store",
     },
+    {
+      title : "داشبورد",
+      link : "/dashboard"
+    }
   ];
 
   const {cartTotalQty} = useShoppingCartContext()
@@ -28,7 +31,7 @@ const Navbar = () => {
     <nav className="bg-gray-300">
       <Container>
         <div className="flex flex-row-reverse justify-between">
-          <ul className="p-4 flex flex-row text-[1rem] font-bold">
+          <ul className="p-4 flex flex-row text-[1rem] font-bold" dir="rtl">
             {navs.map((nav, index) => (
               <li
                 className={`ml-4 transition duration-300 ease-in-out ${
