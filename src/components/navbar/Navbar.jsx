@@ -1,8 +1,9 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import Link from "next/link";
 import Container from "../Container";
 import { useShoppingCartContext } from "@/context/ShoppingCartContext";
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -22,6 +23,10 @@ const Navbar = () => {
     {
       title : "داشبورد",
       link : "/dashboard"
+    },
+        {
+      title : "ورود",
+      link : "/login"
     }
   ];
 
@@ -48,6 +53,10 @@ const Navbar = () => {
               <span className="px-2 py-1 bg-red-600 text-white rounded-full">{cartTotalQty}</span>
               <span className="mx-8"></span>
               <Link href="/cart">سبد خرید</Link>
+              <button onClick={()=>{
+                Cookies.remove("token");
+                redirect("/");
+              }} className="ml-4 bg-red-600 text-white px-4 py-1 rounded hover:cursor-pointer">خروج</button>
             </li>
           </ul>
         </div>
