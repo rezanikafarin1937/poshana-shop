@@ -143,5 +143,10 @@
       "code": "SAVE30",
       "percentage": 30
     }
+  ],
+
+  "users": [
+    { "id": "1", "username": "admin", "password": "1234" },
+    { "id": "2", "username": "reza", "password": "9999" }
   ]
 }
