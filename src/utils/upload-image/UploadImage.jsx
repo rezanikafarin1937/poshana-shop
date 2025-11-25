@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "./uploadImage.css";
+import "./uploadImage.min.css";
 import Delete from "./Delete";
 
 function UploadImage({ dir = "rtl" , onFilesChange }) {
