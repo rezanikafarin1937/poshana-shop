@@ -28,7 +28,7 @@ function UploadImage({ dir = "rtl" , onFilesChange }) {
   return (
     <div className="parent" dir={dir}>
       <form>
-        <div
+        <div title="آپلود عکس"
           className={`parent__input ${
             dir === "ltr" ? "parent__ltr" : "parent__rtl"
           }`}
@@ -38,7 +38,6 @@ function UploadImage({ dir = "rtl" , onFilesChange }) {
             multiple
             onChange={handleFileChange}
             accept="image/*"
-            style={{ opacity: 0 }}
           />
           <button type="submit"></button>
         </div>
