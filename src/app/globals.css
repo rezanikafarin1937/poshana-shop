@@ -4,6 +4,11 @@
 
 @import "tailwindcss";
 
+*{
+  box-sizing: border-box;
+    font-family: "Vazir" ,serif , "sans-serif";
+}
+
 
 :root {
   --background: #ffffff;
