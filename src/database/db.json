@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Product Title",
       "price": 100,
       "description": "This is a description of the product.",
@@ -51,11 +51,20 @@
       "images": [
         "1763784027808-۲۰۲۳۰۳۲۸_۲۳۵۱۴۵.jpg"
       ]
+    },
+    {
+      "id": "42",
+      "title": "GGG",
+      "price": "555",
+      "description": "no description",
+      "images": [
+        "1764040998333-425605189_137641.jpg",
+        "1764040998342-425621500_137597.jpg",
+        "1764040998346-425629791_136268.jpg"
+      ]
     }
   ],
-
-
-    "users": [
+  "users": [
     {
       "id": "1",
       "username": "admin",
@@ -72,5 +81,4 @@
       "password": "123"
     }
   ]
-
 }
