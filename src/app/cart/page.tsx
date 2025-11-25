@@ -5,6 +5,7 @@ import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IProductItemProps } from "@/components/ProductItem";
+import { BaseUrl } from "@/Global/BaseUrl";
 
 interface IDiscountData {
   id: number;
@@ -17,7 +18,7 @@ const Cart = () => {
   const [discountedPrice,setDiscountedPrice] = useState(() => 0);
   const [finalPrice,setFinalPrice] = useState(() => 0);
   useEffect(() => {
-    axios("http://localhost:8000/products").then((res) => {
+    axios(`${BaseUrl}/products`).then((res) => {
       const d = res.data; // => const {data} = res;
       setData(d);
     });
@@ -27,7 +28,7 @@ const Cart = () => {
   const { cartItems } = useShoppingCartContext();
 
 function handleSubmitDiscount() {
-  axios(`http://localhost:8000/discounts?code=${discountCode}`).then(
+  axios(`${BaseUrl}/discounts?code=${discountCode}`).then(
     (result) => {
       const data = result.data as IDiscountData;
 

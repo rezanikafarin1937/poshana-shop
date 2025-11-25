@@ -1,6 +1,7 @@
 import { writeFile } from "fs/promises";
 import path from "path";
 import axios from "axios";
+import { BaseUrl } from "@/Global/BaseUrl";
 
 export async function POST(req: Request) {
   try {
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
     }
 
     // 📌 ارسال فقط JSON به json-server
-    await axios.post("http://localhost:8000/products", {
+    await axios.post(`${BaseUrl}/products`, {
       id,
       title,
       price,

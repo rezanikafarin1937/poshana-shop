@@ -1,9 +1,10 @@
+import {BaseUrl} from '../../../Global/BaseUrl';
 export async function POST(req) {
   try {
     const { username, password } = await req.json();
 
     // درخواست به json-server
-    const res = await fetch(`http://localhost:8000/users?username=${username}`);
+    const res = await fetch(`${BaseUrl}/users?username=${username}`);
     const users = await res.json();
     
     // اگر کاربری با این نام نبود

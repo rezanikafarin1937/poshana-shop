@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { IProductItemProps } from "./ProductItem";
 import CartButton from "./CartButton";
+import { BaseUrl } from "@/Global/BaseUrl";
 
 interface ICartsItemProps {
   id: number;
@@ -12,7 +13,7 @@ interface ICartsItemProps {
 function CartItem({ id, qty }: ICartsItemProps) {
   const [data, setData] = useState({} as IProductItemProps);
   useEffect(() => {
-    axios(`http://localhost:8000/products/${id}`).then((result) => {
+    axios(`${BaseUrl}/products/${id}`).then((result) => {
       const data = result.data;
       // or get data => const {data} = result;
       setData(data);

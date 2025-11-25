@@ -3,6 +3,7 @@ import Pagination from "@/components/Pagination";
 import ProductItem from "@/components/ProductItem";
 import { IProductList } from "@/components/ProductItem";
 import Search from "@/components/Search";
+import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
 
 export interface IProductItemProps {
@@ -25,7 +26,7 @@ async function Store({ searchParams }: IStoreProps) {
 
 
   const result = await fetch(
-    `http://localhost:8000/products?_page=${page}&_per_page=${per_page}&title=${title}`
+    `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`
   );
   const items = (await result.json()) as IProductList;
   return (

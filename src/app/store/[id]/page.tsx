@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "@/components/Container";
 import CartButton from "@/components/CartButton";
+import { BaseUrl } from "@/Global/BaseUrl";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -16,7 +17,7 @@ interface IGetProduct {
 
 async function page({ params }: ProductPageProps) {
   const { id } = await params;
-  const result = await fetch(`http://localhost:8000/products/${id}`);
+  const result = await fetch(`${BaseUrl}/products/${id}`);
   const product = (await result.json()) as IGetProduct;
   return (
     <Container>

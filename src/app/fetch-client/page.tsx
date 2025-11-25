@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect,useState } from "react";
+import { BaseUrl } from "@/Global/BaseUrl";
 
 interface IProductItem{
   id : string,
@@ -14,7 +15,7 @@ interface IProductItem{
 function fetchClient(){
   const [products, setProducts] = useState([])
   useEffect(()=>{
-    axios('http://localhost:8000/products').then(res => {
+    axios(`${BaseUrl}/products`).then(res => {
       setProducts(res.data)
       console.log(res)
     })
