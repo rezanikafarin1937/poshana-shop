@@ -22,7 +22,7 @@ export interface IProductList {
 const ProductItem = (item: IProductItemProps) => {
   return (
     <div className="w-full h-60 bg-gray-200 shadow-md">
-      <img src={item.image} className="w-full h-full object-cover" />
+      <img src={`/uploads/${item.images[0]}`} className="w-full h-full object-cover" />
       <div className="flex justify-between">
         <p>قیمت محصول : {item.price}</p>
         <p>عنوان : {item.title}</p>
