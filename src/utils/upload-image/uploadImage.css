@@ -1,21 +1,23 @@
 .parent {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 0.5rem;
   align-items: center;
   justify-content: flex-start;
 }
 
-.parent__ltr {
-  margin: 0 1rem 1rem 0;
+@media (min-width: 320px) and (max-width: 420px) {
+  .parent {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.parent__rtl {
-  margin: 0 0 1rem 1rem;
+@media (min-width: 420px) {
+  .parent {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .parent__input {
-  width: 106px;
-  height: 106px;
   background-color: #eee;
   border: 1px dashed #999;
   border-radius: 0.5rem;
@@ -48,8 +50,6 @@
 }
 
 .parent__image {
-  width: 106px;
-  height: 106px;
   border-radius: 0.25rem;
 }
 
@@ -66,7 +66,7 @@
   width: 1rem;
   height: 1rem;
   top: 0.25rem;
-  left: 1.25rem;
+  left: 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;

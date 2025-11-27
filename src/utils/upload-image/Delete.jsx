@@ -1,8 +1,8 @@
-const Delete = () => {
+const Delete = ({color}) => {
   return (
     <div style={{ cursor: "pointer" }}>
       <svg
-        fill="#eee"
+        fill={`${color}`}
         version="1.1"
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"

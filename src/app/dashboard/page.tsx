@@ -40,7 +40,10 @@ const Dashboard = () => {
   };
 
   return (
-    // <Container>
+    <Container>
+      <div style={{width : "100%"}}>
+         <UploadImage dir="rtl" widthItemProps={100} heightItemProps={100} onFilesChange={handleFilesFromChild} />
+      </div>
       <div dir="rtl" className={styles.dashboard}>
         <div className={styles.dashboard__box}>
           <input
@@ -77,7 +80,7 @@ const Dashboard = () => {
         </div>
 
       </div>
-    // </Container>
+     </Container>
   );
 };
 
