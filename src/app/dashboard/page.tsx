@@ -40,7 +40,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Container>
+    // <Container>
       <div dir="rtl" className={styles.dashboard}>
         <div className={styles.dashboard__box}>
           <input
@@ -77,7 +77,7 @@ const Dashboard = () => {
         </div>
 
       </div>
-    </Container>
+    // </Container>
   );
 };
 

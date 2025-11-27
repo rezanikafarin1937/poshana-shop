@@ -16,6 +16,8 @@ body {
   outline: none;
   border: none;
   scrollbar-width: thin;
+  min-height: 100vh;
+  height: 101%;
 }
 
 :root {

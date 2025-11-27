@@ -33,8 +33,7 @@ const Navbar = () => {
   const {cartTotalQty} = useShoppingCartContext()
 
   return (
-    <nav className="bg-gray-300">
-      <Container>
+    <nav className="bg-[#f8f2f2] shadow bg-white">
         <div className="flex flex-row-reverse justify-between">
           <ul className="p-4 flex flex-row text-[1rem] font-bold" dir="rtl">
             {navs.map((nav, index) => (
@@ -60,7 +59,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-      </Container>
     </nav>
   );
 };
