@@ -1,0 +1,15 @@
+.parent {
+  background-color: rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent__search {
+  background-color: green;
+  width: 30%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}

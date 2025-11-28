@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Pagination from "@/components/Pagination";
 import ProductItem from "@/components/ProductItem";
 import { IProductList } from "@/components/ProductItem";
-import Search from "@/components/Search";
+import Search from "@/components/search/Search";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
 
