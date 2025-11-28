@@ -34,7 +34,7 @@ async function Store({ searchParams }: IStoreProps) {
       <div dir="rtl">
         <Search />
       </div>
-      <div dir="rtl" className="grid grid-cols-4 gap-8">
+      <div dir="rtl" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.data.map((item: IProductItemProps) => (
           <Link key={item.id} href={`/store/${item.id}`}>
             <ProductItem {...item} />
