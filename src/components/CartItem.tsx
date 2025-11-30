@@ -22,7 +22,8 @@ function CartItem({ id, qty }: ICartsItemProps) {
   }, []);
   return (
     <div className="grid grid-cols-12 mb-4 bg-slate-100">
-      <img src={data.image} alt={data.title} className="col-span-3" />
+      {/* <img  src={`/uploads/${data.images[0]}`} alt={data.title} className="w-full h-full object-cover" /> */}
+      {/* <div>{data.images}</div> */}
       <div className="col-span-9 p-4" dir="rtl">
         <h2>{data.title} : اسم محصول</h2>
         <p>

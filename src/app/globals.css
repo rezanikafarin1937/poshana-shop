@@ -23,6 +23,7 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --active-text: #e06c69;
 }
 
 @theme inline {

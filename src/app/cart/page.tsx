@@ -55,7 +55,7 @@ function handleSubmitDiscount() {
     <Container>
       <h1 className="text-right my-4 text-2xl font-bold">سبد خرید</h1>
       <div>
-        {cartItems.map((item) => {
+        {cartItems.map((item) => { console.log("item === ",item)
           return <CartItem key={item.id} {...item} />;
         })}
       </div>
