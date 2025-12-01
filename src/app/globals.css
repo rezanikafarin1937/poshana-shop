@@ -8,14 +8,12 @@
   --background: #ffffff;
   --foreground: #171717;
   --active-text: #e06c69;
-  --bg-input : #F5F4F4;
-  /* --global-text : #292b2c; */
-  --global-text : #788185;
-  --global-search-color : #818181;
-  
+  --bg-input: #e4e4e4;
+  --bg-site: #ffff;
+  --color-site: #515151;
+  --global-text: #788185;
+  --global-search-color: #818181;
 }
-
-
 
 * {
   box-sizing: border-box;
@@ -33,6 +31,9 @@ body {
   height: 101%;
 }
 
+html{
+  background-color: var(--bg-site);
+}
 
 @theme inline {
   --color-background: var(--background);
