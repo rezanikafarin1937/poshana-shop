@@ -1,4 +1,3 @@
-import React from "react";
 import MiniGallery from "../mini-gallery/MiniGallery";
 import styles from "./item-card.module.css";
 
