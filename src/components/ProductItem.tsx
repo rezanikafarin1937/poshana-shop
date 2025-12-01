@@ -1,3 +1,6 @@
+// ProductItem replace with ItemCard
+// این کامپوننت قدیمی شده و نسخه جدید آن کامپوننت ItemCard میباشد
+// اما  فعلا آن را حذف نکنید
 import React from "react";
 
 export interface IProductItemProps {
@@ -15,7 +18,7 @@ export interface IProductList {
   last: number | null;
   pages: number;
   items: number | null;
-  data : IProductItemProps[];
+  data: IProductItemProps[];
 }
 
 // // props === item
@@ -34,7 +37,7 @@ export interface IProductList {
 
 // export default ProductItem;
 
-//***************** 
+//*****************
 
 export default function ProductCard(item: IProductItemProps) {
   return (
@@ -55,7 +58,9 @@ export default function ProductCard(item: IProductItemProps) {
         <p className="text-sm text-gray-500 mt-1">{item.description}</p>
 
         <div className="flex items-center justify-between mt-4">
-          <span className="text-xl font-bold text-gray-900">{item.price.toLocaleString('fa')} تومان</span>
+          <span className="text-xl font-bold text-gray-900">
+            {item.price.toLocaleString("fa")} تومان
+          </span>
 
           <button className="px-4 py-2 bg-gray-900 text-white rounded-xl text-sm hover:bg-gray-800 transition">
             افزودن
@@ -65,6 +70,3 @@ export default function ProductCard(item: IProductItemProps) {
     </div>
   );
 }
-
-
-

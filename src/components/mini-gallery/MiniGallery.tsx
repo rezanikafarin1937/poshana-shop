@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./mini-gallery.module.css";
 type MiniGalleryProps = {
   images?: string[];
@@ -28,21 +27,7 @@ const MiniGallery = ({ images = [], width, height }: MiniGalleryProps) => {
     return result;
   };
 
-  return (
-    <div className={styles.gallery}>
-      {/* {images.map((image, index) => (
-        <div
-          className={styles.gallery__image}
-          key={index}
-          style={{ width: `${width}px`, height: `${height}px` }}
-        >
-          <img src={`/uploads/${image}`} alt="سایت فروش لباس" />
-        </div>
-      ))} */}
-
-      {renderImages()}
-    </div>
-  );
+  return <div className={styles.gallery}>{renderImages()}</div>;
 };
 
 export default MiniGallery;
