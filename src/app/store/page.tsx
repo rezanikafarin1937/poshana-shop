@@ -1,6 +1,6 @@
-import Container from "@/components/Container";
+import Container from "@/components/container/Container";
 import Pagination from "@/components/Pagination";
-import ItemCard from '@/components/item-card/ItemCard';
+import ItemCard from "@/components/item-card/ItemCard";
 import { IProductList } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
@@ -21,8 +21,7 @@ interface IStoreProps {
 async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
   const per_page = (await searchParams).per_page ?? "5";
-  const title = (await searchParams).title ?? ""
-
+  const title = (await searchParams).title ?? "";
 
   const result = await fetch(
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`
@@ -30,10 +29,13 @@ async function Store({ searchParams }: IStoreProps) {
   const items = (await result.json()) as IProductList;
   return (
     <Container>
-      <div dir="rtl" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div
+        dir="rtl"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
         {items.data.map((item: IProductItemProps) => (
           <Link key={item.id} href={`/store/${item.id}`}>
-            <ItemCard {...item}/>
+            <ItemCard {...item} />
           </Link>
         ))}
       </div>

@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Container";
+import Container from "@/components/container/Container";
 import { useState } from "react";
 import { getId } from "../../utils/GetLastItem";
 import axios from "axios";
@@ -41,8 +41,13 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <div style={{width : "100%"}}>
-         <UploadImage dir="rtl" widthItemProps={100} heightItemProps={100} onFilesChange={handleFilesFromChild} />
+      <div style={{ width: "100%" }}>
+        <UploadImage
+          dir="rtl"
+          widthItemProps={100}
+          heightItemProps={100}
+          onFilesChange={handleFilesFromChild}
+        />
       </div>
       <div dir="rtl" className={styles.dashboard}>
         <div className={styles.dashboard__box}>
@@ -78,9 +83,8 @@ const Dashboard = () => {
             ساخت محصول جدید
           </button>
         </div>
-
       </div>
-     </Container>
+    </Container>
   );
 };
 

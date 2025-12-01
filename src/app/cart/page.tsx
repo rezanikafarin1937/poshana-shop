@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Container";
+import Container from "@/components/container/Container";
 import CartItem from "@/components/CartItem";
 import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import { useEffect, useState } from "react";
@@ -15,8 +15,8 @@ interface IDiscountData {
 
 const Cart = () => {
   const [data, setData] = useState<IProductItemProps[]>([]);
-  const [discountedPrice,setDiscountedPrice] = useState(() => 0);
-  const [finalPrice,setFinalPrice] = useState(() => 0);
+  const [discountedPrice, setDiscountedPrice] = useState(() => 0);
+  const [finalPrice, setFinalPrice] = useState(() => 0);
   useEffect(() => {
     axios(`${BaseUrl}/products`).then((res) => {
       const d = res.data; // => const {data} = res;
@@ -27,21 +27,18 @@ const Cart = () => {
   const [discountCode, setDiscountCode] = useState("");
   const { cartItems } = useShoppingCartContext();
 
-function handleSubmitDiscount() {
-  axios(`${BaseUrl}/discounts?code=${discountCode}`).then(
-    (result) => {
+  function handleSubmitDiscount() {
+    axios(`${BaseUrl}/discounts?code=${discountCode}`).then((result) => {
       const data = result.data as IDiscountData;
 
       const price = Number(totalPrice);
       const percentage = Number(data[0].percentage);
-      const discountedPrice = price * percentage / 100;
+      const discountedPrice = (price * percentage) / 100;
       const finalPrice = price - discountedPrice;
       setDiscountedPrice(discountedPrice);
       setFinalPrice(finalPrice);
-    }
-  );
-}
-
+    });
+  }
 
   const totalPrice = cartItems.reduce((total, item) => {
     const selectProduct = data.find(
@@ -55,7 +52,8 @@ function handleSubmitDiscount() {
     <Container>
       <h1 className="text-right my-4 text-2xl font-bold">سبد خرید</h1>
       <div>
-        {cartItems.map((item) => { console.log("item === ",item)
+        {cartItems.map((item) => {
+          console.log("item === ", item);
           return <CartItem key={item.id} {...item} />;
         })}
       </div>
@@ -66,9 +64,9 @@ function handleSubmitDiscount() {
         </div>
 
         <h3>سود شما از این خرید</h3>
-        <span>{discountedPrice.toLocaleString('fa')}</span>
+        <span>{discountedPrice.toLocaleString("fa")}</span>
         <h3>مبلغ قابل پرداخت</h3>
-        <span>{finalPrice.toLocaleString('fa')}</span>
+        <span>{finalPrice.toLocaleString("fa")}</span>
         <input
           type="text"
           placeholder="کد تخفیف را وارد کنید"

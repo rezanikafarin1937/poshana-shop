@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { redirect } from "next/navigation";
 import Cookie from "js-cookie";
-import Container from "@/components/Container";
+import Container from "@/components/container/Container";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -62,7 +62,6 @@ export default function LoginPage() {
             ورود
           </button>
         </form>
-
       </div>
     </Container>
   );

@@ -1,7 +1,7 @@
 "use client";
 import { redirect, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import Container from "../Container";
+import Container from "../container/Container";
 import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import UserIcon from "../icons/UserIcon";
 import ShoppingIcon from "../icons/ShoppingIcon";
@@ -28,11 +28,10 @@ const Navbar = () => {
       title: "زنانه",
       link: "/",
     },
-        {
+    {
       title: "کودک",
       link: "/",
     },
-
 
     // {
     //   title: "درباره ما",
@@ -57,7 +56,10 @@ const Navbar = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <ul className="p-4 flex flex-row items-center max-h-[50px] text-[var(--global-text)]" dir="rtl">
+          <ul
+            className="p-4 flex flex-row items-center max-h-[50px] text-[var(--global-text)]"
+            dir="rtl"
+          >
             {navs.map((nav, index) => (
               <li
                 className={`ml-4 transition duration-300 ease-in-out ${
