@@ -4,6 +4,19 @@
 
 @import "tailwindcss";
 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --active-text: #e06c69;
+  --bg-input : #F5F4F4;
+  /* --global-text : #292b2c; */
+  --global-text : #788185;
+  --global-search-color : #818181;
+  
+}
+
+
+
 * {
   box-sizing: border-box;
   font-family: "Vazir", serif, "sans-serif";
@@ -20,11 +33,6 @@ body {
   height: 101%;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --active-text: #e06c69;
-}
 
 @theme inline {
   --color-background: var(--background);

@@ -1,45 +1,67 @@
 "use client";
-import { redirect, usePathname,useRouter } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Container from "../Container";
 import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import UserIcon from "../icons/UserIcon";
 import ShoppingIcon from "../icons/ShoppingIcon";
 import Cookies from "js-cookie";
+import GlobalSearch from "../global-search/GlobalSearch";
 
 const Navbar = () => {
   const pathName = usePathname();
   const router = useRouter();
   const navs = [
-    {
-      title: "صفحه اصلی",
-      link: "/",
-    },
-    {
-      title: "درباره ما",
-      link: "/about",
-    },
+    // {
+    //   title: "صفحه اصلی",
+    //   link: "/",
+    // },
     {
       title: "فروشگاه",
       link: "/store",
     },
     {
-      title: "داشبورد",
-      link: "/dashboard",
+      title: "مردانه",
+      link: "/",
     },
+    {
+      title: "زنانه",
+      link: "/",
+    },
+        {
+      title: "کودک",
+      link: "/",
+    },
+
+
+    // {
+    //   title: "درباره ما",
+    //   link: "/about",
+    // },
+    // {
+    //   title: "داشبورد",
+    //   link: "/dashboard",
+    // },
   ];
 
   const { cartTotalQty } = useShoppingCartContext();
 
   return (
-    <nav className="p-4 sticky top-0 z-3000 bg-[#f8f2f2] shadow bg-white text-[1rem]">
-      <div className="flex flex-row-reverse justify-between">
-        <div className="w-1/3 flex justify-between items-center">
-          <ul className="p-4 flex flex-row items-center" dir="rtl">
+    <nav className="p-4 sticky top-0 z-3000  bg-[#f8f2f2] shadow bg-white text-[1rem] rounded-bl-2xl rounded-br-2xl">
+      <div className="flex flex-row-reverse justify-between items-center">
+        <div className="flex flex-row-reverse items-center">
+          <div className="w-[80px] h-[80px]">
+            <img
+              src="./logo/logo1.jpg"
+              alt="فروشگاه لباس و کفش"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <ul className="p-4 flex flex-row items-center max-h-[50px] text-[var(--global-text)]" dir="rtl">
             {navs.map((nav, index) => (
               <li
                 className={`ml-4 transition duration-300 ease-in-out ${
-                  pathName === nav.link ? "text-blue-600" : ""
+                  pathName === nav.link ? "text-[var(--active-text)]" : ""
                 }`}
                 key={index}
               >
@@ -47,8 +69,8 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div>LOGO</div>
         </div>
+        <GlobalSearch />
         <ul className="text-[1rem] font-bold w-1/5 flex items-center">
           {/* <li className="w-[150px]  bg-blue-400 flex flex-row justify-between align-">
             <span className="px-2 py-1 bg-red-600 text-white rounded-full">
@@ -66,18 +88,18 @@ const Navbar = () => {
               خروج
             </button>
           </li> */}
-            <button
-               onClick={() => router.push('/login')}
-              className="bg-[var(--active-text)] font-thin  text-white flex justify-between items-center cursor-pointer px-4 rounded"
-            >
-              <span className="flex items-center h-[50px]">
-                <UserIcon />
-              </span>
-              <span className="mr-1"></span>
-              <Link href="/login">
-                <span className="font-thin text-[14px]">ورود \ عضویت</span>
-              </Link>
-            </button>
+          <button
+            onClick={() => router.push("/login")}
+            className="bg-[var(--active-text)] font-thin  text-white flex justify-between items-center cursor-pointer px-4 rounded"
+          >
+            <span className="flex items-center h-[50px]">
+              <UserIcon />
+            </span>
+            <span className="mr-1"></span>
+            <Link href="/login">
+              <span className="font-thin text-[14px]">ورود \ عضویت</span>
+            </Link>
+          </button>
           {/* <div className="flex justify-between"> */}
           <Link href="/cart">
             <span className="cursor-pointer ml-4 h-[50px] flex flex-col justify-center text-center text-[var(--active-text)]">

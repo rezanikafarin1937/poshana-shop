@@ -2,7 +2,6 @@ import Container from "@/components/Container";
 import Pagination from "@/components/Pagination";
 import ProductItem from "@/components/ProductItem";
 import { IProductList } from "@/components/ProductItem";
-import Search from "@/components/search/Search";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
 
@@ -31,9 +30,6 @@ async function Store({ searchParams }: IStoreProps) {
   const items = (await result.json()) as IProductList;
   return (
     <Container>
-      <div dir="rtl">
-        <Search />
-      </div>
       <div dir="rtl" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.data.map((item: IProductItemProps) => (
           <Link key={item.id} href={`/store/${item.id}`}>
