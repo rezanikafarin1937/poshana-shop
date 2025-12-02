@@ -5,6 +5,8 @@ import { IProductList } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
+import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
+import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
 
 export interface IProductItemProps {
   id: string;
@@ -28,30 +30,22 @@ async function Store({ searchParams }: IStoreProps) {
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`
   );
   const items = (await result.json()) as IProductList;
+
+  const usages = await fetchUsage();
+  console.log('data usages = ',usages);
+
   return (
     <Container>
       <div className="flex flex-col">
-        {<HorizontalScroll>
-          {
-            <>
-              <div className="w-[100px] h-[100px] bg-[blue]">1</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">2</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">3</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">4</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">5</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">6</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">7</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">8</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">9</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">10</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">11</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">12</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">13</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">14</div>
-              <div className="w-[100px] h-[100px] bg-[blue]">15</div>
-            </>
-          }
-        </HorizontalScroll> }
+        {
+          <HorizontalScroll>
+            {
+              usages.map((usage : IUsagesProps,index : number) => (
+                <div key={index} className="w-[100px] h-[100px] bg-[blue]">{usage.title}</div>
+              ))
+            }
+          </HorizontalScroll>
+        }
 
         <div
           dir="rtl"
