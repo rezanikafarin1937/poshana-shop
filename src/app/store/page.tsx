@@ -4,6 +4,7 @@ import ItemCard from "@/components/item-card/ItemCard";
 import { IProductList } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
+import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 
 export interface IProductItemProps {
   id: string;
@@ -29,17 +30,41 @@ async function Store({ searchParams }: IStoreProps) {
   const items = (await result.json()) as IProductList;
   return (
     <Container>
-      <div
-        dir="rtl"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-      >
-        {items.data.map((item: IProductItemProps) => (
-          <Link key={item.id} href={`/store/${item.id}`}>
-            <ItemCard {...item} />
-          </Link>
-        ))}
+      <div className="flex flex-col">
+        {<HorizontalScroll>
+          {
+            <>
+              <div className="w-[100px] h-[100px] bg-[blue]">1</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">2</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">3</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">4</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">5</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">6</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">7</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">8</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">9</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">10</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">11</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">12</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">13</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">14</div>
+              <div className="w-[100px] h-[100px] bg-[blue]">15</div>
+            </>
+          }
+        </HorizontalScroll> }
+
+        <div
+          dir="rtl"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          {items.data.map((item: IProductItemProps) => (
+            <Link key={item.id} href={`/store/${item.id}`}>
+              <ItemCard {...item} />
+            </Link>
+          ))}
+        </div>
+        <Pagination pageCount={items.pages} />
       </div>
-      <Pagination pageCount={items.pages} />
     </Container>
   );
 }
