@@ -1,14 +1,22 @@
-.avatar{
-    padding: .5rem;
+.parent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color : var(--global-text);
+
+    &__avatar{
+    padding: .25rem;
     border-radius: 50%;
-    border: 1px solid var(--active-text);
-    min-width: 86px;
-    min-height: 86px;
+    border: 2px solid var(--active-text);
+    width: 86px;
+    height: 86px;
 
     img{
         width: 100%;
         height: 100%;
+        border-radius: 50%;
         object-fit: cover;
         object-position: center;
     }
+}
 }

@@ -7,6 +7,7 @@ import Link from "next/link";
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
+import Avatar from "@/components/avatar/Avatar";
 
 export interface IProductItemProps {
   id: string;
@@ -40,8 +41,8 @@ async function Store({ searchParams }: IStoreProps) {
         {
           <HorizontalScroll>
             {
-              usages.map((usage : IUsagesProps,index : number) => (
-                <div key={index} className="w-[100px] h-[100px] bg-[blue]">{usage.title}</div>
+              usages.map((usage : IUsagesProps) => (
+                <Avatar key={usage.id} {...usage}/>
               ))
             }
           </HorizontalScroll>

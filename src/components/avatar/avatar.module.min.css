@@ -1,0 +1,1 @@
+.parent{display:flex;flex-direction:column;align-items:center;color:var(--global-text)}.parent__avatar{padding:.25rem;border-radius:50%;border:2px solid var(--active-text);width:86px;height:86px}.parent__avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center}

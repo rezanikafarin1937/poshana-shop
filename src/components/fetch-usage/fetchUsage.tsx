@@ -7,7 +7,7 @@ export interface IUsagesProps{
 }
 
 export async function fetchUsage() {
-  const response = await fetch(`${BaseUrl}/usage`);
+  const response = await fetch(`${BaseUrl}/usage`,{cache : 'no-store'});
   if (!response.ok) throw new Error("خطا در بارگذاری داده‌ها");
   return await response.json();
 }

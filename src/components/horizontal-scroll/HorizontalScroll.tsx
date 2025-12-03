@@ -2,12 +2,14 @@
 import React from "react";
 import { useRef, useState } from "react";
 
+type Direction = 'ltr' | 'rtl';
 export interface ChildrenProps {
   children: React.ReactNode;
+  dir?: Direction;
 }
 // {children} : ChildrenProps
 
-const HorizontalScroll = ({children} : ChildrenProps) => {
+const HorizontalScroll = ({children ,dir = 'rtl'} : ChildrenProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
   const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
   const [startX, setStartX] = useState(0); // موقعیت شروع درگ
@@ -46,7 +48,7 @@ const HorizontalScroll = ({children} : ChildrenProps) => {
   return (
     <div
       ref={containerRef}
-      className="overflow-x-scroll no-scrollbar  select-none p-8 flex gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-center gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
       onMouseDown={startDrag}
       onMouseMove={drag}
       onMouseUp={stopDrag}
@@ -54,20 +56,10 @@ const HorizontalScroll = ({children} : ChildrenProps) => {
       onTouchStart={startDrag} // پشتیبانی از تاچ موبایل
       onTouchMove={drag}
       onTouchEnd={stopDrag}
-      style={{
+      style={{ direction : dir,
         cursor: isDragging ? "grabbing" : "grab",
       }}
     >
-      {/* آیتم‌ها */}
-      {/* {Array.from({ length: 50 }).map((_, index) => (
-        <div
-          key={index}
-          className="select-none w-40 h-40 bg-blue-300 flex items-center justify-center text-white rounded"
-        >
-          Item {index + 1}
-        </div>
-      ))} */}
-
       {children.map((child,index) => (
             <div key={index}>{child}</div>
         ))}
