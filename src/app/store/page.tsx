@@ -8,8 +8,8 @@ import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
 import Avatar from "@/components/avatar/Avatar";
-import GeneralCategory from '@/components/general-category/GeneralCategory';
-import Support from '@/components/support/Support';
+import GeneralCategory from "@/components/general-category/GeneralCategory";
+import Support from "@/components/support/Support";
 
 export interface IProductItemProps {
   id: string;
@@ -24,8 +24,18 @@ interface IStoreProps {
   searchParams: Promise<{ page: string; per_page: string; title: string }>;
 }
 
-const supports = ['/support/support1.png','/support/support2.png','/support/support2.png','/support/support4.png',];
-const categories = ['/generalcategory/cat1.jpg','/generalcategory/cat2.jpg','/generalcategory/cat3.jpg'];
+const supports = [
+  "/support/support1.png",
+  "/support/support2.png",
+  "/support/support2.png",
+  "/support/support4.png",
+];
+const categories = [
+  "/generalcategory/cat1.jpg",
+  "/generalcategory/cat2.jpg",
+  "/generalcategory/cat3.jpg",
+];
+const catBaby = ["/generalcategory/cat4.jpg", "/generalcategory/cat5.jpg"];
 
 async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
@@ -38,22 +48,22 @@ async function Store({ searchParams }: IStoreProps) {
   const items = (await result.json()) as IProductList;
 
   const usages = await fetchUsage();
-  console.log('data usages = ',usages);
+  console.log("data usages = ", usages);
 
   return (
     <Container>
       <div className="flex flex-col">
         {
           <HorizontalScroll>
-            {
-              usages.map((usage : IUsagesProps) => (
-                <Avatar key={usage.id} {...usage}/>
-              ))
-            }
+            {usages.map((usage: IUsagesProps) => (
+              <Avatar key={usage.id} {...usage} />
+            ))}
           </HorizontalScroll>
         }
-        <Support images={supports}/>
-        <Support images={categories}/>
+        <h1 dir="rtl" className="p-4 text-center text-4xl text-[var(--global-text)]">به فروشگاه لباس و کفش <span className="text-[var(--active-text)]">پوشانا</span> خوش آمدید</h1>
+        <Support images={categories} />
+        <Support images={supports} />
+        <Support images={catBaby}/>
         {/* <GeneralCategory/> */}
         <div
           dir="rtl"

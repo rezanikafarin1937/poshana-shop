@@ -6,6 +6,7 @@ type ImagesProps = {
 function support({ images = [] }: ImagesProps) {
   const calcute = Math.floor(100 / images.length);
   const cat = styles[`general__cat-${calcute}`];
+  //خط بالا بر اساس تعداد تصاویر نام کلاس مربوط به آن را تولیدمیکند این کلاس ها کد ریسپانسیو را در خود دارند بنابراین به مشکل ریسپانسیو هم بر نمیخوریم
   console.log("calcute = ", cat);
   const renderImages = () => {
     const result = [];
