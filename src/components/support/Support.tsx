@@ -4,17 +4,16 @@ type ImagesProps = {
 };
 
 function support({ images = [] }: ImagesProps) {
+  const calcute = Math.floor(100 / images.length);
+  const cat = styles[`general__cat-${calcute}`];
+  console.log("calcute = ", cat);
   const renderImages = () => {
     const result = [];
     let index: number = 0;
     for (const image of images) {
       index++;
       const elem = (
-        <div
-          key={index}
-          className={styles.general__category}
-          style={{ width: `calc(${100 / images.length}% - 1rem)` }}
-        >
+        <div key={index} className={`${styles.general__category} ${cat}`}>
           <img src={`${image}`} alt="ارسال رایگان" />
         </div>
       );
