@@ -12,7 +12,7 @@ const MiniGallery = ({ images = [], width, height }: MiniGalleryProps) => {
     for (const image of images) {
       if (index === 4) break;
       else index++;
-      let elem = (
+      const elem = (
         <div
           key={index}
           className={styles.gallery__image}

@@ -8,6 +8,8 @@ import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
 import Avatar from "@/components/avatar/Avatar";
+import GeneralCategory from '@/components/general-category/GeneralCategory';
+import Support from '@/components/support/Support';
 
 export interface IProductItemProps {
   id: string;
@@ -21,6 +23,9 @@ interface IStoreProps {
   params: Promise<{}>;
   searchParams: Promise<{ page: string; per_page: string; title: string }>;
 }
+
+const supports = ['/support/support1.png','/support/support2.png','/support/support2.png','/support/support4.png',];
+const categories = ['/generalcategory/cat1.jpg','/generalcategory/cat2.jpg','/generalcategory/cat3.jpg'];
 
 async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
@@ -47,7 +52,9 @@ async function Store({ searchParams }: IStoreProps) {
             }
           </HorizontalScroll>
         }
-
+        <Support images={supports}/>
+        <Support images={categories}/>
+        {/* <GeneralCategory/> */}
         <div
           dir="rtl"
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
