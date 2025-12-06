@@ -13,6 +13,8 @@
   --color-site: #515151;
   --global-text: #788185;
   --global-search-color: #818181;
+  --bg-communication : #737373;
+  --bg-footer : #e99895;
 }
 
 * {
@@ -33,6 +35,10 @@ body {
 
 html{
   background-color: var(--bg-site);
+}
+
+.space{
+  margin: 50px 0;
 }
 
 

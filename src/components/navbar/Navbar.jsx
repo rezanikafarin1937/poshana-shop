@@ -7,6 +7,8 @@ import UserIcon from "../icons/UserIcon";
 import ShoppingIcon from "../icons/ShoppingIcon";
 import Cookies from "js-cookie";
 import GlobalSearch from "../global-search/GlobalSearch";
+import SearchIcon from "../search/icons/SearchIcon";
+import Logo from "../logo/Logo";
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -46,16 +48,19 @@ const Navbar = () => {
   const { cartTotalQty } = useShoppingCartContext();
 
   return (
-    <nav className="p-4 sticky top-0 z-3000  bg-[#f8f2f2] shadow bg-white text-[1rem] rounded-bl-2xl rounded-br-2xl">
+<>
+<div className="shadow p-4 w-full min-h-[50px] min-[769px]:hidden flex flex-row-reverse font-bold justify-between items-center">
+  <h2 className="font-bold text-xl text-[var(--active-text)]">پوشانا</h2>
+  <div className="flex bg-red w-[80px] h-full justify-center items-center">
+    <span className="w-[40px] relative top-1"><SearchIcon color="var(--active-text)"/></span>
+     <span className="w-[40px]"><ShoppingIcon/></span>
+    
+  </div>
+</div>
+<nav className="max-[769px]:hidden p-4 sticky top-0 z-3000  bg-[#f8f2f2] shadow bg-white text-[1rem] rounded-bl-2xl rounded-br-2xl">
       <div className="flex flex-row-reverse justify-between items-center">
         <div className="flex flex-row-reverse items-center">
-          <div className="w-[80px] h-[80px]">
-            <img
-              src="./logo/logo1.jpg"
-              alt="فروشگاه لباس و کفش"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Logo/>
           <ul
             className="p-4 flex flex-row items-center max-h-[50px] text-[var(--global-text)]"
             dir="rtl"
@@ -122,6 +127,7 @@ const Navbar = () => {
         </ul>
       </div>
     </nav>
+    </>
   );
 };
 

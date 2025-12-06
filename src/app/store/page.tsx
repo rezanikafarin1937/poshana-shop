@@ -10,6 +10,8 @@ import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
 import Avatar from "@/components/avatar/Avatar";
 import GeneralCategory from "@/components/general-category/GeneralCategory";
 import Support from "@/components/support/Support";
+import Welcome from "@/components/welcome/Welcome";
+import Footer from "@/components/footer/Footer";
 
 export interface IProductItemProps {
   id: string;
@@ -51,7 +53,8 @@ async function Store({ searchParams }: IStoreProps) {
   console.log("data usages = ", usages);
 
   return (
-    <Container>
+    <>
+<Container>
       <div className="flex flex-col">
         {
           <HorizontalScroll>
@@ -60,10 +63,12 @@ async function Store({ searchParams }: IStoreProps) {
             ))}
           </HorizontalScroll>
         }
-        <h1 dir="rtl" className="p-4 text-center text-4xl text-[var(--global-text)]">به فروشگاه لباس و کفش <span className="text-[var(--active-text)]">پوشانا</span> خوش آمدید</h1>
-        <Support images={categories} />
-        <Support images={supports} />
-        <Support images={catBaby}/>
+        <Welcome />
+        <div className="mt-10">
+          <Support images={supports}/>
+        </div>
+        <Support images={categories} rounded="bottom" />
+        <Support images={catBaby}  rounded="all"/>
         {/* <GeneralCategory/> */}
         <div
           dir="rtl"
@@ -78,6 +83,8 @@ async function Store({ searchParams }: IStoreProps) {
         <Pagination pageCount={items.pages} />
       </div>
     </Container>
+    <Footer />
+    </>
   );
 }
 

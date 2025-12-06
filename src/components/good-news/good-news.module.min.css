@@ -1,0 +1,1 @@
+.parent{border:0.5rem solid var(--bg-site);padding:0.5rem;border-radius:50%;cursor:pointer}.parent__title{background-color:#eee;display:flex;justify-content:center;align-items:center;min-width:120px;min-height:120px;font-size:1.25rem;line-height:40px;border-radius:50%;font-weight:bold}@media (max-width: 768px){.parent__title{min-width:100px;min-height:100px}}
