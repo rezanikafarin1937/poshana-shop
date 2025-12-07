@@ -18,7 +18,7 @@ const Footer = () => {
             <div className={styles.footer__description}>
               <h1>
                 <span>
-                  <strong>سایت لباس پوشانا</strong>
+                  <strong className={styles.footer__title}>سایت لباس پوشانا</strong>
                 </span>
               </h1>
               <p>
@@ -65,7 +65,9 @@ const Footer = () => {
           <div className={styles.footer__location}>
             <div className="flex flex-col items-center justify-between">
               <img src="/location/Calling.png" alt="" />
-              <div className="text-[1.25rem] text-center mt-4">تلفن پشتیبانی</div>
+              <div className="text-[1.25rem] text-center mt-4">
+                تلفن پشتیبانی
+              </div>
               <div className="font-bold m-0 text-xl text-[var(--active-text)]">
                 01791013704
               </div>
@@ -82,7 +84,9 @@ const Footer = () => {
           <div className={styles.footer__location}>
             <div className="flex flex-col items-center">
               <img src="/location/Location.png" alt="" />
-              <div className="text-[1.25rem] text-center mt-4">مرکزی ، اراک ، بین اردیبهشت و خرداد شرقی </div>
+              <div className="text-[1.25rem] text-center mt-4">
+                مرکزی ، اراک ، بین اردیبهشت و خرداد شرقی{" "}
+              </div>
               <p className="dir-rtl">
                 فروشگاه لباس پوشانا در قلب شهر اراک واقع شده است و به راحتی قابل
                 دسترسی از تمام نقاط شهری می‌باشد. این فروشگاه با بیش از ۱۰ سال
@@ -106,16 +110,22 @@ const Footer = () => {
         </div>
         <div className={styles.footer__item}>
           <div className={styles.footer__desc}>
-            <p className={styles.footer__description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-              officiis reprehenderit quia porro accusantium molestias maiores
-              accusamus illo non voluptatum sequi facilis minus commodi eos
-              atque, fugiat quidem ullam a!
-            </p>
+            <div className={styles.footer__location}>
+              <div>
+                <div className={styles.footer__title}><strong>پشتیبانی</strong></div>
+                <ul className="text-right text-[14px] mt-[1rem]">
+                  <li className="cursor-pointer">تماس با ما</li>
+                  <li className="cursor-pointer">سوالات متداول</li>
+                  <li className="cursor-pointer">گزارش خطای فنی</li>
+                  <li className="cursor-pointer">پیگیری سفارش ها</li>
+                  <li className="cursor-pointer">پیشنهاد امکانات جدید</li>
+                </ul>
+              </div>
+              <p className="text-xl text-[var(--active-text)]">منتظر پیشنهادات و انتقادات شما هستیم</p>
+            </div>
           </div>
         </div>
       </div>
-      <div className="space"></div>
       <div className={styles.footer__icons}>
         <span className={styles.footer__icon}>
           <span className="w-[30px] h-[30px]">
