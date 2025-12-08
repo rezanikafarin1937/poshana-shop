@@ -48,7 +48,7 @@ const HorizontalScroll = ({children ,dir = 'rtl'} : ChildrenProps) => {
   return (
     <div
       ref={containerRef}
-      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-center gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
       onMouseDown={startDrag}
       onMouseMove={drag}
       onMouseUp={stopDrag}

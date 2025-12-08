@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useRef, useState } from "react";
+import ArrowButtom from "@/components/arrow-buttom/ArrowButtom";
 
 type Direction = "ltr" | "rtl";
 export interface ChildrenProps {
@@ -10,6 +11,7 @@ export interface ChildrenProps {
 // {children} : ChildrenProps
 
 const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
+  console.log("children length = ", children.length);
   const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
   const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
   const [startX, setStartX] = useState(0); // موقعیت شروع درگ
@@ -40,13 +42,6 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
     }
   };
 
-  const handleScroll = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft - 250;
-      setScrollLeft(containerRef.current?.scrollLeft || 0);
-    }
-  };
-
   const scrollRightHandler = () => {
     containerRef.current?.scrollBy({
       left: 250,
@@ -72,13 +67,11 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
         className="absolute top-0 left-0 w-[50px] h-full bg-[orange] hover:cursor-pointer"
         onClick={scrollLeftHandler}
       >
-        <span className="w-[50px] h-[50px] bg-[blue] rounded-full absolute top-[50%] left-0 flex justify-center items-center">
-          1
-        </span>
+        <ArrowButtom left={true} />
       </div>
       <div
         ref={containerRef}
-        className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-center gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+        className="overflow-x-auto no-scrollbar  select-none py-8 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
         onMouseDown={startDrag}
         onMouseMove={drag}
         onMouseUp={stopDrag}
@@ -95,7 +88,9 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
       <div
         className="absolute top-0 right-0 w-[50px] h-full bg-[green] hover:cursor-pointer"
         onClick={scrollRightHandler}
-      ></div>
+      >
+        <ArrowButtom />
+      </div>
     </div>
   );
 };
