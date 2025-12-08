@@ -4,6 +4,7 @@ import ItemCard from "@/components/item-card/ItemCard";
 import { IProductList } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
+import LinkWrapper from '@/components/link-wrapper/LinkWrapper';
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
@@ -12,6 +13,7 @@ import GeneralCategory from "@/components/general-category/GeneralCategory";
 import Support from "@/components/support/Support";
 import Welcome from "@/components/welcome/Welcome";
 import Footer from "@/components/footer/Footer";
+import ServerSlider from "@/components/slider/ServerSlider";
 
 export interface IProductItemProps {
   id: string;
@@ -64,6 +66,7 @@ async function Store({ searchParams }: IStoreProps) {
           </HorizontalScroll>
         }
         <Welcome />
+        <ServerSlider/>
         <div className="mt-10">
           <Support images={supports}/>
         </div>
@@ -75,9 +78,9 @@ async function Store({ searchParams }: IStoreProps) {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
         >
           {items.data.map((item: IProductItemProps) => (
-            <Link key={item.id} href={`/store/${item.id}`}>
+            <LinkWrapper key={item.id} href={`/store/${item.id}`}>
               <ItemCard {...item} />
-            </Link>
+            </LinkWrapper>
           ))}
         </div>
         <Pagination pageCount={items.pages} />
