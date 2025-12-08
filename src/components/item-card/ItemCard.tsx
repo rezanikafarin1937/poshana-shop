@@ -8,18 +8,28 @@ export interface IProductItemProps {
   images: [];
   description: string;
 }
+interface ISizeProps {
+  width?: string;
+  height?: string;
+}
+// ترکیب دو مدل
+type ItemCardProps = IProductItemProps & ISizeProps;
 
-const ItemCard = (item: IProductItemProps) => {
+
+const ItemCard = ({ id, title, price, images, description, width, height }: ItemCardProps) => {
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      style={{ width: width ?? "auto", height: height ?? "auto" }}
+    >
       <div className={styles.card__image}>
-        <img src={`/uploads/${item.images[0]}`} alt={item.title} />
+        <img src={`/uploads/${images[0]}`} alt={title} />
       </div>
       <div className={styles.card__intro}>
-        <MiniGallery images={item.images} width={40} height={40} />
-        <div className="">{item.title}</div>
+        <MiniGallery images={images} width={40} height={40} />
+        <div className="">{title}</div>
         <div className={styles.card__price}>
-          {item.price.toLocaleString("fa")} تومان
+          {price.toLocaleString("fa")} تومان
         </div>
       </div>
     </div>

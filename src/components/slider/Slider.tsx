@@ -40,6 +40,27 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
     }
   };
 
+  const handleScroll = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft = scrollLeft - 250;
+      setScrollLeft(containerRef.current?.scrollLeft || 0);
+    }
+  };
+
+  const scrollRightHandler = () => {
+    containerRef.current?.scrollBy({
+      left: 250,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollLeftHandler = () => {
+    containerRef.current?.scrollBy({
+      left: -250,
+      behavior: "smooth",
+    });
+  };
+
   // برای پایان کشیدن موس
   const stopDrag = () => {
     setIsDragging(false);
@@ -47,7 +68,14 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
 
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 w-[50px] h-full bg-[orange]"></div>
+      <div
+        className="absolute top-0 left-0 w-[50px] h-full bg-[orange] hover:cursor-pointer"
+        onClick={scrollLeftHandler}
+      >
+        <span className="w-[50px] h-[50px] bg-[blue] rounded-full absolute top-[50%] left-0 flex justify-center items-center">
+          1
+        </span>
+      </div>
       <div
         ref={containerRef}
         className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-center gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
@@ -64,7 +92,10 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
           <div key={index}>{child}</div>
         ))}
       </div>
-      <div className="absolute top-0 right-0 w-[50px] h-full bg-[orange]"></div>
+      <div
+        className="absolute top-0 right-0 w-[50px] h-full bg-[green] hover:cursor-pointer"
+        onClick={scrollRightHandler}
+      ></div>
     </div>
   );
 };
