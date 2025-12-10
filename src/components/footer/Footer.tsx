@@ -102,7 +102,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.footer__card}>
-        <div className="flex flex-col" dir="rtl">
+        <div className="flex flex-col mr-[2rem]" dir="rtl">
           <div className={styles.footer__title}>
             <strong>پشتیبانی</strong>
           </div>
@@ -114,7 +114,7 @@ const Footer = () => {
             <li className="cursor-pointer">پیشنهاد امکانات جدید</li>
           </ul>
         </div>
-        <p className="text-xl text-[var(--active-text)]">
+        <p className="text-xl text-[var(--active-text)] text-center w-full flex justify-center">
           منتظر پیشنهادات و انتقادات شما هستیم
         </p>
       </div>

@@ -11,7 +11,7 @@
 
 @media (max-width: 425px) {
   .footer {
-    padding: 2rem  0 2rem 0;
+    padding: 2rem 0 2rem 0;
   }
 }
 
@@ -90,20 +90,20 @@
   border-radius: 1.25rem;
 }
 
-.footer__location li {
+.footer__location p {
+  text-align: justify;
+  margin-top: 2rem;
+}
+
+.footer li {
   cursor: pointer;
   line-height: 3;
   list-style-type: circle;
   direction: rtl;
 }
 
-.footer__location li:hover {
+.footer li:hover {
   color: var(--active-text);
-}
-
-.footer__location p {
-  text-align: justify;
-  margin-top: 2rem;
 }
 
 .footer__address {
