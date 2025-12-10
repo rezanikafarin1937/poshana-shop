@@ -18,14 +18,16 @@ const Footer = () => {
             <div className={styles.footer__description}>
               <h1>
                 <span>
-                  <strong className={styles.footer__title}>سایت لباس پوشانا</strong>
+                  <strong className={styles.footer__title}>
+                    سایت لباس پوشانا
+                  </strong>
                 </span>
               </h1>
               <p>
                 <span>
                   فروشگاه لباس پوشانا اراک مجموعه ای کامل و جامع&nbsp;برای خرید
                   انواع لباس راحتی، بیرونی و لباس زمستانه و
-                  تابستانه&nbsp;زنانه،&nbsp;مردانه و بچگانه.&nbsp;پادمیرا از
+                  تابستانه&nbsp;زنانه،&nbsp;مردانه و بچگانه.&nbsp;پوشانا از
                   اولین و خوش نام ترین وب سایت‌های فروشگاهی لباس در اراک و البته
                   کشور است که با هدف عرضه لباس باکیفیت و قیمت مناسب فعالیت
                   می‌کند و با نام&nbsp;فروشگاه اینترنتی لباس ارزان&nbsp;در بین
@@ -111,8 +113,10 @@ const Footer = () => {
         <div className={styles.footer__item}>
           <div className={styles.footer__desc}>
             <div className={styles.footer__location}>
-              <div>
-                <div className={styles.footer__title}><strong>پشتیبانی</strong></div>
+              <div className="">
+                <div className={styles.footer__title}>
+                  <strong>پشتیبانی</strong>
+                </div>
                 <ul className="text-right text-[14px] mt-[1rem]">
                   <li className="cursor-pointer">تماس با ما</li>
                   <li className="cursor-pointer">سوالات متداول</li>
@@ -121,7 +125,9 @@ const Footer = () => {
                   <li className="cursor-pointer">پیشنهاد امکانات جدید</li>
                 </ul>
               </div>
-              <p className="text-xl text-[var(--active-text)]">منتظر پیشنهادات و انتقادات شما هستیم</p>
+              <p className="text-xl text-[var(--active-text)]">
+                منتظر پیشنهادات و انتقادات شما هستیم
+              </p>
             </div>
           </div>
         </div>

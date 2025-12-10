@@ -4,7 +4,7 @@ import ItemCard from "@/components/item-card/ItemCard";
 import { IProductList } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 import Link from "next/link";
-import LinkWrapper from '@/components/link-wrapper/LinkWrapper';
+import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
@@ -56,37 +56,48 @@ async function Store({ searchParams }: IStoreProps) {
 
   return (
     <>
-<Container>
-      <div className="flex flex-col">
-        {
-          <HorizontalScroll>
-            {usages.map((usage: IUsagesProps) => (
-              <Avatar key={usage.id} {...usage} />
+      <Container>
+        <div className="flex flex-col">
+          {
+            <HorizontalScroll>
+              {usages.map((usage: IUsagesProps) => (
+                <Avatar key={usage.id} {...usage} />
+              ))}
+            </HorizontalScroll>
+          }
+          <Welcome />
+          <div className="space"></div>
+          <h2 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
+            تخفیف های ویژه
+          </h2>
+          <ServerSlider />
+          <div className="space"></div>
+          <div>
+            <Support images={supports} />
+          </div>
+          <Support images={categories} rounded="bottom" />
+          <div className="space"></div>
+          <h3 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">فروشگاه ویژه  نوجوانان</h3>
+          <Support images={catBaby} rounded="all" />
+          {/* <GeneralCategory/> */}
+          <div className="space"></div>
+          <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">فروشگاه پوشانا</h1>
+          
+
+          <div
+            dir="rtl"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          >
+            {items.data.map((item: IProductItemProps) => (
+              <LinkWrapper key={item.id} href={`/store/${item.id}`}>
+                <ItemCard {...item} />
+              </LinkWrapper>
             ))}
-          </HorizontalScroll>
-        }
-        <Welcome />
-        <ServerSlider/>
-        <div className="mt-10">
-          <Support images={supports}/>
+          </div>
+          <Pagination pageCount={items.pages} />
         </div>
-        <Support images={categories} rounded="bottom" />
-        <Support images={catBaby}  rounded="all"/>
-        {/* <GeneralCategory/> */}
-        <div
-          dir="rtl"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
-        >
-          {items.data.map((item: IProductItemProps) => (
-            <LinkWrapper key={item.id} href={`/store/${item.id}`}>
-              <ItemCard {...item} />
-            </LinkWrapper>
-          ))}
-        </div>
-        <Pagination pageCount={items.pages} />
-      </div>
-    </Container>
-    <Footer />
+      </Container>
+      <Footer />
     </>
   );
 }

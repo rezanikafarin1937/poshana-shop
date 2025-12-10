@@ -10,8 +10,7 @@ export interface ChildrenProps {
 }
 // {children} : ChildrenProps
 
-const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
-  console.log("children length = ", children.length);
+const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
   const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
   const [startX, setStartX] = useState(0); // موقعیت شروع درگ
@@ -64,14 +63,14 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
   return (
     <div className="relative">
       <div
-        className="absolute top-0 left-0 w-[50px] h-full bg-[orange] hover:cursor-pointer"
+        className="absolute top-0 left-0 w-[50px] h-full hover:cursor-pointer"
         onClick={scrollLeftHandler}
       >
         <ArrowButtom left={true} />
       </div>
       <div
         ref={containerRef}
-        className="overflow-x-auto no-scrollbar  select-none py-8 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+        className="overflow-x-auto no-scrollbar  select-none py-4 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
         onMouseDown={startDrag}
         onMouseMove={drag}
         onMouseUp={stopDrag}
@@ -86,7 +85,7 @@ const Slider = ({ children, dir = "rtl" }: ChildrenProps) => {
         ))}
       </div>
       <div
-        className="absolute top-0 right-0 w-[50px] h-full bg-[green] hover:cursor-pointer"
+        className="absolute top-0 right-0 w-[50px] h-full  hover:cursor-pointer"
         onClick={scrollRightHandler}
       >
         <ArrowButtom />

@@ -8,6 +8,12 @@
   flex-direction: column;
 }
 
+@media (max-width: 425px) {
+  .card {
+    width: 100%;
+  }
+}
+
 .card__image {
   border-radius: 1rem;
   overflow: hidden;

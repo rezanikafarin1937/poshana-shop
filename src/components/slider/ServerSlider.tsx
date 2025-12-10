@@ -11,7 +11,7 @@ async function ServerSlider() {
       <Slider>
         {data.map((d : IProductItemProps) => (
             <LinkWrapper key={d.id} href={`/store/${d.id}`}>
-                <ItemCard {...d} width="250px" height="100%"/>
+                <ItemCard {...d} width="250px" height="100%" />
             </LinkWrapper>
         ))}
       </Slider>

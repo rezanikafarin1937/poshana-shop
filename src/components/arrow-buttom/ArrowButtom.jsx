@@ -1,14 +1,14 @@
-// import ArrowDirection from '@/components/arrow-direction/ArrowDirection';
-
-const ArrowButtom = ({ left = false}) => {
+const ArrowButtom = ({ left = false }) => {
   return (
     <>
-      <span className="w-[50px] h-[50px] bg-[blue] rounded-full absolute top-[50%] left-0 flex justify-center items-center">
-        <div
-          style={left ? { transform: `rotate(180deg)` } : {}}
-          className="w-[15px] h-[15px] text-white border-t-4 border-r-4 rounded  rotate-45"
-        ></div>{" "}
-      </span>
+      <div style={{boxShadow : '1px 1px 5px 5px #999'}} className="max-[426px]:hidden absolute top-[50%] left-0  bg-[var(--bg-communication)]  rounded-full">
+        <div className="w-[45px] h-[45px] bg-[#eee] rounded-full  flex justify-center items-center">
+          <div
+            style={left ? { transform: `rotate(180deg)`, left: `2px` } : {}}
+            className="w-[15px] h-[15px] text-[--global-text] border-t-4 border-r-4 border-[#999] rounded  rotate-45 relative right-[3px]"
+          ></div>
+        </div>
+      </div>
     </>
   );
 };
