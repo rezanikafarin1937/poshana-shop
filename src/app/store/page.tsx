@@ -97,7 +97,7 @@ async function Store({ searchParams }: IStoreProps) {
             ))}
           </div>
           {/* <Pagination pageCount={items.pages} /> */}
-          <Pagination next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
+          <Pagination per_page={3} next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
         </div>
       </Container>
       <Footer />
