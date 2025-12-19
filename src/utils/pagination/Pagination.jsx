@@ -23,6 +23,7 @@ const Pagination = ({
   const router = useRouter();
 
   const handleClick = (myPage) => {
+    if(myPage === currentPage) return;
     router.push(`/store?page=${myPage}&per_page=${per_page}`);
     console.log(myPage);
   };
@@ -56,7 +57,7 @@ const Pagination = ({
         items.push(firstElem);
       }
       if (currentPage > first + 2) {
-        let dot = <span key="8"> ... </span>;
+        let dot = <span key="8" className={styles.paginate__dot}> ... </span>;
         items.push(dot);
       }
       if (currentPage - 1 !== 0 && currentPage - 1 !== 1) {
@@ -94,7 +95,7 @@ const Pagination = ({
         items.push(nElem);
       }
       if (currentPage < last - 2) {
-        let dot = <span key="5"> ... </span>;
+        let dot = <span key="5" className={styles.paginate__dot}> ... </span>;
         items.push(dot);
       }
       if (last && currentPage + 1 <= last) {
