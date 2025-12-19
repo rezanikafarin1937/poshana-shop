@@ -41,14 +41,6 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <div style={{ width: "100%" }}>
-        <UploadImage
-          dir="rtl"
-          widthItemProps={100}
-          heightItemProps={100}
-          onFilesChange={handleFilesFromChild}
-        />
-      </div>
       <div dir="rtl" className={styles.dashboard}>
         <div className={styles.dashboard__box}>
           <input
@@ -66,6 +58,14 @@ const Dashboard = () => {
             placeholder="قیمت"
             onChange={(e) => setPrice(e.target.value)}
           />
+          <br />
+          <select name="cat" id="cat" className={styles.dashboard__select}>
+            <option value="0">زنانه</option>
+            <option value="1">مردانه</option>
+            <option value="3">بچه گانه</option>
+            <option value="4">دخترانه</option>
+            <option value="5">پسرانه</option>
+          </select>
           <br />
           <textarea
             className={styles.dashboard__textarea}

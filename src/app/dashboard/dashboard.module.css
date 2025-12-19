@@ -28,6 +28,10 @@
   @apply w-full h-10 shadow bg-[var(--bg-input)] px-4 rounded placeholder:text-xl placeholder:text-gray-300
 }
 
+.dashboard__select{
+  @apply text-[var(--bg-communication)]
+}
+
 .dashboard__textarea{
  @apply w-full h-30 shadow bg-[var(--bg-input)] px-4 rounded placeholder:text-gray-300 placeholder:text-xl
 }
