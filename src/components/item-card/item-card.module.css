@@ -17,6 +17,8 @@
 .card__image {
   border-radius: 1rem;
   overflow: hidden;
+  max-height: 300px;
+  min-height: 300px;
 }
 
 .card__image img {
@@ -24,6 +26,9 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+    max-height: 300px;
+  min-height: 300px;
+
 }
 
 .card__intro {

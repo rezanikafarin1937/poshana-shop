@@ -24,15 +24,15 @@ const Navbar = () => {
     },
     {
       title: "مردانه",
-      link: "/",
+      link: "/menswear",
     },
     {
       title: "زنانه",
-      link: "/",
+      link: "/feminine",
     },
     {
       title: "کودک",
-      link: "/",
+      link: "/kidswear",
     },
 
     // {

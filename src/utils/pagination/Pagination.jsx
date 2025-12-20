@@ -18,14 +18,15 @@ const Pagination = ({
   last = null,
   first = null,
   per_page = 2,
+  path = "feminine",
 }) => {
   const [currentPage, setCurrentPage] = useState(null);
   const router = useRouter();
 
   const handleClick = (myPage) => {
     if(myPage === currentPage) return;
-    router.push(`/store?page=${myPage}&per_page=${per_page}`);
-    console.log(myPage);
+    router.push(`/${path}?page=${myPage}&per_page=${per_page}`);
+    console.log('per_page = ',per_page);
   };
 
   function renderItems() {

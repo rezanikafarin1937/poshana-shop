@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [desc, setDesc] = useState("");
+  const [cat, setCat] = useState("");
 
   const handleCreateProduct = async () => {
     const formData = new FormData();
@@ -23,6 +24,7 @@ const Dashboard = () => {
     formData.append("title", title);
     formData.append("price", price);
     formData.append("description", desc);
+    formData.append("cat", cat);
 
     const filesArray = Array.from(files); // convert files to array
     filesArray.forEach((file) => {
@@ -59,12 +61,22 @@ const Dashboard = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
           <br />
-          <select name="cat" id="cat" className={styles.dashboard__select}>
+          <label htmlFor="category">دسته‌بندی:</label>
+          <select
+            name="cat"
+            id="category"
+            value={cat ?? ""}
+            className={styles.dashboard__select}
+            onChange={(e) => setCat(e.target.value)}
+          >
+            <option value="" disabled>
+              انتخاب دسته‌بندی
+            </option>
             <option value="0">زنانه</option>
             <option value="1">مردانه</option>
-            <option value="3">بچه گانه</option>
-            <option value="4">دخترانه</option>
-            <option value="5">پسرانه</option>
+            <option value="2">بچگانه</option>
+            <option value="3">دخترانه</option>
+            <option value="4">پسرانه</option>
           </select>
           <br />
           <textarea

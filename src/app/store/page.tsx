@@ -40,16 +40,21 @@ const categories = [
   "/generalcategory/cat2.jpg",
   "/generalcategory/cat3.jpg",
 ];
+const linkOfCategories  = [
+  "feminine",
+  "menswear",
+  "kidswear"
+];
 const catBaby = ["/generalcategory/cat4.jpg", "/generalcategory/cat5.jpg"];
 
 async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
-  const per_page = (await searchParams).per_page ?? "5";
+  const per_page = (await searchParams).per_page ?? "3";
   const title = (await searchParams).title ?? "";
 
   const result = await fetch(
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`
-  );
+  ,{cache : 'no-cache'});
   const items = (await result.json()) as IProductList;
   console.log('Pagination = ',items);
 
@@ -77,10 +82,10 @@ async function Store({ searchParams }: IStoreProps) {
           <div>
             <Support images={supports} />
           </div>
-          <Support images={categories} rounded="bottom" />
+          <Support images={categories} links={linkOfCategories} rounded="bottom" />
           <div className="space"></div>
           <h3 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">فروشگاه ویژه  نوجوانان</h3>
-          <Support images={catBaby} rounded="all" />
+          <Support images={catBaby} links={["boys","girls"]} rounded="all" />
           {/* <GeneralCategory/> */}
           <div className="space"></div>
           <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">فروشگاه پوشانا</h1>
@@ -97,7 +102,7 @@ async function Store({ searchParams }: IStoreProps) {
             ))}
           </div>
           {/* <Pagination pageCount={items.pages} /> */}
-          <Pagination per_page={3} next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
+          <Pagination path="store" per_page={3} next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
         </div>
       </Container>
       <Footer />

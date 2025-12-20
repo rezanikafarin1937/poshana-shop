@@ -8,10 +8,11 @@ export async function POST(req: Request) {
     const formData = await req.formData();
 
     //  get simple data
-    const id = formData.get("id")?.toString()!;
-    const title = formData.get("title")?.toString()!;
-    const price = formData.get("price")?.toString()!;
-    const description = formData.get("description")?.toString()!;
+    const id = formData.get("id")?.toString();
+    const title = formData.get("title")?.toString();
+    const price = formData.get("price")?.toString();
+    const description = formData.get("description")?.toString();
+    const cat = formData.get("cat")?.toString();
 
     //  get files
     const files = formData.getAll("images") as File[];
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
       price,
       description,
       images: savedFiles, // فقط نام فایل‌ها
+      cat,
     });
 
     return Response.json({ message: "success", images: savedFiles });
