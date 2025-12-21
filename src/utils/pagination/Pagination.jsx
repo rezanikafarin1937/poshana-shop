@@ -24,9 +24,9 @@ const Pagination = ({
   const router = useRouter();
 
   const handleClick = (myPage) => {
-    if(myPage === currentPage) return;
+    if (myPage === currentPage) return;
     router.push(`/${path}?page=${myPage}&per_page=${per_page}`);
-    console.log('per_page = ',per_page);
+    console.log("per_page = ", per_page);
   };
 
   function renderItems() {
@@ -40,7 +40,9 @@ const Pagination = ({
             className={styles.paginate__btn}
             onClick={() => handleClick(prev)}
           >
-            قبلی
+            <span className={styles.paginate__text}>قبلی</span>
+            <span className={styles.paginate__arrow}>»</span>
+
           </div>
         );
         items.push(prevElem);
@@ -58,7 +60,12 @@ const Pagination = ({
         items.push(firstElem);
       }
       if (currentPage > first + 2) {
-        let dot = <span key="8" className={styles.paginate__dot}> ... </span>;
+        let dot = (
+          <span key="8" className={styles.paginate__dot}>
+            {" "}
+            ...{" "}
+          </span>
+        );
         items.push(dot);
       }
       if (currentPage - 1 !== 0 && currentPage - 1 !== 1) {
@@ -96,7 +103,12 @@ const Pagination = ({
         items.push(nElem);
       }
       if (currentPage < last - 2) {
-        let dot = <span key="5" className={styles.paginate__dot}> ... </span>;
+        let dot = (
+          <span key="5" className={styles.paginate__dot}>
+            {" "}
+            ...{" "}
+          </span>
+        );
         items.push(dot);
       }
       if (last && currentPage + 1 <= last) {
@@ -118,7 +130,8 @@ const Pagination = ({
             className={styles.paginate__btn}
             onClick={() => handleClick(next)}
           >
-            بعدی
+            <span className={styles.paginate__text}>بعدی</span>
+            <span className={styles.paginate__arrow}>«</span>
           </div>
         );
         items.push(nextElem);
