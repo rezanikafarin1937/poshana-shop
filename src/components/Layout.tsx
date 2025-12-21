@@ -1,18 +1,20 @@
-import React from 'react'
-import Navbar from './navbar/Navbar'
+import React from "react";
+import Navbar from "./navbar/Navbar";
+import Footer from "./footer/Footer";
+import Container from "./container/Container";
 
-interface ILayoutChildren{
-    children : React.ReactNode
+interface ILayoutChildren {
+  children: React.ReactNode;
 }
 
-
-const Layout = ({children} : ILayoutChildren) => {
+const Layout = ({ children }: ILayoutChildren) => {
   return (
-    <div>
-      <Navbar/>
-      {children}
-    </div>
-  )
-}
+    <>
+      <Navbar />
+      <Container>{children}</Container>
+      <Footer />
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,4 +1,4 @@
-import Container from "@/components/container/Container";
+// import Container from "@/components/container/Container";
 // import Pagination from "@/components/Pagination";
 import ItemCard from "@/components/item-card/ItemCard";
 import { IProductList } from "@/components/ProductItem";
@@ -12,7 +12,6 @@ import Avatar from "@/components/avatar/Avatar";
 import GeneralCategory from "@/components/general-category/GeneralCategory";
 import Support from "@/components/support/Support";
 import Welcome from "@/components/welcome/Welcome";
-import Footer from "@/components/footer/Footer";
 import ServerSlider from "@/components/slider/ServerSlider";
 import Pagination from "@/utils/pagination/Pagination";
 
@@ -63,7 +62,7 @@ async function Store({ searchParams }: IStoreProps) {
 
   return (
     <>
-      <Container>
+      {/* <Container> */}
         <div className="flex flex-col">
           {
             <HorizontalScroll>
@@ -104,8 +103,7 @@ async function Store({ searchParams }: IStoreProps) {
           {/* <Pagination pageCount={items.pages} /> */}
           <Pagination path="store" per_page={3} next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
         </div>
-      </Container>
-      <Footer />
+      {/* </Container> */}
     </>
   );
 }
