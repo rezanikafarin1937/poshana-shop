@@ -14,6 +14,7 @@ import Support from "@/components/support/Support";
 import Welcome from "@/components/welcome/Welcome";
 import ServerSlider from "@/components/slider/ServerSlider";
 import Pagination from "@/utils/pagination/Pagination";
+import Slider from '@/utils/active-slider/Slider';
 
 export interface IProductItemProps {
   id: string;
@@ -71,7 +72,8 @@ async function Store({ searchParams }: IStoreProps) {
               ))}
             </HorizontalScroll>
           }
-          <Welcome />
+          <Slider images={['1.webp','2.webp','3.webp','4.webp']}/>
+          {/* <Welcome /> */}
           <div className="space"></div>
           <h2 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
             تخفیف های ویژه
