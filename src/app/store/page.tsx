@@ -73,11 +73,14 @@ async function Store({ searchParams }: IStoreProps) {
             </HorizontalScroll>
           }
           <Slider images={['1.webp','2.webp','3.webp','4.webp']}/>
-          {/* <Welcome /> */}
-          <div className="space"></div>
-          <h2 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
+          <br />
+          <br />
+                    {/* <div className="space"></div> */}
+          {/* <h2 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
             تخفیف های ویژه
-          </h2>
+          </h2> */}
+
+          <Welcome />
           <ServerSlider />
           <div className="space"></div>
           <div>
