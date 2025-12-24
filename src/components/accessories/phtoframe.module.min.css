@@ -1,0 +1,1 @@
+.parent{padding:1rem;background-color:#eee;border-radius:.5rem}.parent__content{background-color:var(--active-text);width:100px;height:100px;border-radius:50%;padding:.5rem;background-color:#eee}.parent__content img{width:100%;height:100%;object-position:center;object-fit:cover;border-radius:50%}.parent__title{font-size:14px;text-align:center}

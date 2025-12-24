@@ -14,7 +14,9 @@ import Support from "@/components/support/Support";
 import Welcome from "@/components/welcome/Welcome";
 import ServerSlider from "@/components/slider/ServerSlider";
 import Pagination from "@/utils/pagination/Pagination";
-import Slider from '@/utils/active-slider/Slider';
+import Slider from "@/utils/active-slider/Slider";
+import WrpperSlider from "@/components/wrapper-slider/WrapperSlider";
+import Accessories from "@/components/accessories/Accessories";
 
 export interface IProductItemProps {
   id: string;
@@ -32,7 +34,7 @@ interface IStoreProps {
 const supports = [
   "/support/support1.png",
   "/support/support2.png",
-  "/support/support2.png",
+  "/support/support3.png",
   "/support/support4.png",
 ];
 const categories = [
@@ -40,11 +42,7 @@ const categories = [
   "/generalcategory/cat2.jpg",
   "/generalcategory/cat3.jpg",
 ];
-const linkOfCategories  = [
-  "feminine",
-  "menswear",
-  "kidswear"
-];
+const linkOfCategories = ["feminine", "menswear", "kidswear"];
 const catBaby = ["/generalcategory/cat4.jpg", "/generalcategory/cat5.jpg"];
 
 async function Store({ searchParams }: IStoreProps) {
@@ -53,10 +51,11 @@ async function Store({ searchParams }: IStoreProps) {
   const title = (await searchParams).title ?? "";
 
   const result = await fetch(
-    `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`
-  ,{cache : 'no-cache'});
+    `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`,
+    { cache: "no-cache" }
+  );
   const items = (await result.json()) as IProductList;
-  console.log('Pagination = ',items);
+  console.log("Pagination = ", items);
 
   const usages = await fetchUsage();
   console.log("data usages = ", usages);
@@ -64,50 +63,79 @@ async function Store({ searchParams }: IStoreProps) {
   return (
     <>
       {/* <Container> */}
-        <div className="flex flex-col">
-          {
-            <HorizontalScroll>
-              {usages.map((usage: IUsagesProps) => (
-                <Avatar key={usage.id} {...usage} />
-              ))}
-            </HorizontalScroll>
-          }
-          <Slider images={['1.webp','2.webp','3.webp','4.webp']}/>
-          <br />
-          <br />
-                    {/* <div className="space"></div> */}
-          {/* <h2 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
-            تخفیف های ویژه
-          </h2> */}
-
-          <Welcome />
-          <ServerSlider />
-          <div className="space"></div>
-          <div>
-            <Support images={supports} />
-          </div>
-          <Support images={categories} links={linkOfCategories} rounded="bottom" />
-          <div className="space"></div>
-          <h3 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">فروشگاه ویژه  نوجوانان</h3>
-          <Support images={catBaby} links={["boys","girls"]} rounded="all" />
-          {/* <GeneralCategory/> */}
-          <div className="space"></div>
-          <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">فروشگاه پوشانا</h1>
-          
-
-          <div
-            dir="rtl"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
-          >
-            {items.data.map((item: IProductItemProps) => (
-              <LinkWrapper key={item.id} href={`/store/${item.id}`}>
-                <ItemCard {...item} />
-              </LinkWrapper>
+      <div className="flex flex-col">
+        {
+          <HorizontalScroll>
+            {usages.map((usage: IUsagesProps) => (
+              <Avatar key={usage.id} {...usage} />
             ))}
-          </div>
-          {/* <Pagination pageCount={items.pages} /> */}
-          <Pagination path="store" per_page={3} next={items.next} prev={items.prev} pages={items.pages} last={items.last} first={items.first}/>
+          </HorizontalScroll>
+        }
+        <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />
+        <br />
+        <Support images={supports} />
+        <br />
+
+        <WrpperSlider
+          bgColor="var(--active-text)"
+          textColor="#fff"
+          title="تخفیف‌های هیجان‌انگیز امروز"
+          btnTitle="مشاهده همه"
+        >
+          <ServerSlider />
+        </WrpperSlider>
+        {/* <br />
+        <br /> */}
+        <br />
+        <Accessories />
+        {/* <div className="space"></div> */}
+        <h1 className="relative top-9 text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
+          فروشگاه پوشانا
+        </h1>
+
+        <Support
+          images={categories}
+          links={linkOfCategories}
+          rounded="bottom"
+        />
+        <div className="space"></div>
+
+        <WrpperSlider title="جدیدترین محصولات این ماه" btnTitle="مشاهده همه" bgColor="var(--bg-wrapper)">
+          <ServerSlider borderColor="var(--active-text)" />
+        </WrpperSlider>
+
+        <div className="space"></div>
+        <h3 className="text-[var(--active-text)] text-right text-[2rem] pr-4 max-[426px]:text-[1.5rem]">
+          فروشگاه نوجوانان
+        </h3>
+        <Support images={catBaby} links={["boys", "girls"]} rounded="all" />
+        {/* <GeneralCategory/> */}
+        <div className="space"></div>
+        <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
+          فروشگاه پوشانا
+        </h1>
+
+        <div
+          dir="rtl"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+        >
+          {items.data.map((item: IProductItemProps) => (
+            <LinkWrapper key={item.id} href={`/store/${item.id}`}>
+              <ItemCard {...item} />
+            </LinkWrapper>
+          ))}
         </div>
+        {/* <Pagination pageCount={items.pages} /> */}
+        <Pagination
+          path="store"
+          per_page={3}
+          next={items.next}
+          prev={items.prev}
+          pages={items.pages}
+          last={items.last}
+          first={items.first}
+        />
+      </div>
       {/* </Container> */}
     </>
   );

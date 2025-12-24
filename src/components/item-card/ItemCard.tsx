@@ -11,17 +11,28 @@ export interface IProductItemProps {
 interface ISizeProps {
   width?: string;
   height?: string;
+  borderColor?: string;
 }
 // ترکیب دو مدل
 type ItemCardProps = IProductItemProps & ISizeProps;
 
-
-const ItemCard = ({ id, title, price, images, description, width, height }: ItemCardProps) => {
+const ItemCard = ({
+  id,
+  title,
+  price,
+  images,
+  description,
+  width,
+  height,
+  borderColor,
+}: ItemCardProps) => {
   return (
     <div
       className={styles.card}
-      style={{ width: width ?? "auto", height: height ?? "auto" }}
-    >
+      style={{...(borderColor ? { borderColor } : {}), width: width ?? "auto", height: height ?? "auto",}}
+      // style={{borderColor: borderColor || undefined, width: width ?? "auto", height: height ?? "auto",}}
+
+      >
       <div className={styles.card__image}>
         <img src={`/uploads/${images[0]}`} alt={title} />
       </div>

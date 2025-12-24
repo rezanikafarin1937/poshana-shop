@@ -37,7 +37,6 @@
   justify-content: space-around;
   align-items: center;
   color: var(--global-text);
-  display: none;
 }
 
 @media (max-width: 768px) {

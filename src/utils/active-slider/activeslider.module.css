@@ -1,7 +1,7 @@
 .parent {
   position: relative;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   min-width: 100%;
   min-height: 300px;
   max-width: 300px;
@@ -18,8 +18,7 @@
   left: 0;
   top: 0;
   opacity: 0;
-  transform: translateX(50%);
-  transition: all 0.2s;
+  transition: all 1s;
 }
 
 .parent__btns {

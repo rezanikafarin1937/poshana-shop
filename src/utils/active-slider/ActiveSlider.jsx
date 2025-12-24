@@ -26,7 +26,8 @@ const ActiveSlider = ({ children, width, height }) => {
           className={styles.parent__child}
           style={
             index === currentItem
-              ? { opacity : "1" ,transform : `translateX(0)`, borderRadius : '.5rem'}
+            //   ? { opacity : "1" ,transform : `translateX(0)`, borderRadius : '1rem'}
+              ? { opacity : "1" , borderRadius : '1rem'}
               : {}
           }
         >

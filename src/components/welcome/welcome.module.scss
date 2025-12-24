@@ -39,8 +39,6 @@
     align-items: center;
     color: var(--global-text);
 
-    display: none; // for test
-
     @media (max-width: 768px) {
       justify-content: space-between;
     }

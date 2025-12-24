@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row-reverse;
-  margin-bottom: 2rem;
 }
 
 .general__category, .general__cat-50, .general__cat-33, .general__cat-25, .general__cat-20, .general__cat-16 {
