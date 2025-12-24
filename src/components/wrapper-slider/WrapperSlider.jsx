@@ -1,3 +1,5 @@
+// This component is a wrapper for cards in a slider, used to showcase discounts or new and featured products. The color, background, and text can be customized through props.
+
 import styles from "./wrapperslider.module.scss";
 const WrapperSlider = ({ bgColor = null, textColor = null,title = "", btnTitle = "", children }) => {
   return (
