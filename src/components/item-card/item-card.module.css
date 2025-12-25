@@ -1,8 +1,8 @@
 .card {
   background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border: 0.5rem solid var(--bg-input);
-  padding: 0.25rem;
+  border: 0.12rem solid var(--bg-input);
+  padding: 0.5rem;
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,8 @@
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
+  max-height: 270px;
+  min-height: 270px;
 }
 
 .card__image img {

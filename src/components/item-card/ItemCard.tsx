@@ -32,7 +32,7 @@ const ItemCard = ({
     <div
       className={styles.card}
       style={{
-        ...(borderColor ? { borderColor } : {}),
+        // ...(borderColor ? { borderColor } : {}),
         width: width ?? "auto",
         height: height ?? "auto",
       }}

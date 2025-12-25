@@ -17,6 +17,8 @@ import Pagination from "@/utils/pagination/Pagination";
 import Slider from "@/utils/active-slider/Slider";
 import WrpperSlider from "@/components/wrapper-slider/WrapperSlider";
 import Accessories from "@/components/accessories/Accessories";
+import Heading from "@/components/heading/Heading";
+import FrameImage from "@/components/frame-image/FrameImage";
 
 export interface IProductItemProps {
   id: string;
@@ -73,7 +75,7 @@ async function Store({ searchParams }: IStoreProps) {
         }
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />
         <br />
-        <Support images={supports} />
+        <Support images={supports} small={true}/>
         <br />
 
         <WrpperSlider
@@ -86,7 +88,7 @@ async function Store({ searchParams }: IStoreProps) {
         </WrpperSlider>
         {/* <br />
         <br /> */}
-        <br />
+        {/* <br /> */}
         <Accessories />
         {/* <div className="space"></div> */}
         <h1 className="relative top-9 text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
@@ -99,8 +101,21 @@ async function Store({ searchParams }: IStoreProps) {
           rounded="bottom"
         />
         <div className="space"></div>
-
-        <WrpperSlider title="جدیدترین محصولات این ماه" btnTitle="مشاهده همه" bgColor="var(--bg-wrapper)">
+        <Heading
+          title="محصولات شگفت انگیز"
+          linkTitle="مشاهده همه "
+          link="/store"
+        />
+        <ServerSlider />
+        {/* <div className="space"></div> */}
+        <FrameImage />
+        <br />
+        <WrpperSlider
+          title="جدیدترین محصولات این ماه"
+          btnTitle="مشاهده همه"
+          bgColor="#eee"
+          textColor="var(--global-text)"
+        >
           <ServerSlider borderColor="var(--active-text)" />
         </WrpperSlider>
 
@@ -109,9 +124,11 @@ async function Store({ searchParams }: IStoreProps) {
           فروشگاه نوجوانان
         </h3>
         <Support images={catBaby} links={["boys", "girls"]} rounded="all" />
+        <div className="space"></div>
+
         {/* <GeneralCategory/> */}
         <div className="space"></div>
-        <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
+        {/* <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
           فروشگاه پوشانا
         </h1>
 
@@ -124,9 +141,9 @@ async function Store({ searchParams }: IStoreProps) {
               <ItemCard {...item} />
             </LinkWrapper>
           ))}
-        </div>
+        </div> */}
         {/* <Pagination pageCount={items.pages} /> */}
-        <Pagination
+        {/* <Pagination
           path="store"
           per_page={3}
           next={items.next}
@@ -134,7 +151,7 @@ async function Store({ searchParams }: IStoreProps) {
           pages={items.pages}
           last={items.last}
           first={items.first}
-        />
+        /> */}
       </div>
       {/* </Container> */}
     </>
