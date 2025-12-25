@@ -5,6 +5,7 @@ export interface IProductItemProps {
   id: string;
   title: string;
   price: number;
+  discount: number;
   images: [];
   description: string;
 }
@@ -25,22 +26,34 @@ const ItemCard = ({
   width,
   height,
   borderColor,
+  discount,
 }: ItemCardProps) => {
   return (
     <div
       className={styles.card}
-      style={{...(borderColor ? { borderColor } : {}), width: width ?? "auto", height: height ?? "auto",}}
+      style={{
+        ...(borderColor ? { borderColor } : {}),
+        width: width ?? "auto",
+        height: height ?? "auto",
+      }}
       // style={{borderColor: borderColor || undefined, width: width ?? "auto", height: height ?? "auto",}}
-
-      >
+    >
       <div className={styles.card__image}>
+        {discount ? (
+          <span className={styles.card__discount}>
+            {discount.toLocaleString("fa")} %
+          </span>
+        ) : (
+          ""
+        )}
         <img src={`/uploads/${images[0]}`} alt={title} />
       </div>
       <div className={styles.card__intro}>
         <MiniGallery images={images} width={40} height={40} />
         <div className="">{title}</div>
         <div className={styles.card__price}>
-          {price.toLocaleString("fa")} تومان
+          <div style={{color : "#515151"}}>{discount ? <del> {Number(price).toLocaleString("fa")} تومان </del> : ""}</div>
+          <div>{discount ? (Number(price) - (Number(price) * discount/100)).toLocaleString('fa') : Number(price).toLocaleString('fa')} تومان </div>
         </div>
       </div>
     </div>

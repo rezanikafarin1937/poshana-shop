@@ -11,6 +11,7 @@ const Layout = ({ children }: ILayoutChildren) => {
   return (
     <>
       <Navbar />
+      <div className="mt-[6rem]"></div>
       <Container>{children}</Container>
       <Footer />
     </>
