@@ -17,7 +17,7 @@ const ZoomImage = ({ images }) => {
       this.style.backgroundPosition = "center";
     }
 
-    function handleMoseMove(e) {
+    function handleMouseMove(e) {
       let x = 100 / (this.offsetWidth / e.offsetX);
       let y = 100 / (this.offsetHeight / e.offsetY);
       this.style.backgroundPosition = `${x}% ${y}%`;
@@ -27,7 +27,7 @@ const ZoomImage = ({ images }) => {
     if (el) {
       el.addEventListener("mouseenter", handleMouseEnter);
       el.addEventListener("mouseleave", handleMouseLeave);
-      el.addEventListener("mousemove", handleMoseMove);
+      el.addEventListener("mousemove", handleMouseMove);
     }
   }, []);
 
