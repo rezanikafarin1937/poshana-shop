@@ -41,6 +41,12 @@ html{
 .space{
   margin: 2rem 0;
 }
+.space-mobile-mode{
+  margin : 2rem 0;
+  @media (max-width : 425px) {
+    margin: .5rem 0;
+  }
+}
 
 
 /* صرفا برای برداشتن اسکرول */

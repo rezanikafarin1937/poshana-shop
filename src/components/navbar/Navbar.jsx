@@ -48,7 +48,7 @@ const Navbar = () => {
   const { cartTotalQty } = useShoppingCartContext();
 
   return (
-<div className="fixed top-0 left-0 w-full z-101">
+<div className="fixed top-0 left-0 w-full z-101 max-[769px]:!bg-white">
 <div className="shadow p-4 min-h-[50px] min-[769px]:hidden flex flex-row-reverse font-bold justify-between items-center">
   <h2 className="font-bold text-xl text-[var(--active-text)]">پوشانا</h2>
   <div className="flex bg-red w-[80px] h-full justify-center items-center">
