@@ -19,6 +19,7 @@ import WrpperSlider from "@/components/wrapper-slider/WrapperSlider";
 import Accessories from "@/components/accessories/Accessories";
 import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
+import Guarantee from "@/components/guarantee/Guarantee";
 
 export interface IProductItemProps {
   id: string;
@@ -127,7 +128,7 @@ async function Store({ searchParams }: IStoreProps) {
         <div className="space"></div>
 
         {/* <GeneralCategory/> */}
-        <div className="space"></div>
+        <Guarantee/>
         {/* <h1 className="text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
           فروشگاه پوشانا
         </h1>

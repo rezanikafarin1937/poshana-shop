@@ -1,0 +1,1 @@
+.parent{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;color:var(--active-text);font-size:14px}.parent__item{width:calc(25% - 1rem);display:flex;flex-direction:column;justify-content:center;align-items:center}.parent__icon{width:50px;height:50px}
