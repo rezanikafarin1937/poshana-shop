@@ -1,0 +1,12 @@
+.parent {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.parent__zoom {
+  width: calc(50% - 1rem);
+}
+
+.parent__description {
+  width: calc(50% - 1rem);
+}
