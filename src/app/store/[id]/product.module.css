@@ -1,6 +1,8 @@
 .parent {
   display: flex;
   flex-direction: row-reverse;
+  max-height: 80vh;
+  min-height: 80vh;
 }
 
 .parent__zoom {
@@ -26,6 +28,7 @@
 
 .parent__description p {
   font-size: 14px;
+  text-align: justify;
 }
 
 .parent__wrapperprice {
@@ -40,7 +43,7 @@
   color: var(--active-text);
   font-size: 2rem;
   border-radius: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .parent__infobox {
@@ -54,8 +57,8 @@
 
 .parent__btn, .parent__btnfast {
   background-color: var(--bg-btn);
-  padding: .75rem 1.5rem;
-  border-radius: .5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
   color: var(--bg-site);
   font-weight: 400;
   font-size: 14px;
@@ -65,4 +68,35 @@
 .parent__btnfast {
   background-color: var(--color-site-two);
   margin-right: 1rem;
+}
+
+.parent__info {
+  font-size: 14px;
+  color: var(--info-product);
+  text-align: justify;
+  line-height: 30px;
+}
+
+.parent__boxinfo {
+  background-color: var(--bg-site);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  max-height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--active-text) #eee;
+}
+
+.parent__boxinfo::-webkit-scrollbar {
+  width: 5px;
+}
+
+.parent__boxinfo::-webkit-scrollbar-thumb {
+  background-color: var(--active-text);
+  border-radius: 10px;
+}
+
+.parent__boxinfo::-webkit-scrollbar-track {
+  background-color: #eee;
 }
