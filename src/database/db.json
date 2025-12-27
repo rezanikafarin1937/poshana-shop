@@ -48,7 +48,7 @@
       "id": "40",
       "title": "رضا نیک آفرین",
       "price": "5555555",
-      "discount" : 10,
+      "discount": 10,
       "description": "بببببببب",
       "cat": "1",
       "images": [
@@ -62,7 +62,7 @@
       "id": "41",
       "title": "لللل",
       "price": "55",
-      "discount" : 12,
+      "discount": 12,
       "description": "دد",
       "cat": "4",
       "images": ["image5.jpg", "1763784027808-۲۰۲۳۰۳۲۸_۲۳۵۱۴۵.jpg"]
@@ -108,7 +108,7 @@
       "id": "45",
       "title": "رضا نیک آفرین",
       "price": "5555555",
-      "discount" : 20,
+      "discount": 20,
       "description": "بببببببب",
       "cat": "1",
       "images": [
@@ -174,7 +174,7 @@
       "id": "12",
       "title": "eee",
       "price": "444",
-      "discount" : 35,
+      "discount": 35,
       "description": "gg",
       "cat": "0",
       "images": [
@@ -185,14 +185,15 @@
       ]
     },
     {
-      "id": "44",
+      "id": "448",
       "title": "پیراهن آستین دار",
       "price": "480000",
       "description": "آستین دار",
       "cat": "1",
       "images": [
         "1766131302056-پیراهن آستین دار 1.jfif",
-        "1766131302059-پیراهن آستین دار.jfif"
+        "1766131302059-پیراهن آستین دار.jfif",
+        "1763783020721-۲۰۲۲۱۲۲۴_۱۴۰۵۲۹.jpg"
       ]
     },
     {

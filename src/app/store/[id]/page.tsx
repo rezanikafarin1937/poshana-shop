@@ -23,7 +23,36 @@ async function page({ params }: ProductPageProps) {
       <div className={styles.parent__zoom}>
         <ZoomImage images={product.images} />
       </div>
-      <div className={styles.parent__description}></div>
+      <div className={styles.parent__description}>
+        <h2>
+          {product.title} کد : {Number(product.id).toLocaleString("fa")}
+        </h2>
+        <p>
+          شناسه محصول:{" "}
+          <span style={{ color: "var(--color-site-two)" }}>
+            {Number(product.id).toLocaleString("fa")}
+          </span>
+        </p>
+        <h6 className="font-16 text-justify" style={{ lineHeight: "26px" }}>
+          توجه!
+          <p>❌ حتماً راهنمای سایز مطالعه شود. ❌</p>
+        </h6>
+        <div className={styles.parent__wrapperprice}>
+          <div className={styles.parent__pricebox}>
+            {Number(product.price).toLocaleString("fa")} تومان
+          </div>
+        </div>
+        <h6
+          className="font-16 text-justify text-[var(--title-product)]"
+          style={{ lineHeight: "26px" }}
+        >
+          ✔️ مرجوعی بی دردسر ، راحت و سریع !
+        </h6>
+        <div className={styles.parent__btnwrapper}>
+          <button className={styles.parent__btn}>افزودن به سبد خرید</button>
+          <button className={styles.parent__btnfast}>خرید سریع</button>
+        </div>
+      </div>
     </div>
   );
 }

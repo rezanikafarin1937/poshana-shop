@@ -40,7 +40,7 @@ const ZoomImage = ({ images }) => {
             className={styles.parent__img}
             onClick={() => {
               setActiveImage(() => index);
-              console.log(index);
+              console.log(index,':',image);
             }}
           >
             <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />

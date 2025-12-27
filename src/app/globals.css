@@ -11,11 +11,15 @@
   --bg-input: #e4e4e4;
   --bg-site: #ffff;
   --color-site: #515151;
+  --color-site-two : #489fdf;
   --global-text: #788185;
   --global-search-color: #818181;
   --bg-communication : #737373;
   --bg-footer : #e99895;
   --bg-wrapper : #0000001a;
+  --title-product : #292b2c;
+  --bg-btn : #66bb6a;
+
 }
 
 * {
