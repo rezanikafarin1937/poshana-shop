@@ -1,8 +1,6 @@
 .parent {
   display: flex;
   flex-direction: row-reverse;
-  max-height: 80vh;
-  min-height: 80vh;
 }
 
 .parent__zoom {
@@ -20,15 +18,15 @@
   color: var(--global-text);
 }
 
-.parent__description h2 {
-  font-size: 1.3rem;
-  color: var(--title-product);
-  margin-bottom: 1rem !important;
-}
-
 .parent__description p {
   font-size: 14px;
   text-align: justify;
+}
+
+.parent__title {
+  font-size: 1.3rem;
+  color: var(--title-product);
+  margin-bottom: 1rem !important;
 }
 
 .parent__wrapperprice {
