@@ -2,6 +2,14 @@
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
+  gap: 0.5rem;
+}
+
+@media (max-width: 425px) {
+  .parent {
+    flex-direction: column;
+    direction: ltr;
+  }
 }
 
 .parent__thumbnails {
@@ -12,8 +20,22 @@
   overflow-y: scroll;
   flex: 0 0 20%;
   max-height: 400px;
+  min-height: 400px;
+  padding: 0 1rem 1rem 1rem;
   scrollbar-width: thin;
   scrollbar-color: var(--active-text) #eee;
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .parent__thumbnails {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .parent__thumbnails {
+    display: none;
+  }
 }
 
 .parent__thumbnails::-webkit-scrollbar {
@@ -32,8 +54,15 @@
 .parent__img {
   width: 100px;
   height: 100px;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   margin-bottom: 0.25rem;
+  flex: 0 0 100px;
+}
+
+@media (max-width: 425px) {
+  .parent__img {
+    margin: 0 0.25rem;
+  }
 }
 
 .parent__img img {
@@ -49,7 +78,7 @@
   min-height: 80vh;
   max-height: 80vh;
   display: flex;
-  flex: 0 1 77%;
+  flex: 1 1 77%;
   border-radius: 1rem;
   background-color: #eee;
   background-repeat: no-repeat;
@@ -59,4 +88,23 @@
   cursor: -moz-zoom-in;
   cursor: -webkit-zoom-in;
   cursor: zoom-in;
+}
+
+@media (max-width: 425px) {
+  .parent__image {
+    width: 100%;
+    flex: 1 1 auto;
+    max-height: 400px;
+    min-height: 400px;
+  }
+}
+
+.parent__horizontalscroll {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .parent__horizontalscroll {
+    display: block;
+  }
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import styles from "./zoomimage.module.scss";
 
 const ZoomImage = ({ images }) => {
@@ -40,7 +41,7 @@ const ZoomImage = ({ images }) => {
             className={styles.parent__img}
             onClick={() => {
               setActiveImage(() => index);
-              console.log(index,':',image);
+              console.log(index, ":", image);
             }}
           >
             <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />
@@ -52,6 +53,22 @@ const ZoomImage = ({ images }) => {
         className={styles.parent__image}
         style={{ backgroundImage: `url(/uploads/${images[activeImage]})` }}
       ></div>
+      <div className={styles.parent__horizontalscroll}>
+        <HorizontalScroll gap="1px">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={styles.parent__img}
+              onClick={() => {
+                setActiveImage(() => index);
+                console.log(index, ":", image);
+              }}
+            >
+              <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />
+            </div>
+          ))}
+        </HorizontalScroll>
+      </div>
     </div>
   );
 };

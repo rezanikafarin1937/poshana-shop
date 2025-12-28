@@ -6,10 +6,11 @@ type Direction = 'ltr' | 'rtl';
 export interface ChildrenProps {
   children: React.ReactNode;
   dir?: Direction;
+  gap : string | null;
 }
 // {children} : ChildrenProps
 
-const HorizontalScroll = ({children ,dir = 'rtl'} : ChildrenProps) => {
+const HorizontalScroll = ({children ,dir = 'rtl',gap = null} : ChildrenProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
   const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
   const [startX, setStartX] = useState(0); // موقعیت شروع درگ
@@ -48,7 +49,7 @@ const HorizontalScroll = ({children ,dir = 'rtl'} : ChildrenProps) => {
   return (
     <div
       ref={containerRef}
-      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-between gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-between" // اضافه کردن overflow-x-auto برای اسکرول مخفی
       onMouseDown={startDrag}
       onMouseMove={drag}
       onMouseUp={stopDrag}
@@ -61,7 +62,7 @@ const HorizontalScroll = ({children ,dir = 'rtl'} : ChildrenProps) => {
       }}
     >
       {children.map((child,index) => (
-            <div key={index}>{child}</div>
+            <div style={gap ? { margin : `0 ${gap}`} : {margin : '0 .5rem'}} key={index}>{child}</div>
         ))}
     </div>
   );
