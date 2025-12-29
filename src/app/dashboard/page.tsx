@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+  const [discount,setDiscount] = useState("");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
 
@@ -23,6 +24,7 @@ const Dashboard = () => {
     formData.append("id", getId().toString());
     formData.append("title", title);
     formData.append("price", price);
+    formData.append("discount",discount)
     formData.append("description", desc);
     formData.append("cat", cat);
 
@@ -59,6 +61,14 @@ const Dashboard = () => {
             name="price"
             placeholder="قیمت"
             onChange={(e) => setPrice(e.target.value)}
+          />
+          <br />
+          <input
+            className={styles.dashboard__input}
+            type="text"
+            name="discount"
+            placeholder="تخفیف"
+            onChange={(e) => setDiscount(e.target.value)}
           />
           <br />
           <label htmlFor="category">دسته‌بندی:</label>

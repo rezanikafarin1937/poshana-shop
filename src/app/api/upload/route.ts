@@ -11,6 +11,7 @@ export async function POST(req: Request) {
     const id = formData.get("id")?.toString();
     const title = formData.get("title")?.toString();
     const price = formData.get("price")?.toString();
+    const discount = formData.get("discount")?.toString();
     const description = formData.get("description")?.toString();
     const cat = formData.get("cat")?.toString();
 
@@ -37,6 +38,7 @@ export async function POST(req: Request) {
       id,
       title,
       price,
+      discount,
       description,
       images: savedFiles, // فقط نام فایل‌ها
       cat,

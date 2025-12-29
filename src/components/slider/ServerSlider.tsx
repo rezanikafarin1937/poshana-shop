@@ -2,8 +2,13 @@ import { BaseUrl } from "@/Global/BaseUrl";
 import Slider from "./Slider";
 import ItemCard, { IProductItemProps } from "../item-card/ItemCard";
 import LinkWrapper from "../link-wrapper/LinkWrapper";
-async function ServerSlider({borderColor = null} : {borderColor : string | null}) {
-  const response = await fetch(`${BaseUrl}/products`);
+async function ServerSlider({borderColor = null,search = null} : {borderColor : string | null,search : string | null}) {
+  let url = `${BaseUrl}/products`;
+  if(search){
+    url = url + search;
+  }
+  console.log("URL = ",url)
+  const response = await fetch(url);
   const data = await response.json();
   console.log("Data ServerSlider = ", data);
   return (

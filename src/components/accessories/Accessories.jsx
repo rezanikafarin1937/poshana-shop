@@ -11,7 +11,7 @@ const Accessories = () => {
     {title : "عطر و ادوکلن", image : "/accessories/10.webp"},
     {title : "کمربند", image : "/accessories/5.webp"},
     {title : "کلاه", image : "/accessories/6.webp"},
-    {title : "کیف", image : "/accessories/7.webp"},
+    {title : "عینک آفتابی", image : "/accessories/11.webp"},
     {title : "کفش", image : "/accessories/8.webp"},
     {title : "جوراب", image : "/accessories/9.webp"},
   ];

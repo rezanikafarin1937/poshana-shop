@@ -41,7 +41,7 @@ const ItemCard = ({
       <div className={styles.card__image}>
         {discount ? (
           <span className={styles.card__discount}>
-            {discount.toLocaleString("fa")} %
+            {Number(discount).toLocaleString("fa")} %
           </span>
         ) : (
           ""

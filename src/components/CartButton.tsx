@@ -23,7 +23,7 @@ const CartButton = ({ id }: ICartButtonProps) => {
         >
           <span className="text-amber-50">+</span>
         </button>
-        <span>{getProductQty(parseInt(id)).toLocaleString("fa")}</span>
+        <span className="w-[25px] h-full text-center flex justify-center items-center">{getProductQty(parseInt(id)).toLocaleString("fa")}</span>
         <button
           onClick={() => handleDecreaseProductQty(parseInt(id))}
           className="bg-[var(--active-text)]   py-[.25rem] px-[.75rem]  rounded-[.5rem]  flex justify-between items-center"

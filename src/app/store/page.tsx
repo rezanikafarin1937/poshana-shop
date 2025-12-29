@@ -76,7 +76,7 @@ async function Store({ searchParams }: IStoreProps) {
           title="تخفیف‌های هیجان‌انگیز امروز"
           btnTitle="مشاهده همه"
         >
-          <ServerSlider />
+          <ServerSlider search="?discount_gt=0"/>
         </WrpperSlider>
         <Accessories />
         <h1 className="relative top-9 text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
@@ -103,7 +103,7 @@ async function Store({ searchParams }: IStoreProps) {
           bgColor="#eee"
           textColor="var(--global-text)"
         >
-          <ServerSlider borderColor="var(--active-text)" />
+          <ServerSlider search="?new=true" borderColor="var(--active-text)" />
         </WrpperSlider>
 
         <div className="space"></div>
