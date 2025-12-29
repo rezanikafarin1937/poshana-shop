@@ -54,18 +54,11 @@ async function page({ params }: ProductPageProps) {
               {Number(product.price).toLocaleString("fa")} تومان
             </div>
           </div>
-          <div className="flex justify-start items-center w-full">
-            <div className={styles.parent__title}>تعداد :</div>
-            <span
-              style={{
-                margin: ".25rem",
-                position: "relative",
-                bottom: ".5rem",
-              }}
-            >
-              <CartButton id={id} />
-            </span>
+          <div style={{display : 'flex'}}>
+            <div className={styles.parent__title} style={{ position : "relative",top : "1rem", marginLeft : "1rem"}}>تعداد: </div>
+            <CartButton id={id} />
           </div>
+
           <h6
             className="font-16 text-justify text-[var(--title-product)]"
             style={{ lineHeight: "26px" }}

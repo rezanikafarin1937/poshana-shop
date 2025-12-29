@@ -10,7 +10,8 @@
   font-size: 1.25rem;
 
   @media (max-width: 425px) {
-    display: none;
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
   }
 
   &__link {
@@ -20,6 +21,10 @@
     align-items: center;
     transition: all 0.3s;
     min-width: 125px;
+
+    @media (max-width: 425px) {
+      display: none;
+    }
 
     &:hover {
       color: var(--global-text);

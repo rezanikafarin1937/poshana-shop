@@ -97,7 +97,7 @@
 
 @media (min-width: 321px) and (max-width: 425px) {
   .parent__btnwrapper {
-    justify-content: space-between;
+    gap: 1rem;
   }
 }
 
