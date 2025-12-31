@@ -9,11 +9,12 @@ const GlobalSearch = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
+
   const handleSearch = () => {
     const currentSearchParams = new URLSearchParams(searchParams.toString());
     currentSearchParams.set("title", search);
     setSearch(() => "");
-    router.push(`/store?${currentSearchParams.toString()}`);
+    router.push(`/search?${currentSearchParams.toString()}`);
   };
 
 
@@ -33,7 +34,7 @@ const GlobalSearch = () => {
       />
       <span className={styles.parent__search}>
         <span className={styles.parent__wrapperSearchIcon}  onClick={handleSearch}>
-          <SearchIcon color="var(--global-search-color)" />
+          <SearchIcon color="#989696" />
         </span>
       </span>
     </div>
