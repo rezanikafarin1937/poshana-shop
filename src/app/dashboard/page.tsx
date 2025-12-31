@@ -1,11 +1,11 @@
 "use client";
 import Container from "@/components/container/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getId } from "../../utils/GetLastItem";
 import axios from "axios";
 import UploadImage from "../../utils/upload-image/UploadImage";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { BaseUrl } from "@/Global/BaseUrl";
 import styles from "./dashboard.module.css";
 
 const Dashboard = () => {
@@ -14,17 +14,28 @@ const Dashboard = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [discount,setDiscount] = useState("");
+  const [discount, setDiscount] = useState("");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
+  const [usages, setUsages] = useState<any[]>([]);
+  const [selectedUsage, setSelectedUsage] = useState("");
+  function getUsage() {
+    axios.get(`${BaseUrl}/usage`).then((res) => {
+      setUsages(() => res.data);
+      console.log("UUUUUUsage:", res.data);
+    });
+  }
+
+  useEffect(() => {
+    getUsage();
+  }, []);
 
   const handleCreateProduct = async () => {
     const formData = new FormData();
-
     formData.append("id", getId().toString());
     formData.append("title", title);
     formData.append("price", price);
-    formData.append("discount",discount)
+    formData.append("discount", discount);
     formData.append("description", desc);
     formData.append("cat", cat);
 
@@ -82,11 +93,26 @@ const Dashboard = () => {
             <option value="" disabled>
               انتخاب دسته‌بندی
             </option>
-            <option value="0">زنانه</option>
-            <option value="1">مردانه</option>
-            <option value="2">بچگانه</option>
-            <option value="3">دخترانه</option>
-            <option value="4">پسرانه</option>
+            <option value="زنانه">زنانه</option>
+            <option value="مردانه">مردانه</option>
+            <option value="بچگانه">بچگانه</option>
+            <option value="دخترانه">دخترانه</option>
+            <option value="پسرانه">پسرانه</option>
+          </select>
+          <br />
+          <select
+            name="usage"
+            id="usage"
+            value={selectedUsage}
+            className={styles.dashboard__select}
+            onChange={(e) => setSelectedUsage(e.target.value)}
+          >
+            <option value="" disabled>استفاده برای </option>
+            {usages.map((usage, index) => (
+              <option key={index} value={usage.title}>
+                {usage.title}
+              </option>
+            ))}
           </select>
           <br />
           <textarea
