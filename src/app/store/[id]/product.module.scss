@@ -47,13 +47,14 @@
 
   &__wrapperprice {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap : 1rem;
 
     @media (max-width: 425px) {
       margin: 1rem 0;
-      justify-content: start;
+      flex-wrap: wrap;
     }
   }
 

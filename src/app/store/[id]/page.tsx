@@ -1,7 +1,7 @@
 import { BaseUrl } from "@/Global/BaseUrl";
 import ZoomImage from "@/utils/zoom-image/ZoomImage";
 import CartButton from "@/components/CartButton";
-import Heading from '@/components/heading/Heading';
+import Heading from "@/components/heading/Heading";
 import Slider from "@/components/slider/Slider";
 import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import ItemCard from "@/components/item-card/ItemCard";
@@ -18,17 +18,18 @@ interface IGetProduct {
   price: number;
   images: string[];
   description: string;
-  cat : string
+  discount : number,
+  cat: string;
 }
 
 async function page({ params }: ProductPageProps) {
   const { id } = await params;
   const result = await fetch(`${BaseUrl}/products/${id}`);
   const product = (await result.json()) as IGetProduct;
-  // گرفتن محصولات مشابه بدین شکل 
+  // گرفتن محصولات مشابه بدین شکل
   const results = await fetch(`${BaseUrl}/products?cat=${product.cat}`);
   const products = (await results.json()) as IGetProduct;
-  console.log('productS = ',products);
+  console.log("productS = ", products);
   return (
     <>
       <div className={styles.parent}>
@@ -50,12 +51,22 @@ async function page({ params }: ProductPageProps) {
             <p>❌ حتماً راهنمای سایز مطالعه شود. ❌</p>
           </h6>
           <div className={styles.parent__wrapperprice}>
+            <div>
+              {product.discount ? <> <del>{Number(product.price).toLocaleString("fa")} تومان</del>
+            <p style={{color : "var(--active-text)"}}>%{Number(product.discount).toLocaleString('fa')} تخفیف</p>
+            </> : "" }
+            </div>
             <div className={styles.parent__pricebox}>
-              {Number(product.price).toLocaleString("fa")} تومان
+              {product.discount ? (Number(product.price) - (Number(product.price) * Number(product.discount / 100))).toLocaleString("fa") : Number(product.price).toLocaleString('fa')} تومان
             </div>
           </div>
-          <div style={{display : 'flex'}}>
-            <div className={styles.parent__title} style={{ position : "relative",top : "1rem", marginLeft : "1rem"}}>تعداد: </div>
+          <div style={{ display: "flex" }}>
+            <div
+              className={styles.parent__title}
+              style={{ position: "relative", top: "1rem", marginLeft: "1rem" }}
+            >
+              تعداد:{" "}
+            </div>
             <CartButton id={id} />
           </div>
 
@@ -80,19 +91,14 @@ async function page({ params }: ProductPageProps) {
         </div>
       </div>
       <div className="space"></div>
-      <Heading
-        title="محصولات مشابه"
-        linkTitle="مشاهده همه "
-        link="/store"
-      />
-            <Slider>
-        {products.map((d : IProductItemProps) => (
-            <LinkWrapper key={d.id} href={`/store/${d.id}`}>
-                <ItemCard  {...d} width="250px" height="100%" />
-            </LinkWrapper>
+      <Heading title="محصولات مشابه" linkTitle="مشاهده همه " link="/store" />
+      <Slider>
+        {products.map((d: IProductItemProps) => (
+          <LinkWrapper key={d.id} href={`/store/${d.id}`}>
+            <ItemCard {...d} width="250px" height="100%" />
+          </LinkWrapper>
         ))}
       </Slider>
-
     </>
   );
 }
