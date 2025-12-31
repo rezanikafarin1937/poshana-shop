@@ -27,9 +27,9 @@ async function Search({ searchParams }: IStoreProps) {
   const items = (await result.json()) as IProductList;
   console.log("Pagination = ", items);
   return (
-    <div>
-      SEARCH
-    </div>
+    <>
+      
+    </>
   )
 }
 
