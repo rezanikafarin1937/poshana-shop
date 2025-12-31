@@ -6,6 +6,7 @@ const PhtoFrame = ({ image, title }) => {
       <div className={styles.parent__wrapper}>
         <div className={styles.parent__content}>
           <img src={image} alt="فروشگاه لباس پوشانا" />
+          <div className={styles.parent__overlay}></div>
         </div>
         <div className={styles.parent__title}>{title}</div>
       </div>
