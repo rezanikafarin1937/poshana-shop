@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [discount, setDiscount] = useState("");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
-  const [usages, setUsages] = useState<any[]>([]);
+  const [usages, setUsages] = useState<string[]>([]);
   const [selectedUsage, setSelectedUsage] = useState("");
   function getUsage() {
     axios.get(`${BaseUrl}/usage`).then((res) => {
@@ -38,6 +38,7 @@ const Dashboard = () => {
     formData.append("discount", discount);
     formData.append("description", desc);
     formData.append("cat", cat);
+    formData.append("usage",selectedUsage)
 
     const filesArray = Array.from(files); // convert files to array
     filesArray.forEach((file) => {

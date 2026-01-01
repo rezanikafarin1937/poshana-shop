@@ -1,7 +1,7 @@
 .parent {
   display: flex;
   flex-direction: row-reverse;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 @media (max-width: 425px) {
@@ -153,4 +153,20 @@
 
 .parent__boxinfo::-webkit-scrollbar-track {
   background-color: #eee;
+}
+
+.parent__wrappertitle {
+  display: flex;
+  color: var(--global-text);
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem 2rem 2rem 0;
+  direction: rtl;
+}
+
+.parent h1 {
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: right;
 }

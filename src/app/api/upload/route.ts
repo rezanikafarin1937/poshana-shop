@@ -14,6 +14,7 @@ export async function POST(req: Request) {
     const discount = formData.get("discount")?.toString();
     const description = formData.get("description")?.toString();
     const cat = formData.get("cat")?.toString();
+    const usage = formData.get("usage")?.toString();
 
     //  get files
     const files = formData.getAll("images") as File[];
@@ -24,7 +25,8 @@ export async function POST(req: Request) {
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      const filename = `${Date.now()}-${file.name}`;
+      // const filename = `${Date.now()}-${file.name.replace(/\s+/g, '')}`;
+      const filename = `${id}_${Date.now()}`;
 
       const uploadDir = path.join(process.cwd(), "public", "uploads", filename);
 
@@ -42,6 +44,7 @@ export async function POST(req: Request) {
       description,
       images: savedFiles, // فقط نام فایل‌ها
       cat,
+      usage
     });
 
     return Response.json({ message: "success", images: savedFiles });

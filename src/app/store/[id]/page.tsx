@@ -18,8 +18,9 @@ interface IGetProduct {
   price: number;
   images: string[];
   description: string;
-  discount : number,
+  discount: number;
   cat: string;
+  usage: string;
 }
 
 async function page({ params }: ProductPageProps) {
@@ -30,8 +31,23 @@ async function page({ params }: ProductPageProps) {
   const results = await fetch(`${BaseUrl}/products?cat=${product.cat}`);
   const products = (await results.json()) as IGetProduct;
   console.log("productS = ", products);
+  const tittlePage =
+    `فروشگاه اینترنتی پوشانا / ` +
+    product?.cat +
+    "  /  " +
+    product?.usage +
+    "  /  " +
+    product?.title +
+    " کد  " +
+    Number(product?.id).toLocaleString("fa");
+   
+  console.log(tittlePage);
   return (
     <>
+      <div className={styles.parent__wrappertitle}>
+        <h1>{tittlePage}</h1>
+      </div>
+
       <div className={styles.parent}>
         <div className={styles.parent__zoom}>
           <ZoomImage images={product.images} />
@@ -52,12 +68,26 @@ async function page({ params }: ProductPageProps) {
           </h6>
           <div className={styles.parent__wrapperprice}>
             <div>
-              {product.discount ? <> <del>{Number(product.price).toLocaleString("fa")} تومان</del>
-            <p style={{color : "var(--active-text)"}}>%{Number(product.discount).toLocaleString('fa')} تخفیف</p>
-            </> : "" }
+              {product.discount ? (
+                <>
+                  {" "}
+                  <del>{Number(product.price).toLocaleString("fa")} تومان</del>
+                  <p style={{ color: "var(--active-text)" }}>
+                    %{Number(product.discount).toLocaleString("fa")} تخفیف
+                  </p>
+                </>
+              ) : (
+                ""
+              )}
             </div>
             <div className={styles.parent__pricebox}>
-              {product.discount ? (Number(product.price) - (Number(product.price) * Number(product.discount / 100))).toLocaleString("fa") : Number(product.price).toLocaleString('fa')} تومان
+              {product.discount
+                ? (
+                    Number(product.price) -
+                    Number(product.price) * Number(product.discount / 100)
+                  ).toLocaleString("fa")
+                : Number(product.price).toLocaleString("fa")}{" "}
+              تومان
             </div>
           </div>
           <div style={{ display: "flex" }}>
