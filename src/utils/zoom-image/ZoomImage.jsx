@@ -38,10 +38,9 @@ const ZoomImage = ({ images }) => {
         {images.map((image, index) => (
           <div
             key={index}
-            className={styles.parent__img}
+            className={`${styles.parent__img} ${index == activeImage ? styles.parent__active : ""}`}
             onClick={() => {
               setActiveImage(() => index);
-              console.log(index, ":", image);
             }}
           >
             <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />

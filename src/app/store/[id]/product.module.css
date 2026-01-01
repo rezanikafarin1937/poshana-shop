@@ -165,8 +165,20 @@
   direction: rtl;
 }
 
-.parent h1 {
+.parent__titlepage {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 100 !important;
   text-align: right;
+}
+
+.parent__arrow {
+  width: .5rem;
+  height: .5rem;
+  border: 2px solid var(--active-text);
+  display: inline-block;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  border-radius: .125rem;
+  margin: 0 .5rem;
 }

@@ -133,7 +133,7 @@
       background-color: #eee;
     }
   }
-  &__wrappertitle{
+  &__wrappertitle {
     display: flex;
     color: var(--global-text);
     flex-direction: row-reverse;
@@ -141,10 +141,23 @@
     align-items: center;
     padding: 1rem 2rem 2rem 0;
     direction: rtl;
+
   }
-  h1 {
+  &__titlepage {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight :100 !important;
     text-align: right;
+  }
+
+  &__arrow {
+    width: .5rem;
+    height: .5rem;
+    border: 2px solid var(--active-text);
+    display: inline-block;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    border-radius: .125rem;
+    margin: 0 .5rem;
   }
 }

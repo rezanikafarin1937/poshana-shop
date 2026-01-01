@@ -9,6 +9,11 @@
     direction: ltr;
   }
 
+  &__active {
+    outline: 2px solid var(--active-text);
+    border-radius: 0.5rem;
+  }
+
   &__thumbnails {
     display: flex;
     flex-direction: column;
@@ -19,7 +24,7 @@
     flex: 0 0 20%;
     max-height: 400px;
     min-height: 400px;
-    padding: 0 1rem 1rem 1rem;
+    padding: .125rem 1rem 1rem 1rem;
 
     @media (min-width: 426px) and (max-width: 768px) {
       flex: 1 1 auto;

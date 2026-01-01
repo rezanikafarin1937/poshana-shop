@@ -6,7 +6,8 @@
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  max-height: 450px;
+  max-height: 440px;
+  min-height: 440px;;
 
   @media (max-width: 425px) {
     width: 100%;

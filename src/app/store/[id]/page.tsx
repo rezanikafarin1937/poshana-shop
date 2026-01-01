@@ -28,25 +28,32 @@ async function page({ params }: ProductPageProps) {
   const result = await fetch(`${BaseUrl}/products/${id}`);
   const product = (await result.json()) as IGetProduct;
   // گرفتن محصولات مشابه بدین شکل
-  const results = await fetch(`${BaseUrl}/products?cat=${product.cat}`);
+  const results = await fetch(`${BaseUrl}/products?cat=${product?.cat}&?usage=${product?.usage}`);
   const products = (await results.json()) as IGetProduct;
-  console.log("productS = ", products);
-  const tittlePage =
-    `فروشگاه اینترنتی پوشانا / ` +
-    product?.cat +
-    "  /  " +
-    product?.usage +
-    "  /  " +
-    product?.title +
-    " کد  " +
-    Number(product?.id).toLocaleString("fa");
-   
-  console.log(tittlePage);
+
+  const printTitle = () => {
+    return (
+      <>
+        <h1 className={styles.parent__titlepage}>
+          <span>فروشگاه پوشاک پوشانا </span>
+          <span className={styles.parent__arrow}></span>
+          <span>{product?.cat}</span>
+          <span className={styles.parent__arrow}></span>
+          <span>{product?.usage}</span>
+          <span className={styles.parent__arrow}></span>
+          <span>{product?.title}</span>
+          {/* <span className={styles.parent__arrow}></span> */}
+          <span> کد </span>
+          <span>{Number(product?.id).toLocaleString("fa")}</span>
+          {/* <span className={styles.parent__arrow}></span> */}
+        </h1>
+      </>
+    );
+  };
+
   return (
     <>
-      <div className={styles.parent__wrappertitle}>
-        <h1>{tittlePage}</h1>
-      </div>
+      <div className={styles.parent__wrappertitle}>{printTitle()}</div>
 
       <div className={styles.parent}>
         <div className={styles.parent__zoom}>
