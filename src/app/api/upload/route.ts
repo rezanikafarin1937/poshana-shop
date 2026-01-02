@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const formData = await req.formData();
 
     //  get simple data
-    const id = formData.get("id")?.toString();
+    const id = Number(formData.get("id"));
     const title = formData.get("title")?.toString();
     const price = formData.get("price")?.toString();
     const discount = formData.get("discount")?.toString();

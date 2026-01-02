@@ -6,6 +6,7 @@ async function ServerSlider({borderColor = null,search = null} : {borderColor : 
   let url = `${BaseUrl}/products`;
   if(search){
     url = url + search;
+    console.log('UUUUrl = ',url)
   }
   console.log("URL = ",url)
   const response = await fetch(url);
