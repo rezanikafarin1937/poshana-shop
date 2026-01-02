@@ -19,6 +19,10 @@ const Dashboard = () => {
   const [cat, setCat] = useState("");
   const [usages, setUsages] = useState<string[]>([]);
   const [selectedUsage, setSelectedUsage] = useState("");
+  const [model, setModel] = useState("");
+  const [colors, setColors] = useState("");
+  const [size, setSize] = useState("");
+  const [material,setMaterial] = useState("");
   function getUsage() {
     axios.get(`${BaseUrl}/usage`).then((res) => {
       setUsages(() => res.data);
@@ -31,6 +35,7 @@ const Dashboard = () => {
   }, []);
 
   const handleCreateProduct = async () => {
+    // const resultColors = colors.split("-").join(",");
     const formData = new FormData();
     formData.append("id", getId().toString());
     formData.append("title", title);
@@ -38,7 +43,11 @@ const Dashboard = () => {
     formData.append("discount", discount);
     formData.append("description", desc);
     formData.append("cat", cat);
-    formData.append("usage",selectedUsage)
+    formData.append("usage", selectedUsage);
+    formData.append("model", model);
+    formData.append("material",material);
+    formData.append("size", size);
+    formData.append("colors", colors);
 
     const filesArray = Array.from(files); // convert files to array
     filesArray.forEach((file) => {
@@ -83,6 +92,39 @@ const Dashboard = () => {
             onChange={(e) => setDiscount(e.target.value)}
           />
           <br />
+          <input
+            className={styles.dashboard__input}
+            type="text"
+            name="model"
+            placeholder="مدل"
+            onChange={(e) => setModel(e.target.value)}
+          />
+          <br />
+          <input
+            className={styles.dashboard__input}
+            type="text"
+            name="material"
+            placeholder="جنس"
+            onChange={(e) => setMaterial(e.target.value)}
+          />
+          <br />
+          <input
+            className={styles.dashboard__input}
+            type="text"
+            name="size"
+            placeholder="سایز"
+            onChange={(e) => setSize(e.target.value)}
+          />
+          <br />
+          <input
+            className={styles.dashboard__input}
+            type="text"
+            name="colors"
+            placeholder="رنگها"
+            onChange={(e) => setColors(e.target.value)}
+          />
+
+          <br />
           <label htmlFor="category">دسته‌بندی:</label>
           <select
             name="cat"
@@ -108,7 +150,9 @@ const Dashboard = () => {
             className={styles.dashboard__select}
             onChange={(e) => setSelectedUsage(e.target.value)}
           >
-            <option value="" disabled>استفاده برای </option>
+            <option value="" disabled>
+              استفاده برای{" "}
+            </option>
             {usages.map((usage, index) => (
               <option key={index} value={usage.title}>
                 {usage.title}
@@ -116,6 +160,7 @@ const Dashboard = () => {
             ))}
           </select>
           <br />
+
           <textarea
             className={styles.dashboard__textarea}
             name="description"

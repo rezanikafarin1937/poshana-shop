@@ -21,14 +21,23 @@ interface IGetProduct {
   discount: number;
   cat: string;
   usage: string;
+  material: string;
+  model: string;
+  size: string;
+  colors: string;
 }
 
 async function page({ params }: ProductPageProps) {
   const { id } = await params;
   const result = await fetch(`${BaseUrl}/products/${id}`);
   const product = (await result.json()) as IGetProduct;
+  const colors = product.colors ? product?.colors.split("-") : [];
+  const sizes = product.size ? product?.size.split("-") : [];
+
   // گرفتن محصولات مشابه بدین شکل
-  const results = await fetch(`${BaseUrl}/products?cat=${product?.cat}&?usage=${product?.usage}`);
+  const results = await fetch(
+    `${BaseUrl}/products?cat=${product?.cat}&?usage=${product?.usage}`
+  );
   const products = (await results.json()) as IGetProduct;
 
   const printTitle = () => {
@@ -58,6 +67,17 @@ async function page({ params }: ProductPageProps) {
       <div className={styles.parent}>
         <div className={styles.parent__zoom}>
           <ZoomImage images={product.images} />
+          <br />
+          <div className={styles.parent__wrapperbox}>
+            <div className={styles.parent__titlebox} style={{textAlign : "right"}}>سایر توضیحات</div>
+            <div  className={styles.parent__boxinfo}>
+              <div className={styles.parent__info}>جنس : <span style={{color : "var(--color-site)"}}>{product.material}</span> </div>
+              <div className={styles.parent__info}>سایز : <span style={{color : "var(--color-site)"}}>{product.size}</span> </div>
+              <div className={styles.parent__info}>مدل : <span style={{color : "var(--color-site)"}}>{product.model}</span> </div>
+              <div className={styles.parent__info}>رنگها : <span style={{color : "var(--color-site)"}}>{product.colors}</span> </div>
+              <p className={styles.parent__chatter}>{product.description}</p>
+            </div>
+            </div>
         </div>
         <div className={styles.parent__description}>
           <h2 className={styles.parent__title}>
@@ -69,7 +89,7 @@ async function page({ params }: ProductPageProps) {
               {Number(product.id).toLocaleString("fa")}
             </span>
           </p>
-          <h6 className="font-16 text-justify" style={{ lineHeight: "26px" }}>
+          <h6 className="font-16 text-justify whitespace-nowrap" style={{ lineHeight: "26px" }}>
             توجه!
             <p>❌ حتماً راهنمای سایز مطالعه شود. ❌</p>
           </h6>
@@ -118,13 +138,37 @@ async function page({ params }: ProductPageProps) {
             <button className={styles.parent__btnfast}>خرید سریع</button>
           </div>
           <br />
-          <p>راهنمای سایزبندی حتما مطالعه شود.</p>
-          <div className={styles.parent__boxinfo}>
-            <div className={styles.parent__info}>جنس : </div>
-            <div className={styles.parent__info}>سایز : </div>
-            <div className={styles.parent__info}>مدل و رنگ : </div>
-            <p>{product.description}</p>
+          <br />
+          <div className={styles.parent__helpbox}>                  
+          <h6 className="font-16 text-justify whitespace-nowrap" style={{ lineHeight: "26px" }}>
+            توجه!
+            <p>❌ حتماً راهنمای سایز مطالعه شود. ❌</p>
+          </h6>
+          <br />    
+            <div className={styles.parent__othertitle}>جنس</div>
+            <div className={styles.parent__wrappersize}>
+              <p  className={styles.parent__size}> {product?.material} </p>
           </div>
+          <br />
+          <div className={styles.parent__othertitle}>سایزبندی</div>
+          <div className={styles.parent__wrappersize}>
+            {sizes.map((size, index) => (
+              <p className={styles.parent__size} key={index}>
+                {size}
+              </p>
+            ))}
+          </div>
+          <br />
+          <div className={styles.parent__othertitle}>رنگ بندی</div>
+          <div className={styles.parent__wrappersize}>
+            {colors.map((color, index) => (
+              <p className={styles.parent__size} key={index}>
+                {color}
+              </p>
+            ))}
+          </div>
+          </div>
+          <br />
         </div>
       </div>
       <div className="space"></div>

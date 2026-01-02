@@ -12,6 +12,10 @@ export async function POST(req: Request) {
     const title = formData.get("title")?.toString();
     const price = formData.get("price")?.toString();
     const discount = formData.get("discount")?.toString();
+    const model = formData.get("model")?.toString();
+    const material = formData.get("material")?.toString();
+    const size = formData.get("size")?.toString();
+    const colors = formData.get("colors")?.toString();
     const description = formData.get("description")?.toString();
     const cat = formData.get("cat")?.toString();
     const usage = formData.get("usage")?.toString();
@@ -41,6 +45,10 @@ export async function POST(req: Request) {
       title,
       price,
       discount,
+      material,
+      model,
+      size,
+      colors,
       description,
       images: savedFiles, // فقط نام فایل‌ها
       cat,
