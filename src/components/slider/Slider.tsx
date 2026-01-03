@@ -36,6 +36,7 @@ const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
         ? (e as React.MouseEvent).clientX
         : (e as React.TouchEvent).touches[0].clientX;
     const distance = clientX - startX;
+    console.log('distance =' ,distance);
     if (containerRef.current) {
       containerRef.current.scrollLeft = scrollLeft - distance;
     }
