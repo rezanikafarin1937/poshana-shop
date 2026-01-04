@@ -14,6 +14,7 @@ import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
 
 export interface IProductItemProps {
+// با توجه به تغییر ساختار داده ها در دیتا بیس این تعریف این داده ها باید تغییر کند مثلا داده هایی مثل رنگ سایز و ... اضافه شوند و id  number شود.
   id: string;
   title: string;
   price: number;
@@ -102,7 +103,7 @@ async function Store({ searchParams }: IStoreProps) {
           btnTitle="مشاهده همه"
           bgColor="#eee"
           textColor="var(--global-text)"
-        >
+        > 
           <ServerSlider search="?new=true" borderColor="var(--active-text)" />
         </WrpperSlider>
 

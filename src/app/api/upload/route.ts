@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     const id = Number(formData.get("id"));
     const title = formData.get("title")?.toString();
     const price = formData.get("price")?.toString();
-    const discount = formData.get("discount")?.toString();
+    const discount = Number(formData.get("discount"));
     const model = formData.get("model")?.toString();
     const material = formData.get("material")?.toString();
     const size = formData.get("size")?.toString();
