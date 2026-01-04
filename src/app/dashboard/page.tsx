@@ -14,7 +14,7 @@ const Dashboard = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState("0");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
   const [usages, setUsages] = useState<string[]>([]);
@@ -40,7 +40,7 @@ const Dashboard = () => {
     formData.append("id", getId().toString());
     formData.append("title", title);
     formData.append("price", price);
-    formData.append("discount", Number(discount));
+    formData.append("discount", discount);
     formData.append("description", desc);
     formData.append("cat", cat);
     formData.append("usage", selectedUsage);
