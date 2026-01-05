@@ -71,7 +71,7 @@ const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
       </div>
       <div
         ref={containerRef}
-        className="overflow-x-auto no-scrollbar  select-none py-4 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+        className="overflow-x-auto no-scrollbar  select-none py-4 flex justify-start gap-4 scroll-smooth" // اضافه کردن overflow-x-auto برای اسکرول مخفی
         onMouseDown={startDrag}
         onMouseMove={drag}
         onMouseUp={stopDrag}
