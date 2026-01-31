@@ -8,8 +8,9 @@ import { Pagination, Navigation } from "swiper/modules";
 // import { Navigation } from 'swiper'
 import "swiper/css";
 import "swiper/css/pagination";
-import "./styles.css";
 import "swiper/css/navigation";
+import "./styles.css";
+import "./swiperCustom.css";
 
 const MySwiperSlider = ({ data }) => {
   return (
