@@ -2,10 +2,7 @@ import { BaseUrl } from "@/Global/BaseUrl";
 import ZoomImage from "@/utils/zoom-image/ZoomImage";
 import CartButton from "@/components/CartButton";
 import Heading from "@/components/heading/Heading";
-import Slider from "@/components/slider/Slider";
-import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
-import ItemCard from "@/components/item-card/ItemCard";
-import { IProductItemProps } from "@/components/ProductItem";
+import SwiperSlider from '@/components/slider/swiper-slider/SwiperSlider';
 import styles from "./product.module.scss";
 
 interface ProductPageProps {
@@ -173,13 +170,7 @@ async function page({ params }: ProductPageProps) {
       </div>
       <div className="space"></div>
       <Heading title="محصولات مشابه" linkTitle="مشاهده همه " link="/store" />
-      <Slider>
-        {products.map((d: IProductItemProps) => (
-          <LinkWrapper key={d.id} href={`/store/${d.id}`}>
-            <ItemCard {...d} width="250px" height="100%" />
-          </LinkWrapper>
-        ))}
-      </Slider>
+       <SwiperSlider data={products}/>
     </>
   );
 }
