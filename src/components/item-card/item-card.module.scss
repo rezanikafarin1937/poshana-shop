@@ -9,6 +9,7 @@
   max-height: 440px;
   min-height: 440px;
   cursor: pointer;
+  user-select: none;
 
   @media (max-width: 425px) {
     width: 100%;
@@ -38,6 +39,11 @@
   }
 
   &__title {
+    color: var(--color-site);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    overflow: hidden;
   }
   &__price {
     width: 100%;

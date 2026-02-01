@@ -17,7 +17,7 @@ const MySwiperSlider = ({ data }) => {
     <>
       <Swiper
         dir="rtl"
-        slidesPerView={6}
+        slidesPerView={5}
         spaceBetween={15}
         // modules={[Pagination]}
         modules={[Navigation]}
@@ -33,6 +33,9 @@ const MySwiperSlider = ({ data }) => {
           },
           1024: {
             slidesPerView: 4,
+          },
+          1200: {
+            slidesPerView: 5,
           },
           1440: { slidesPerView: 5 },
         }}

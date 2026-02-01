@@ -134,8 +134,6 @@ async function page({ params }: ProductPageProps) {
             <button className={styles.parent__btn}>افزودن به سبد خرید</button>
             <button className={styles.parent__btnfast}>خرید سریع</button>
           </div>
-          <br />
-          <br />
           <div className={styles.parent__helpbox}>                  
           <h6 className="font-16 text-justify whitespace-nowrap" style={{ lineHeight: "26px" }}>
             توجه!
@@ -170,7 +168,9 @@ async function page({ params }: ProductPageProps) {
       </div>
       <div className="space"></div>
       <Heading title="محصولات مشابه" linkTitle="مشاهده همه " link="/store" />
+      <br />
        <SwiperSlider data={products}/>
+       <br />
     </>
   );
 }

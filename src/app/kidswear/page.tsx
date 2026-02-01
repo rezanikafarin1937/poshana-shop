@@ -13,7 +13,7 @@ interface IStoreProps {
 
 async function Feminine({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
-  const per_page = (await searchParams).per_page ?? "3";
+  const per_page = (await searchParams).per_page ?? "10";
   const cat = 'بچگانه';
   const result = await fetch(
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&cat=${cat}`
@@ -38,7 +38,7 @@ async function Feminine({ searchParams }: IStoreProps) {
           : ""}
       </div>
       <Pagination
-        per_page={4}
+        per_page={10}
         next={items.next}
         prev={items.prev}
         pages={items.pages}
