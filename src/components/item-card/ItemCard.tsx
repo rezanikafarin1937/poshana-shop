@@ -50,7 +50,7 @@ const ItemCard = ({
       </div>
       <div className={styles.card__intro}>
         <MiniGallery images={images} width={40} height={40} />
-        <div className="">{title}</div>
+        <div className={styles.card__title}>{title}</div>
         <div className={styles.card__price}>
           <div style={{color : "#515151"}}>{discount ? <del> {Number(price).toLocaleString("fa")} تومان </del> : ""}</div>
           <div>{discount ? (Number(price) - (Number(price) * discount/100)).toLocaleString('fa') : Number(price).toLocaleString('fa')} تومان </div>
