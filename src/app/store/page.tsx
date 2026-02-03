@@ -62,7 +62,7 @@ async function Store({ searchParams }: IStoreProps) {
         {
           <HorizontalScroll>
             {usages.map((usage: IUsagesProps) => (
-              <Avatar key={usage.id} {...usage} />
+              usage.image ? <Avatar key={usage.id} {...usage} /> : ""
             ))}
           </HorizontalScroll>
         }
