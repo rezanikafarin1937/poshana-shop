@@ -3,6 +3,7 @@ import { IProductList } from "@/components/ProductItem";
 import Pagination from "@/utils/pagination/Pagination";
 import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import ItemCard from "@/components/item-card/ItemCard";
+import './search.css';
 
 export interface IProductItemProps {
   id: string;
@@ -19,7 +20,7 @@ interface IStoreProps {
 
 async function Search({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
-  const per_page = (await searchParams).per_page ?? "3";
+  const per_page = (await searchParams).per_page ?? "10";
   const title = (await searchParams).title ?? "";
 
   //   const result = await fetch(
@@ -41,6 +42,7 @@ async function Search({ searchParams }: IStoreProps) {
     <>
       <div className="space"></div>
       <h1 className="title" style={{textAlign : "center",color : "var(--active-text)"}}>فروشگاه پوشانا</h1>
+      <h6 className="box">نتایج یافت شده برای <span style={{color : `var(--active-text)`}}>{title}</span></h6>
       <br /> 
       <div
         dir="rtl"
@@ -56,7 +58,7 @@ async function Search({ searchParams }: IStoreProps) {
       
       <Pagination
         path="search"
-        per_page={3}
+        per_page={10}
         next={items.next}
         prev={items.prev}
         pages={items.pages}

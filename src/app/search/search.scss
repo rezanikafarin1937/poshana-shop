@@ -1,0 +1,15 @@
+.box{
+    color : var(--global-text);
+    margin-bottom : 10px;
+    font-size : 1rem;
+    border : 2px solid var(--active-text);
+    padding : .5rem 1rem;
+    border-radius : 10px;
+    display : inline-block;
+    position: sticky;
+    top : 100px;
+    left: 20px;
+    direction: rtl;
+    z-index: 1;
+    background-color: var(--bg-site);
+}
