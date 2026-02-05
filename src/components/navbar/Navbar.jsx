@@ -60,7 +60,7 @@ const Navbar = () => {
 <nav className="max-[769px]:hidden p-4 sticky top-0 z-3000  bg-[#f8f2f2] shadow bg-white text-[1rem] rounded-bl-2xl rounded-br-2xl">
       <div className="flex flex-row-reverse justify-between items-center">
         <div className="flex flex-row-reverse items-center">
-          {/* <Logo/> */}
+          <Logo/>
           <ul
             className="p-4 flex flex-row items-center max-h-[50px] text-[var(--global-text)]"
             dir="rtl"
