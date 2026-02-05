@@ -8,8 +8,6 @@ const ZoomImage = ({ images }) => {
   const zoomImage = useRef(null);
   useEffect(() => {
     function handleMouseEnter(e) {
-      console.log("mouse entered zoom image", e);
-      console.log("this = ", this);
       this.style.backgroundSize = "500%";
     }
 
@@ -60,7 +58,6 @@ const ZoomImage = ({ images }) => {
               className={styles.parent__img}
               onClick={() => {
                 setActiveImage(() => index);
-                console.log(index, ":", image);
               }}
             >
               <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />

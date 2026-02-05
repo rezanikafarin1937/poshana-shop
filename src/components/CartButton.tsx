@@ -13,7 +13,6 @@ const CartButton = ({ id }: ICartButtonProps) => {
     handleDecreaseProductQty,
     handleRemoveProduct,
   } = useShoppingCartContext();
-  console.log("cartItems = ", cartItems);
   return (
     <>
       <div className="w-[100%] max-[425px]:w-full flex justify-start gap-3.5 items-center  my-[1rem]">

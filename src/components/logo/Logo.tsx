@@ -1,5 +1,3 @@
-import React from "react";
-
 const Logo = () => {
   return (
     <h2 className="w-[80px] h-[80px]">

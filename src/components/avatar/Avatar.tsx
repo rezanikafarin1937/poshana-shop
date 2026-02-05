@@ -5,7 +5,6 @@ import { IUsagesProps } from "../fetch-usage/fetchUsage";
 
 const Avatar = (data: IUsagesProps) => {
   const router = useRouter();
-  console.log("data avatar = ", data);
   const handleClick = (title : string) => {
     router.push(`/usage?title=${title}`);
   }

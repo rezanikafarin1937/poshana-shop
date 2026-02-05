@@ -10,7 +10,6 @@ const ActiveSlider = ({ children, width, height }) => {
         } else {
           setCurrentItem(0);
         }
-      console.log("currentItem Effect = ", currentItem);
     }, 8000);
 
     return () => clearInterval(timer);

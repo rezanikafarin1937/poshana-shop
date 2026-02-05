@@ -31,12 +31,10 @@ async function Search({ searchParams }: IStoreProps) {
   // این تکه کد و گرفتن کل داده از سرور  در حالت عادی کار کاملا اشتباهی است و فقط برای شبیه سازی سرچ استفاده شده است در این جا چون داده ها کم است و برای  نمونه کار میباشد اشکال ندارد
   const result = await fetch(`${BaseUrl}/products`, { cache: "no-cache" });
 
-  console.log("RRsult = ", result);
 
   //این تکه کد یک شبیه ساز سرچ است
   let items = (await result.json()) as IProductList;
   items = items.filter((item) => item.title.indexOf(`${title}`) > -1);
-  console.log("Pagination = ", items);
 
   return (
     <>

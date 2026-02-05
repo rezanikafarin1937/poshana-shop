@@ -17,7 +17,6 @@ function CartItem({ id, qty }: ICartsItemProps) {
       const data = result.data;
       // or get data => const {data} = result;
       setData(data);
-      console.log(data);
     });
   }, []);
   return (

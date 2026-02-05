@@ -3,7 +3,7 @@ import SearchIcon from "../search/icons/SearchIcon";
 import styles from "./global-search.module.css";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 const GlobalSearch = () => {
   const router = useRouter();
