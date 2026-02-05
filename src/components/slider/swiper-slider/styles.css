@@ -51,3 +51,18 @@ body {
   height: 40px;
   border-color: rgba(0,0,0,.4);
 }
+
+
+/* برای نرم کار کردن اسلایدر در کروم */
+/* این کار باعث می‌شه انیمیشن‌ها در کروم با GPU انجام بشن، نه CPU. */
+.swiper {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transition: transform 0.3s ease-out;
+}
+.swiper-slide {
+  will-change: transform;
+  transform: translateZ(0);
+}
