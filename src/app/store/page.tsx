@@ -51,10 +51,8 @@ async function Store({ searchParams }: IStoreProps) {
     { cache: "no-cache" }
   );
   const items = (await result.json()) as IProductList;
-  console.log("Pagination = ", items);
 
   const usages = await fetchUsage();
-  console.log("data usages = ", usages);
 
   return (
     <>

@@ -19,19 +19,25 @@ const Pagination = ({
   first = null,
   per_page = 2,
   path = "feminine",
+  search = null,
+  searchValue = null,
 }) => {
   const [currentPage, setCurrentPage] = useState(null);
   const router = useRouter();
 
+
   const handleClick = (myPage) => {
     if (myPage === currentPage) return;
-    router.push(`/${path}?page=${myPage}&per_page=${per_page}`);
-    console.log("per_page = ", per_page);
+    if (search && searchValue){
+      router.push(
+        `/${path}?page=${myPage}&per_page=${per_page}&${search}=${searchValue}`,
+      
+      );}
+    else router.push(`/${path}?page=${myPage}&per_page=${per_page}`);
   };
 
   function renderItems() {
     let items = [];
-    console.log("currentPage = ", currentPage);
     if (currentPage) {
       if (prev) {
         let prevElem = (
@@ -42,7 +48,6 @@ const Pagination = ({
           >
             <span className={styles.paginate__text}>قبلی</span>
             <span className={styles.paginate__arrow}>»</span>
-
           </div>
         );
         items.push(prevElem);
@@ -137,7 +142,6 @@ const Pagination = ({
         items.push(nextElem);
       }
     }
-    console.log("items element = ", items);
     return items;
   }
 
