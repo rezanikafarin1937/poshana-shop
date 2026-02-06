@@ -1,0 +1,77 @@
+{
+  "usage": [
+    {
+      "id": "1",
+      "title": "بهاری",
+      "image": "usage1.jpg"
+    },
+    {
+      "id": "2",
+      "title": "تابستانی",
+      "image": "usage2.jpg"
+    },
+    {
+      "id": "3",
+      "title": "پاییزی",
+      "image": "usage3.jpg"
+    },
+    {
+      "id": "4",
+      "title": "زمستانی",
+      "image": "usage4.jpg"
+    },
+    {
+      "id": "5",
+      "title": "مجلسی",
+      "image": "usage5.jpg"
+    },
+    {
+      "id": "6",
+      "title": "کار",
+      "image": "usage6.jpg"
+    },
+    {
+      "id": "7",
+      "title": "خانگی",
+      "image": "usage7.jpg"
+    },
+    {
+      "id": "8",
+      "title": "خواب",
+      "image": "usage8.jpg"
+    },
+    {
+      "id": "9",
+      "title": "لباس زیر",
+      "image": "usage9.jpg"
+    },
+    {
+      "id": "10",
+      "title": "ورزشی",
+      "image": "usage10.jpg"
+    },
+    {
+      "id": "11",
+      "title": "محلی",
+      "image": "usage11.jpg"
+    },
+    {
+      "id": "12",
+      "title": "کفش",
+      "image": "usage12.jpg"
+    },
+    {
+      "id": "13",
+      "title": "کیف",
+      "image": "usage13.jpg"
+    },
+    {
+      "id": "14",
+      "title": "چهار فصل"
+    },
+    {
+      "id": "15",
+      "title": "روز مره"
+    }
+  ]
+}
