@@ -61,9 +61,9 @@ const HorizontalScroll = ({children ,dir = 'rtl',gap = null} : ChildrenProps) =>
         cursor: isDragging ? "grabbing" : "grab",
       }}
     >
-      {children.map((child,index) => (
+      {children ?  children.map((child,index) => (
             <div style={gap ? { margin : `0 ${gap}`} : {margin : '0 .5rem'}} key={index}>{child}</div>
-        ))}
+        )) : ""}
     </div>
   );
 };

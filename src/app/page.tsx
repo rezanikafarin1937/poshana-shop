@@ -59,9 +59,9 @@ async function Store({ searchParams }: IStoreProps) {
       <div className="flex flex-col">
         {
           <HorizontalScroll>
-            {usages.map((usage: IUsagesProps) => (
+            {usages.length > 0 ? usages.map((usage: IUsagesProps) => (
               usage.image ? <Avatar key={usage.id} {...usage} /> : ""
-            ))}
+            )) : ""}
           </HorizontalScroll>
         }
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />

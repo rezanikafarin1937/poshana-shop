@@ -6,6 +6,7 @@ import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import Container from "@/components/container/Container";
 import { IProductList } from "@/components/ProductItem";
 
+
 interface IStoreProps {
 //   params: Promise<{}>;
   searchParams: Promise<{ page: string; per_page: string }>;
@@ -19,6 +20,7 @@ async function Feminine({ searchParams }: IStoreProps) {
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&cat=${cat}`
   ,{cache : 'no-store'});
   const items = (await result.json()) as IProductList;
+  console.log('items = ',items)
 
 
 

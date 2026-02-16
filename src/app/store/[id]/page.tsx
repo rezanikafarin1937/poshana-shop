@@ -26,8 +26,10 @@ interface IGetProduct {
 
 async function page({ params }: ProductPageProps) {
   const { id } = await params;
-  const result = await fetch(`${BaseUrl}/products/${id}`);
-  const product = (await result.json()) as IGetProduct;
+  console.log("BaseUrl = ",BaseUrl);
+  const product = await fetch(`${BaseUrl}/products/${id}`);
+  console.log('PPProcuct= ',product);
+  // const product = (await result.json()) as IGetProduct;
   const colors = product.colors ? product?.colors.split("-") : [];
   const sizes = product.size ? product?.size.split("-") : [];
 

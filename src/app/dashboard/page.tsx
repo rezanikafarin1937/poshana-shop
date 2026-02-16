@@ -10,7 +10,6 @@ import styles from "./dashboard.module.css";
 
 const Dashboard = () => {
   const pathName = usePathname();
-  console.log("pathName = ", pathName);
   const [files, setFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -26,7 +25,6 @@ const Dashboard = () => {
   function getUsage() {
     axios.get(`${BaseUrl}/usage`).then((res) => {
       setUsages(() => res.data);
-      console.log("UUUUUUsage:", res.data);
     });
   }
 

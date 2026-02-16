@@ -12,9 +12,13 @@ import Accessories from "@/components/accessories/Accessories";
 import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
+import AllProducts from "@/app/all-products/AllProducts";
+
+
+
 
 export interface IProductItemProps {
-// با توجه به تغییر ساختار داده ها در دیتا بیس این تعریف این داده ها باید تغییر کند مثلا داده هایی مثل رنگ سایز و ... اضافه شوند و id  number شود.
+  // با توجه به تغییر ساختار داده ها در دیتا بیس این تعریف این داده ها باید تغییر کند مثلا داده هایی مثل رنگ سایز و ... اضافه شوند و id  number شود.
   id: string;
   title: string;
   price: number;
@@ -45,10 +49,11 @@ async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
   const per_page = (await searchParams).per_page ?? "3";
   const title = (await searchParams).title ?? "";
+  const d = null;
 
   const result = await fetch(
     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`,
-    { cache: "no-cache" }
+    { cache: "no-cache" },
   );
   const items = (await result.json()) as IProductList;
 
@@ -59,11 +64,15 @@ async function Store({ searchParams }: IStoreProps) {
       <div className="flex flex-col">
         {
           <HorizontalScroll>
-            {usages.map((usage: IUsagesProps) => (
-              usage.image ? <Avatar key={usage.id} {...usage} /> : ""
-            ))}
+            {usages.map((usage: IUsagesProps) =>
+              usage.image ? <Avatar key={usage.id} {...usage} /> : "",
+            )}
           </HorizontalScroll>
         }
+        
+        {/* <AllProducts /> */}
+
+
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />
         <br />
         <Support images={supports} small={true} />
@@ -75,7 +84,7 @@ async function Store({ searchParams }: IStoreProps) {
           title="تخفیف‌های هیجان‌انگیز امروز"
           btnTitle="مشاهده همه"
         >
-          <ServerSlider search="?discount_gt=0"/>
+          <ServerSlider search="?discount_gt=0" />
         </WrpperSlider>
         <Accessories />
         <h1 className="relative top-9 text-[var(--active-text)] text-right text-[2rem] pr-4  max-[426px]:text-[1.5rem]">
@@ -101,7 +110,7 @@ async function Store({ searchParams }: IStoreProps) {
           btnTitle="مشاهده همه"
           bgColor="#eee"
           textColor="var(--global-text)"
-        > 
+        >
           <ServerSlider search="?new=true" borderColor="var(--active-text)" />
         </WrpperSlider>
 
