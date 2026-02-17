@@ -12,7 +12,6 @@ import Accessories from "@/components/accessories/Accessories";
 import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
-import AllProducts from "@/app/all-products/AllProducts";
 
 
 
@@ -64,13 +63,12 @@ async function Store({ searchParams }: IStoreProps) {
       <div className="flex flex-col">
         {
           <HorizontalScroll>
-            {usages.map((usage: IUsagesProps) =>
+            {usages.length > 0 ? usages.map((usage: IUsagesProps) =>
               usage.image ? <Avatar key={usage.id} {...usage} /> : "",
-            )}
+            ) : ""}
           </HorizontalScroll>
         }
         
-        {/* <AllProducts /> */}
 
 
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />

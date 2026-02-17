@@ -32,7 +32,7 @@ const MySwiperSlider = ({ data }) => {
             slidesPerView: 3,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 5,
           },
           1200: {
             slidesPerView: 5,
