@@ -1,20 +1,15 @@
 import { BaseUrl } from "@/Global/BaseUrl";
-import { IProductList } from "@/components/ProductItem";
+import { IProductItemProps } from "@/components/ProductItem";
 import Pagination from "@/utils/pagination/Pagination";
-import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import ItemCard from "@/components/item-card/ItemCard";
-import './search.css';
+import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
+import Container from "@/components/container/Container";
+import { IProductList } from "@/components/ProductItem";
+import "./search.css";
 
-export interface IProductItemProps {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-}
 
 interface IStoreProps {
-  params: Promise<{}>;
+  //   params: Promise<{}>;
   searchParams: Promise<{ page: string; per_page: string; title: string }>;
 }
 
@@ -23,48 +18,129 @@ async function Search({ searchParams }: IStoreProps) {
   const per_page = (await searchParams).per_page ?? "10";
   const title = (await searchParams).title ?? "";
 
-  //   const result = await fetch(
-  //     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`,
-  //     { cache: "no-cache" }
-  //   );
-
-  // این تکه کد و گرفتن کل داده از سرور  در حالت عادی کار کاملا اشتباهی است و فقط برای شبیه سازی سرچ استفاده شده است در این جا چون داده ها کم است و برای  نمونه کار میباشد اشکال ندارد
-  const result = await fetch(`${BaseUrl}/products`, { cache: "no-cache" });
-
-
-  //این تکه کد یک شبیه ساز سرچ است
-  let items = (await result.json()) as IProductList;
-  items = items.filter((item) => item.title.indexOf(`${title}`) > -1);
+  const result = await fetch(
+    `${BaseUrl}/search?_page=${page}&_per_page=${per_page}&title=${title}`,
+    { cache: "no-store" },
+  );
+  const items = (await result.json()) as IProductList;
+  console.log("items = ", items);
 
   return (
-    <>
+    <Container>
       <div className="space"></div>
-      <h1 className="title" style={{textAlign : "center",color : "var(--active-text)"}}>فروشگاه پوشانا</h1>
-      <h6 className="box">نتایج یافت شده برای <span style={{color : `var(--active-text)`}}>{title}</span></h6>
-      <br /> 
+      <h1
+        className="title"
+        style={{ textAlign: "center", color: "var(--active-text)" }}
+      >
+        فروشگاه پوشانا
+      </h1>
+      <h6 className="box">
+        نتایج یافت شده برای{" "}
+        <span style={{ color: `var(--active-text)` }}>{title}</span>
+      </h6>
+      <br />
+
+      <h1 className="title text-center my-[2rem]">{}</h1>
       <div
         dir="rtl"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
       >
-        {items.map((item: IProductItemProps, index: number) => (
-          <LinkWrapper key={index} href={`/store/${item.id}`}>
-            <ItemCard {...item} />
-          </LinkWrapper>
-        ))}
+        {items.data
+          ? items.data.map((item: IProductItemProps) => (
+              <LinkWrapper key={item.id} href={`/store/${item.id}`}>
+                <ItemCard {...item} />
+              </LinkWrapper>
+            ))
+          : ""}
       </div>
-       <div className="space"></div> 
-      
+      <br />
       <Pagination
-        path="search"
         per_page={10}
         next={items.next}
         prev={items.prev}
         pages={items.pages}
         last={items.last}
         first={items.first}
+        path="search"
+        searchValue={`${title}`}
+        search="title"
       />
-    </>
+    </Container>
   );
 }
 
 export default Search;
+
+// import { BaseUrl } from "@/Global/BaseUrl";
+// import { IProductList } from "@/components/ProductItem";
+// import Pagination from "@/utils/pagination/Pagination";
+// import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
+// import ItemCard from "@/components/item-card/ItemCard";
+// import "./search.css";
+
+// export interface IProductItemProps {
+//   id: string;
+//   title: string;
+//   price: number;
+//   image: string;
+//   description: string;
+// }
+
+// interface IStoreProps {
+//   params: Promise<{}>;
+//   searchParams: Promise<{ page: string; per_page: string; title: string }>;
+// }
+
+// async function Search({ searchParams }: IStoreProps) {
+//   const page = (await searchParams).page ?? "1";
+//   const per_page = (await searchParams).per_page ?? "10";
+//   const title = (await searchParams).title ?? "";
+
+//   const result = await fetch(
+//     `${BaseUrl}/search?_page=${page}&_per_page=${per_page}&title=${title}`,
+//     { cache: "no-cache" },
+//   );
+//   const response = (await result.json()) as IProductList;
+//   const items = response.data;
+//   console.log("items.length = ", items.length);
+
+//   return (
+//     <>
+//       <div className="space"></div>
+//       <h1
+//         className="title"
+//         style={{ textAlign: "center", color: "var(--active-text)" }}
+//       >
+//         فروشگاه پوشانا
+//       </h1>
+//       <h6 className="box">
+//         نتایج یافت شده برای{" "}
+//         <span style={{ color: `var(--active-text)` }}>{title}</span>
+//       </h6>
+//       <br />
+//       <div
+//         dir="rtl"
+//         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+//       >
+//         {items.length > -1 ? items.map((item: IProductItemProps, index: number) => (
+//           <LinkWrapper key={index} href={`/store/${item.id}`}>
+//             <ItemCard {...item} />
+//           </LinkWrapper>
+//         )) : ""}
+//       </div>
+//       <div className="space"></div>
+
+//       <Pagination
+//         per_page={10}
+//         next={items.next}
+//         prev={items.prev}
+//         pages={items.pages}
+//         last={items.last}
+//         first={items.first}
+//         path="search"
+//       />
+//     </>
+//   );
+// }
+
+// export default Search;
