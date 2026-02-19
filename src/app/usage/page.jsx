@@ -11,7 +11,7 @@ const Usage = async ({ params, searchParams }) => {
   const page = (await searchParams).page ?? "1";
   const per_page = (await searchParams).per_page ?? "10";
   const result = await fetch(
-    `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&usage=${title}`,
+    `${BaseUrl}/usage-search?_page=${page}&_per_page=${per_page}&usage=${title}`,
     { cache: "no-store" },
   );
   const items = await result.json();
