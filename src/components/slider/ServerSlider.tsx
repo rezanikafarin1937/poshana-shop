@@ -1,6 +1,5 @@
 import { BaseUrl } from "@/Global/BaseUrl";
-import SwiperSlider from '@/components/slider/swiper-slider/SwiperSlider';
-
+import SwiperSlider from "@/components/slider/swiper-slider/SwiperSlider";
 
 async function ServerSlider({
   borderColor = null,
@@ -9,15 +8,40 @@ async function ServerSlider({
   borderColor: string | null;
   search: string | null;
 }) {
-  let url = `${BaseUrl}/products`;
-  if (search) {
-    url = url + search;
+  // let response = null;
+  // if (search == "discount") {
+  //   response = fetch(`${BaseUrl}/discount`);
+  //   let dd =  (await response).json();
+  //   console.log("is discount and dd = ",dd)
+  // } else {
+  //   let url = `${BaseUrl}/discount`;
+  //   if (search) {
+  //     url = url + search;
+  //   }
+  //   response = await fetch(url);
+  //   console.log('response = ', response);
+  // }
+  let data = null;
+  if (search === "discount") {
+    const response = await fetch(`${BaseUrl}/discount`);
+    data = await response.json();
+    console.log("Data is = ", data);
   }
-  const response = await fetch(url);
-  const data = await response.json();
-  return (
+  else if(search === 'new'){
+    const response = await fetch(`${BaseUrl}/new`);
+    data = await response.json();
+    console.log("Data is = ", data);
+
+  }
+  else {
+    const response = await fetch(`${BaseUrl}/old`);
+    data = await response.json();
+    console.log("Data is = ", data);
+
+  }
+  return ( 
     <>
-      <SwiperSlider data={data}/>
+     {data ? <SwiperSlider data={data} /> : "" }
     </>
   );
 }
