@@ -32,7 +32,7 @@ async function Feminine({ searchParams }: IStoreProps) {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
       >
         {items.data
-          ? items.data.map((item: IProductItemProps) => (
+          ? items.data.map((item) => (
               <LinkWrapper key={item.id} href={`/store/${item.id}`}>
                 <ItemCard {...item} />
               </LinkWrapper>
