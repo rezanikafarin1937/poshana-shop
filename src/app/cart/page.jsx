@@ -4,17 +4,17 @@ import CartItem from "@/components/CartItem";
 import { useShoppingCartContext } from "@/context/ShoppingCartContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { IProductItemProps } from "@/components/ProductItem";
+// import { IProductItemProps } from "@/components/ProductItem";
 import { BaseUrl } from "@/Global/BaseUrl";
 
-interface IDiscountData {
-  id: number;
-  code: string;
-  percentage: number;
-}
+// interface IDiscountData {
+//   id: number;
+//   code: string;
+//   percentage: number;
+// }
 
 const Cart = () => {
-  const [data, setData] = useState<IProductItemProps[]>([]);
+  const [data, setData] = useState[{}];
   const [discountedPrice, setDiscountedPrice] = useState(() => 0);
   const [finalPrice, setFinalPrice] = useState(() => 0);
   useEffect(() => {
@@ -29,7 +29,8 @@ const Cart = () => {
 
   function handleSubmitDiscount() {
     axios(`${BaseUrl}/discounts?code=${discountCode}`).then((result) => {
-      const data = result.data as IDiscountData;
+      const data =  result.data;
+      
 
       const price = Number(totalPrice);
       const percentage = Number(data[0].percentage);
