@@ -4,10 +4,12 @@ import { useState } from "react";
 import { redirect } from "next/navigation";
 import Cookie from "js-cookie";
 import Container from "@/components/container/Container";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,9 +24,13 @@ export default function LoginPage() {
 
     if (res.ok) {
       console.log("data = ", data);
-      // // //localStorage.setItem("token", data.token); // ذخیره توکن لوکال
+      // localStorage.setItem("token", data.token); // ذخیره توکن لوکال
       Cookie.set("token", data.token, { expires: data.expire });
-      redirect("/dashboard");
+      redirect("/store");
+    }
+    if (res.status === 404) {
+      router.push(`/register?username=${username}`);
+      return;
     } else {
       console.log(data.message);
     }

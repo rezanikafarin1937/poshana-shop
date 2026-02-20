@@ -13,9 +13,6 @@ import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
 
-
-
-
 export interface IProductItemProps {
   // با توجه به تغییر ساختار داده ها در دیتا بیس این تعریف این داده ها باید تغییر کند مثلا داده هایی مثل رنگ سایز و ... اضافه شوند و id  number شود.
   id: string;
@@ -63,13 +60,13 @@ async function Store({ searchParams }: IStoreProps) {
       <div className="flex flex-col">
         {
           <HorizontalScroll>
-            {usages.length > 0 ? usages.map((usage: IUsagesProps) =>
-              usage.image ? <Avatar key={usage.id} {...usage} /> : "",
-            ) : ""}
+            {usages.length > 0
+              ? usages.map((usage: IUsagesProps) =>
+                  usage.image ? <Avatar key={usage.id} {...usage} /> : "",
+                )
+              : ""}
           </HorizontalScroll>
         }
-        
-
 
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />
         <br />
@@ -82,7 +79,6 @@ async function Store({ searchParams }: IStoreProps) {
           title="تخفیف‌های هیجان‌انگیز امروز"
           btnTitle="مشاهده همه"
         >
-          {/* <ServerSlider search="?discount_gt=0" /> */}
           <ServerSlider search="discount" />
         </WrpperSlider>
         <Accessories />
@@ -101,9 +97,13 @@ async function Store({ searchParams }: IStoreProps) {
           linkTitle="مشاهده همه "
           link="/store"
         />
+        <div style={{ marginTop: "1rem" }}></div>
+
         <ServerSlider search="old" />
+        <div style={{ marginTop: "1rem" }}></div>
+
         <FrameImage />
-        <br />
+        <div style={{ marginTop: "1rem" }}></div>
         <WrpperSlider
           title="جدیدترین محصولات این ماه"
           btnTitle="مشاهده همه"

@@ -10,16 +10,16 @@ async function ServerSlider({
 }) {
   let data = null;
   if (search === "discount") {
-    const response = await fetch(`${BaseUrl}/discount`);
+    const response = await fetch(`${BaseUrl}/discount`,{cache : 'no-cache'});
     data = await response.json();
   }
   else if(search === 'new'){
-    const response = await fetch(`${BaseUrl}/new`);
+    const response = await fetch(`${BaseUrl}/new`,{cache : 'no-cache'});
     data = await response.json();
 
   }
   else {
-    const response = await fetch(`${BaseUrl}/old`);
+    const response = await fetch(`${BaseUrl}/old`,{cache : 'no-cache'});
     data = await response.json();
 
   }

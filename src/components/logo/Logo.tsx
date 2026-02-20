@@ -1,8 +1,9 @@
+import './logostyle.scss';
 const Logo = () => {
   return (
-    <h2 className="w-[80px] h-[80px]">
+    <h2 className="parent">
       <img
-        src="./logo/logo1.jpg"
+        src="./logo/logo.jpg"
         alt="فروشگاه لباس و کفش"
         className="w-full h-full object-cover"
       />

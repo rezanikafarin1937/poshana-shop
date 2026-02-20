@@ -1,17 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-};
-
-// next.config.js
-module.exports = {
+  output: "export",
   reactStrictMode: true,
-  experimental: {
-    appDir: true,  // برای فعال‌سازی App Router
+  images: {
+    unoptimized: true,
   },
 };
-
 
 export default nextConfig;
