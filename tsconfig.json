@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/app/login/page.jsx", "src/app/api/products/route.js", "src/utils/pagination/Pagination.jsx", "src/app/(cat)/boys/page.jsx"  ],
+, "src/app/login/page.jsx", "src/app/api/products/route.js", "src/utils/pagination/Pagination.jsx", "src/app/(cat)/boys/page.jsx", "src/app/(cat)/feminine/page.jsx", "src/app/(cat)/girls/page.jsx", "src/app/(cat)/kidswear/page.jsx", "src/app/(cat)/menswear/page.jsx"  ],
   "exclude": ["node_modules"]
 }
