@@ -17,6 +17,7 @@ export interface IProductItemProps {
   price: number;
   image: string;
   description: string;
+  discount?: number
 }
 
 interface IStoreProps {
