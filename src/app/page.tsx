@@ -1,5 +1,3 @@
-import { IProductList } from "@/components/ProductItem";
-import { BaseUrl } from "@/Global/BaseUrl";
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import { fetchUsage } from "@/components/fetch-usage/fetchUsage";
 import { IUsagesProps } from "@/components/fetch-usage/fetchUsage";
@@ -14,7 +12,6 @@ import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
 
 export interface IProductItemProps {
-  // با توجه به تغییر ساختار داده ها در دیتا بیس این تعریف این داده ها باید تغییر کند مثلا داده هایی مثل رنگ سایز و ... اضافه شوند و id  number شود.
   id: string;
   title: string;
   price: number;
@@ -42,15 +39,6 @@ const linkOfCategories = ["feminine", "menswear", "kidswear"];
 const catBaby = ["/generalcategory/cat4.jpg", "/generalcategory/cat5.jpg"];
 
 async function Store({ searchParams }: IStoreProps) {
-  const page = (await searchParams).page ?? "1";
-  const per_page = (await searchParams).per_page ?? "3";
-  const title = (await searchParams).title ?? "";
-
-  const result = await fetch(
-    `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&title=${title}`,
-    { cache: "no-cache" },
-  );
-
   const usages = await fetchUsage();
 
   return (
