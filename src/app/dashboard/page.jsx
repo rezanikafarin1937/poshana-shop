@@ -10,13 +10,13 @@ import styles from "./dashboard.module.css";
 
 const Dashboard = () => {
   const pathName = usePathname();
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useStat([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
-  const [usages, setUsages] = useState<string[]>([]);
+  const [usages, setUsages] = useState([]);
   const [selectedUsage, setSelectedUsage] = useState("");
   const [model, setModel] = useState("");
   const [colors, setColors] = useState("");
@@ -57,7 +57,7 @@ const Dashboard = () => {
     console.log("UPLOAD RESULT", res.data);
   };
 
-  const handleFilesFromChild = (selectedFiles: File[]) => {
+  const handleFilesFromChild = (selectedFiles) => {
     setFiles(selectedFiles);
     console.log("selectedFiles = ", selectedFiles);
   };

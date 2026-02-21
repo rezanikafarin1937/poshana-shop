@@ -11,19 +11,19 @@ import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
 
-export interface IProductItemProps {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-  discount?: number
-}
+// export interface IProductItemProps {
+//   id: string;
+//   title: string;
+//   price: number;
+//   image: string;
+//   description: string;
+//   discount?: number
+// }
 
-interface IStoreProps {
-  params: Promise<{}>;
-  searchParams: Promise<{ page: string; per_page: string; title: string }>;
-}
+// interface IStoreProps {
+//   params: Promise<{}>;
+//   searchParams: Promise<{ page: string; per_page: string; title: string }>;
+// }
 
 const supports = [
   "/support/support1.png",
@@ -50,7 +50,7 @@ async function Store() {
         {
           <HorizontalScroll>
             {usages.length > 0
-              ? usages.map((usage: IUsagesProps) =>
+              ? usages.map((usage) =>
                   usage.image ? <Avatar key={usage.id} {...usage} /> : "",
                 )
               : ""}

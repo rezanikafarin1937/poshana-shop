@@ -4,16 +4,17 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { BaseUrl } from "@/Global/BaseUrl";
 
-interface IProductItem{
-  id : string,
-  title : string,
-  price : number,
-  images : [],
-  description : string
-}
+// interface IProductItem{
+//   id : string,
+//   title : string,
+//   price : number,
+//   images : [],
+//   description : string
+// }
 
 function fetchClient(){
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState;
+
   useEffect(()=>{
     axios(`${BaseUrl}/products`).then(res => {
       setProducts(res.data)
@@ -23,7 +24,7 @@ function fetchClient(){
 
   return <div className="flex flex-row">
     <h1 className="font-bold text-3xl">fetch client</h1>
-    {products.map((p : IProductItem,index) => (
+    {products.map((p,index) => (
       <div key={index}  className="m-2 border">
         <p>{p.title}</p>
         <p>{p.price}</p>

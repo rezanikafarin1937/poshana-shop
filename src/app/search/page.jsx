@@ -1,19 +1,19 @@
 import { BaseUrl } from "@/Global/BaseUrl";
-import { IProductItemProps } from "@/components/ProductItem";
+// import { IProductItemProps } from "@/components/ProductItem";
 import Pagination from "@/utils/pagination/Pagination";
 import ItemCard from "@/components/item-card/ItemCard";
 import LinkWrapper from "@/components/link-wrapper/LinkWrapper";
 import Container from "@/components/container/Container";
-import { IProductList } from "@/components/ProductItem";
+// import { IProductList } from "@/components/ProductItem";
 import "./search.css";
 
 
-interface IStoreProps {
-  //   params: Promise<{}>;
-  searchParams: Promise<{ page: string; per_page: string; title: string }>;
-}
+// interface IStoreProps {
+//   //   params: Promise<{}>;
+//   searchParams: Promise<{ page: string; per_page: string; title: string }>;
+// }
 
-async function Search({ searchParams }: IStoreProps) {
+async function Search({ searchParams }) {
   const page = (await searchParams).page ?? "1";
   const per_page = (await searchParams).per_page ?? "10";
   const title = (await searchParams).title ?? "";
@@ -22,7 +22,7 @@ async function Search({ searchParams }: IStoreProps) {
     `${BaseUrl}/search?_page=${page}&_per_page=${per_page}&title=${title}`,
     { cache: "no-store" },
   );
-  const items = (await result.json()) as IProductList;
+  const items = (await result.json());
   console.log("items = ", items);
 
   return (
@@ -46,7 +46,7 @@ async function Search({ searchParams }: IStoreProps) {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
       >
         {items.data
-          ? items.data.map((item: IProductItemProps) => (
+          ? items.data.map((item) => (
               <LinkWrapper key={item.id} href={`/store/${item.id}`}>
                 <ItemCard {...item} />
               </LinkWrapper>

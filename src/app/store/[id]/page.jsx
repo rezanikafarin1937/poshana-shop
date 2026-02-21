@@ -5,26 +5,26 @@ import Heading from "@/components/heading/Heading";
 import SwiperSlider from '@/components/slider/swiper-slider/SwiperSlider';
 import styles from "./product.module.scss";
 
-interface ProductPageProps {
-  params: Promise<{ id: string }>;
-}
+// interface ProductPageProps {
+//   params: Promise<{ id: string }>;
+// }
 
-interface IGetProduct {
-  id: number;
-  title: string;
-  price: number;
-  images: string[];
-  description: string;
-  discount: number;
-  cat: string;
-  usage: string;
-  material: string;
-  model: string;
-  size: string;
-  colors: string;
-}
+// interface IGetProduct {
+//   id: number;
+//   title: string;
+//   price: number;
+//   images: string[];
+//   description: string;
+//   discount: number;
+//   cat: string;
+//   usage: string;
+//   material: string;
+//   model: string;
+//   size: string;
+//   colors: string;
+// }
 
-async function page({ params }: ProductPageProps) {
+async function page({ params }) {
   const { id } = await params;
   const res = await fetch(`${BaseUrl}/products/${id}`);
   const   product = await res.json();
@@ -38,7 +38,7 @@ async function page({ params }: ProductPageProps) {
   const results = await fetch(
     `${BaseUrl}/products?cat=${product?.cat}&?usage=${product?.usage}`
   );
-  const products = (await results.json()) as IGetProduct;
+  const products = (await results.json());
 
   const printTitle = () => {
     return (
