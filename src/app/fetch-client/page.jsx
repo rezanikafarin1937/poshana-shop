@@ -1,41 +1,54 @@
-"use client";
+import React from 'react'
 
-import axios from "axios";
-import { useEffect,useState } from "react";
-import { BaseUrl } from "@/Global/BaseUrl";
+const page = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
-// interface IProductItem{
-//   id : string,
-//   title : string,
-//   price : number,
-//   images : [],
-//   description : string
-// }
+export default page
 
-function fetchClient(){
-  const [products, setProducts] = useState;
 
-  useEffect(()=>{
-    axios(`${BaseUrl}/products`).then(res => {
-      setProducts(res.data)
-      console.log(res)
-    })
-  },[])
+// "use client";
 
-  return <div className="flex flex-row">
-    <h1 className="font-bold text-3xl">fetch client</h1>
-    {products.map((p,index) => (
-      <div key={index}  className="m-2 border">
-        <p>{p.title}</p>
-        <p>{p.price}</p>
-        <p>{p.id}</p>
-        <p>{p.description}</p>
-        <div className="w-[200px] h-[200px]">
-           <img className="w-full h-full object-cover" src={`/uploads/${p.images[0]}`}  alt="" />
-        </div>
-      </div>
-    ))}
-  </div>;
-};
+// import axios from "axios";
+// import { useEffect,useState } from "react";
+// import { BaseUrl } from "@/Global/BaseUrl";
 
-export default fetchClient;
+// // interface IProductItem{
+// //   id : string,
+// //   title : string,
+// //   price : number,
+// //   images : [],
+// //   description : string
+// // }
+
+// function fetchClient(){
+//   const [products, setProducts] = useState;
+
+//   useEffect(()=>{
+//     axios(`${BaseUrl}/products`).then(res => {
+//       setProducts(res.data)
+//       console.log(res)
+//     })
+//   },[])
+
+//   return <div className="flex flex-row">
+//     <h1 className="font-bold text-3xl">fetch client</h1>
+//     {products.map((p,index) => (
+//       <div key={index}  className="m-2 border">
+//         <p>{p.title}</p>
+//         <p>{p.price}</p>
+//         <p>{p.id}</p>
+//         <p>{p.description}</p>
+//         <div className="w-[200px] h-[200px]">
+//            <img className="w-full h-full object-cover" src={`/uploads/${p.images[0]}`}  alt="" />
+//         </div>
+//       </div>
+//     ))}
+//   </div>;
+// };
+
+// export default fetchClient;

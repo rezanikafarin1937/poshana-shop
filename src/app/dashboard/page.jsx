@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import { getId } from "../../utils/GetLastItem";
 import axios from "axios";
 import UploadImage from "../../utils/upload-image/UploadImage";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { BaseUrl } from "@/Global/BaseUrl";
 import styles from "./dashboard.module.css";
 
 const Dashboard = () => {
-  const pathName = usePathname();
-  const [files, setFiles] = useStat([]);
+  // const pathName = usePathname();
+  const [files, setFiles] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");

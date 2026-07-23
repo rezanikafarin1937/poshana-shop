@@ -14,7 +14,8 @@ import { BaseUrl } from "@/Global/BaseUrl";
 // }
 
 const Cart = () => {
-  const [data, setData] = useState[{}];
+  const [data, setData] = useState([{}]);
+  // const [data, setData] = useState<any[]>([]);
   const [discountedPrice, setDiscountedPrice] = useState(() => 0);
   const [finalPrice, setFinalPrice] = useState(() => 0);
   useEffect(() => {
