@@ -45,7 +45,7 @@ const MySwiperSlider = ({ data }) => {
         }}
         navigation
       >
-        {data.map((d, index) => (
+        {data?.map((d, index) => (
           <SwiperSlide key={index}>
             <LinkWrapper href={`/store/${d.id}`}>
               <ItemCard {...d} height="100%" />
