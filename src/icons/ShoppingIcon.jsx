@@ -1,12 +1,10 @@
-import React from "react";
-
-const ShoppingIcon = () => {
+const ShoppingIcon = ({width = "50px",height = "50px" ,color = "#000000"}) => {
   return (
     <>
       <svg
-        width="24px"
-        height="24px"
-        fill="none"
+        width={width}
+        height={height}
+        fill={color}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

@@ -1,7 +1,4 @@
-import HomeDelivery from '@/components/icons/HomeDelivery';
-import Payment from '@/components/icons/Payment';
-import ReturnProduct from '@/components/icons/ReturnProduct';
-import Support from '@/components/icons/Support';
+import {HomeDelivery,Payment,ReturnProduct,Support} from "@/icons"
 import styles from './guarantee.module.scss';
 const Guarantee = () => {
   return (

@@ -1,11 +1,18 @@
 .parent {
-  width: 50%;
-  height: 50px;
+  max-width: 40%;
+  height: 40px;
+  flex: 1 1 auto;
   background-color: var(--bg-input);
   padding: 0 1.5rem;
   border-radius: 1rem;
   position: relative;
   color: #989696;
+}
+
+@media (max-width: 768px) {
+  .parent {
+    max-width: 60%;
+  }
 }
 
 .parent__search {
@@ -29,7 +36,7 @@
 }
 
 .parent input::placeholder {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .parent__wrapperSearchIcon {

@@ -1,0 +1,397 @@
+.contactPage {
+  width: 100%;
+  padding: 30px 0 50px;
+  color: var(--color-site);
+  direction: rtl;
+  overflow: hidden;
+}
+
+// Page Header
+.pageHeader {
+  text-align: center;
+  padding: 35px 20px 45px;
+
+  .headerLabel {
+    display: inline-block;
+    color: var(--active-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    color: var(--title-product);
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: var(--global-text);
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+// Main Wrapper
+.contactWrapper {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+// Contact Information
+.contactInfo {
+  background: var(--bg-footer);
+  padding: 35px 30px;
+  border-radius: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoHeading {
+  margin-bottom: 35px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.infoIcon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.infoText {
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+}
+
+// Social
+.socialBox {
+  margin-top: auto;
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 11px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.whatsapp {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--bg-btn);
+  border-radius: 50%;
+  font-size: 22px;
+  transition: 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    background: var(--bg-btn);
+    color: #fff;
+  }
+}
+
+// Contact Form
+.contactFormBox {
+  background: var(--bg-site);
+  border: 1px solid var(--bg-input);
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 8px 30px var(--bg-wrapper);
+}
+
+.formHeading {
+  margin-bottom: 30px;
+
+  span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--active-text);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 21px;
+    color: var(--title-product);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: var(--global-text);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    color: var(--title-product);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 8px;
+    background: var(--bg-input);
+    padding: 13px 14px;
+    color: var(--color-site);
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.25s ease;
+
+    &::placeholder {
+      color: var(--global-search-color);
+      font-size: 12px;
+    }
+
+    &:focus {
+      border-color: var(--active-text);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(224, 108, 105, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.9;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: var(--active-text);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  &:hover {
+    background: var(--bg-footer);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    font-size: 15px;
+  }
+}
+
+.formNotice {
+  color: var(--global-text);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+// Bottom Message
+.bottomMessage {
+  width: min(1100px, 92%);
+  margin: 45px auto 0;
+  padding: 25px 20px;
+  border-radius: 12px;
+  background: var(--bg-wrapper);
+  text-align: center;
+
+  h2 {
+    color: var(--title-product);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--global-text);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+}
+
+// Responsive
+@media (max-width: 900px) {
+  .contactWrapper {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 15px;
+  }
+
+  .contactInfo {
+    padding: 25px 20px;
+  }
+
+  .contactFormBox {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactWrapper {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .contactInfo {
+    order: 2;
+  }
+
+  .contactFormBox {
+    order: 1;
+  }
+
+  .infoList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 15px;
+  }
+
+  .socialBox {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactPage {
+    padding-top: 15px;
+  }
+
+  .pageHeader {
+    padding: 25px 15px 30px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .contactWrapper {
+    width: 94%;
+  }
+
+  .contactInfo {
+    padding: 25px 18px;
+  }
+
+  .infoList {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .contactFormBox {
+    padding: 25px 18px;
+  }
+
+  .formHeading {
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomMessage {
+    width: 94%;
+    margin-top: 30px;
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+}

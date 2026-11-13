@@ -1,0 +1,20 @@
+export { default as  StoreIcon } from "./Store";
+export { default as MenIcon } from "./MenIcon";
+export { default as WomenIcon } from "./Women";
+export { default as ChildIcon } from "./ChildIcon";
+export { default as PhoneIcon } from "./PhoneIcon";
+export { default as ShoppingIcon } from "./ShoppingIcon";
+export { default as UserIcon } from "./UserIcon";
+export { default as ReturnProduct } from "./ReturnProduct";
+export { default as HomeDelivery} from "./HomeDelivery";
+export { default as Support} from "./Support";
+
+export { default as Twitter} from "./Twitter";
+export { default as Pintrest} from "./Pintrest";
+export { default as Payment} from "./Payment";
+export { default as Linkdin} from "./Linkdin";
+export { default as LogoIcon} from "./LogoIcon";
+export { default as Instagram} from "./Instagram";
+export { default as Telegram} from "./Telegram";
+export {default as Whatsapp} from "./Whatsapp";
+export {default as UserLogin} from "./UserLogin";

@@ -11,19 +11,6 @@ import Heading from "@/components/heading/Heading";
 import FrameImage from "@/components/frame-image/FrameImage";
 import Guarantee from "@/components/guarantee/Guarantee";
 
-// export interface IProductItemProps {
-//   id: string;
-//   title: string;
-//   price: number;
-//   image: string;
-//   description: string;
-//   discount?: number
-// }
-
-// interface IStoreProps {
-//   params: Promise<{}>;
-//   searchParams: Promise<{ page: string; per_page: string; title: string }>;
-// }
 
 const supports = [
   "/support/support1.png",

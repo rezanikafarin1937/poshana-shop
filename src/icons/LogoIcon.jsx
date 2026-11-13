@@ -15,7 +15,7 @@ const LogoIcon = () => {
   <g
     fill="none"
     stroke="#e06c69"
-    stroke-width="4"
+    strokeWidth="4"
     stroke-linecap="round"
     stroke-linejoin="round"
   >

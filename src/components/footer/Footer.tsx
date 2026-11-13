@@ -1,9 +1,14 @@
-import Whatsapp from "@/components/icons/Whatsapp";
-import Instagram from "@/components/icons/Instagram";
-import Telegram from "@/components/icons/Telegram";
-import Linkdin from "@/components/icons/Linkdin";
-import Pintrest from "@/components/icons/Pintrest";
-import Twitter from "@/components/icons/Twitter";
+import {
+  Whatsapp,
+  Instagram,
+  Telegram,
+  Linkdin,
+  Pintrest,
+  Twitter,
+} from "@/icons";
+
+import Link from "next/link";
+
 import styles from "./footer.module.scss";
 
 const Footer = () => {
@@ -95,6 +100,7 @@ const Footer = () => {
                 در صورت هر گونه مشکل یا سوال، لطفاً با شماره بالا تماس بگیرید.
                 تیم پشتیبانی ما آماده پاسخگویی به شماست.
               </p>
+              <div className={styles.footer__link}><Link href="/contact">تماس با ما</Link></div>
             </div>
           </div>
         </div>
@@ -107,7 +113,7 @@ const Footer = () => {
             <strong>پشتیبانی</strong>
           </div>
           <ul className="text-right text-[14px] mt-[1rem] list-disc">
-            <li className="cursor-pointer">تماس با ما</li> 
+            <li className="cursor-pointer"><Link href="/contact">تماس با ما</Link></li>
             <li className="cursor-pointer">سوالات متداول</li>
             <li className="cursor-pointer">گزارش خطای فنی</li>
             <li className="cursor-pointer">پیگیری سفارش ها</li>

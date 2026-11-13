@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Layout from "@/components/Layout";
 import { ShoppingCartContextProvider } from "@/context/ShoppingCartContext";
 import "./globals.css";
+import MobileBottomNav from "@/components/MobileButtonNav/MobileBottomNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout( {children}:  Readonly < {children: React.Rea
         <ShoppingCartContextProvider>
           <Layout>{children}</Layout>
         </ShoppingCartContextProvider>
+        
       </body>
     </html>
   );

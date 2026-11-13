@@ -16,6 +16,15 @@
   }
 }
 
+.footer__link {
+  color: var(--active-text) !important;
+  text-align: right;
+  direction: rtl;
+  font-size: 1.5rem !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .footer__card {
   width: calc(25% - 1rem);
   background-color: var(--bg-site);
