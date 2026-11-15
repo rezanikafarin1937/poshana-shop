@@ -1,33 +1,39 @@
-"use client";
-import React from "react";
-import { useRef, useState } from "react";
 
-type Direction = 'ltr' | 'rtl';
+"use client";
+
+import React, { useRef, useState } from "react";
+
+type Direction = "ltr" | "rtl";
+
 export interface ChildrenProps {
   children: React.ReactNode;
   dir?: Direction;
-  gap : string | null;
+  gap?: string | null;
 }
-// {children} : ChildrenProps
 
-const HorizontalScroll = ({children ,dir = 'rtl',gap = null} : ChildrenProps) => {
-  const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
-  const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
-  const [startX, setStartX] = useState(0); // موقعیت شروع درگ
-  const [scrollLeft, setScrollLeft] = useState(0); // موقعیت اسکرول
+const HorizontalScroll = ({
+  children,
+  dir = "rtl",
+  gap = null,
+}: ChildrenProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // برای شروع کشیدن موس
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const startDrag = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
+
     const clientX =
       e.type === "mousedown"
         ? (e as React.MouseEvent).clientX
         : (e as React.TouchEvent).touches[0].clientX;
+
     setStartX(clientX);
-    setScrollLeft(containerRef.current?.scrollLeft || 0); // ذخیره اسکرول اولیه
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
   };
 
-  // در زمان کشیدن موس (move)
   const drag = (e: React.MouseEvent | React.TouchEvent) => {
     if (!isDragging) return;
 
@@ -35,35 +41,46 @@ const HorizontalScroll = ({children ,dir = 'rtl',gap = null} : ChildrenProps) =>
       e.type === "mousemove"
         ? (e as React.MouseEvent).clientX
         : (e as React.TouchEvent).touches[0].clientX;
+
     const distance = clientX - startX;
+
     if (containerRef.current) {
       containerRef.current.scrollLeft = scrollLeft - distance;
     }
   };
 
-  // برای پایان کشیدن موس
   const stopDrag = () => {
     setIsDragging(false);
   };
 
+  const childrenArray = React.Children.toArray(children);
+
   return (
     <div
       ref={containerRef}
-      className="overflow-x-scroll no-scrollbar  select-none py-8 flex justify-between" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+      className="overflow-x-scroll no-scrollbar select-none py-8 flex justify-between"
       onMouseDown={startDrag}
       onMouseMove={drag}
       onMouseUp={stopDrag}
-      onMouseLeave={stopDrag} // اگر موس از محدوده خارج شود
-      onTouchStart={startDrag} // پشتیبانی از تاچ موبایل
+      onMouseLeave={stopDrag}
+      onTouchStart={startDrag}
       onTouchMove={drag}
       onTouchEnd={stopDrag}
-      style={{ direction : dir,
+      style={{
+        direction: dir,
         cursor: isDragging ? "grabbing" : "grab",
       }}
     >
-      {children ?  children.map((child,index) => (
-            <div style={gap ? { margin : `0 ${gap}`} : {margin : '0 .5rem'}} key={index}>{child}</div>
-        )) : ""}
+      {childrenArray.map((child, index) => (
+        <div
+          key={index}
+          style={{
+            margin: gap ? `0 ${gap}` : "0 .5rem",
+          }}
+        >
+          {child}
+        </div>
+      ))}
     </div>
   );
 };

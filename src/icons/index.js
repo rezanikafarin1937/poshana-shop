@@ -18,3 +18,4 @@ export { default as Instagram} from "./Instagram";
 export { default as Telegram} from "./Telegram";
 export {default as Whatsapp} from "./Whatsapp";
 export {default as UserLogin} from "./UserLogin";
+// export {default as UserIcon} from "./UserIcon";

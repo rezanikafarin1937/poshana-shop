@@ -1,13 +1,12 @@
 .heading {
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   border-radius: 25px;
   background-color: var(--active-text) !important;
   color: #fff !important;
   padding: 1rem 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 
   @media (max-width: 425px) {
     padding: .75rem 1.5rem;
@@ -16,11 +15,12 @@
 
   &__link {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s;
-    min-width: 125px;
+    min-width: 104px;
+    font-size: 1rem;
+
 
     @media (max-width: 425px) {
       display: none;

@@ -1,34 +1,45 @@
 "use client";
+
 import { useState } from "react";
 import "./uploadImage.min.css";
 import Delete from "./Delete";
 
-function UploadImage({ dir = "rtl" , onFilesChange }) {
+function UploadImage({ dir = "rtl", onFilesChange }) {
   const [files, setFiles] = useState([]);
   const [images, setImages] = useState([]);
 
   const handleFileChange = (e) => {
-    const files = e.target.files;
-    const imagePreviews = [...files].map(
-      (file) => URL.createObjectURL(file) // ساخت URL موقت برای تصویر
+    const selectedFiles = Array.from(e.target.files);
+
+    const imagePreviews = selectedFiles.map(
+      (file) => URL.createObjectURL(file)
     );
+
     setImages((prev) => [...prev, ...imagePreviews]);
-    setFiles(() => files);
-    onFilesChange(files);
+    setFiles((prev) => [...prev, ...selectedFiles]);
+
+    onFilesChange?.([...files, ...selectedFiles]);
+
+    e.target.value = "";
   };
 
-  const handelDeleteImage = (image,index) => {
-    const items = images.filter(item => item !== image);
+  const handelDeleteImage = (image, index) => {
+    URL.revokeObjectURL(image);
+
+    const items = images.filter((item) => item !== image);
+    const myFiles = files.filter((item, i) => i !== index);
+
     setImages(items);
-    const myFiles = [...files].filter((item,i) => i !== index);
-    setFiles(() => myFiles);
-    onFilesChange(files);
+    setFiles(myFiles);
+
+    onFilesChange?.(myFiles);
   };
 
   return (
     <div className="parent" dir={dir}>
-      <form>
-        <div title="آپلود عکس"
+      <form onSubmit={(e) => e.preventDefault()}>
+        <div
+          title="آپلود عکس"
           className={`parent__input ${
             dir === "ltr" ? "parent__ltr" : "parent__rtl"
           }`}
@@ -42,17 +53,22 @@ function UploadImage({ dir = "rtl" , onFilesChange }) {
           <button type="submit"></button>
         </div>
       </form>
+
       {images.map((image, index) => (
         <div key={index} className="parent__item">
-          <div className="parent__del" onClick={() => handelDeleteImage(image,index)}>
-            <Delete color="orangered"/>
+          <div
+            className="parent__del"
+            onClick={() => handelDeleteImage(image, index)}
+          >
+            <Delete color="orangered" />
           </div>
+
           <div
             className={`parent__image ${
               dir === "ltr" ? "parent__ltr" : "parent__rtl"
             }`}
           >
-            {<img src={image} />}
+            <img src={image} alt={`پیش‌نمایش تصویر ${index + 1}`} />
           </div>
         </div>
       ))}

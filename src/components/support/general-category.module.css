@@ -6,7 +6,6 @@
 }
 
 .general__category, .general__cat-50, .general__cat-33, .general__cat-25, .general__cat-20, .general__cat-16 {
-  background-color: var(--bg-input);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   cursor: pointer;
@@ -19,6 +18,7 @@
     /* Full width on mobile */
     margin-bottom: 1rem;
     /* Optional: Add space between categories on mobile */
+    padding: 0 !important;
   }
 }
 
@@ -83,4 +83,8 @@
 
 .general__rounded-all {
   border-radius: 10px;
+}
+
+.small {
+  padding: 3rem;
 }

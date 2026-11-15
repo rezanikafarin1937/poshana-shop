@@ -54,9 +54,7 @@ async function Store({ searchParams }: IStoreProps) {
           </HorizontalScroll>
         }
         <Slider images={["1.webp", "2.webp", "3.webp", "4.webp"]} />
-        <br />
-        <Support images={supports} small={true} />
-        <br />
+          <Support images={supports} />
 
         <WrpperSlider
           bgColor="var(--active-text)"
@@ -83,7 +81,7 @@ async function Store({ searchParams }: IStoreProps) {
           link="/store"
         />
         <div style={{ marginTop: "1rem" }}></div>
-        <ServerSlider search="old"/>
+        <ServerSlider search="old" />
         <div style={{ marginTop: "1rem" }}></div>
         <FrameImage />
         <div style={{ marginTop: "1rem" }}></div>

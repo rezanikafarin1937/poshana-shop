@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   output: "export",
 
   // مسیر مخزن GitHub Pages
-  basePath: "/poshana-shop",
+  // basePath: "/poshana-shop",
 
   // غیرفعال کردن بهینه‌سازی تصویری سمت سرور
   images: {

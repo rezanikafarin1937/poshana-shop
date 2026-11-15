@@ -14,7 +14,6 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     padding: 1rem 2rem 8rem 2rem;
     align-items: center;
@@ -28,17 +27,18 @@
   &__title {
     text-align: center;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 2.5rem;
     @media (max-width: 425px) {
       display: none;
     }
   }
   &__btnTitle {
-    font-size: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 

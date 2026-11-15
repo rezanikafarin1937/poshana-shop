@@ -1,13 +1,14 @@
+import { publicPath } from "@/utils/path";
+
 // ProductItem replace with ItemCard
-// این کامپوننت قدیمی شده و نسخه جدید آن کامپوننت ItemCard میباشد
-// اما  فعلا آن را حذف نکنید
-import React from "react";
+// این کامپوننت قدیمی شده و نسخه جدید آن کامپوننت ItemCard می‌باشد
+// اما فعلاً آن را حذف نکنید
 
 export interface IProductItemProps {
   id: string;
   title: string;
   price: number;
-  images: [];
+  images: string[];
   description: string;
 }
 
@@ -21,33 +22,22 @@ export interface IProductList {
   data: IProductItemProps[];
 }
 
-// // props === item
-// const ProductItem = (item: IProductItemProps) => {
-//   return (
-//     <div className="w-full h-60 bg-gray-200 shadow-md">
-//       <img src={`/uploads/${item.images[0]}`} className="w-full h-full object-cover" />
-//       <div className="flex justify-between">
-//         <p>قیمت محصول : {item.price}</p>
-//         <p>عنوان : {item.title}</p>
-//         <p className="px-5 py-1 bg-green-700 text-white">{item.id}</p>
-//       </div>
-//     </div>
-//   );
-// };
+// کامپوننت قدیمی ProductItem فعلاً حذف نشده است.
 
-// export default ProductItem;
-
-//*****************
-
+// نسخه فعلی کامپوننت
 export default function ProductCard(item: IProductItemProps) {
   return (
-    <div className="max-w-sm mx-auto rounded-2xl shadow-md  bg-white overflow-hidden hover:shadow-lg transition">
+    <div className="max-w-sm mx-auto rounded-2xl shadow-md bg-white overflow-hidden hover:shadow-lg transition">
       <div className="relative">
         <img
-          src={`/uploads/${item.images[0]}`}
+          src={
+            item.images?.[0]
+              ? publicPath(`/uploads/${item.images[0]}`)
+              : publicPath("/no-image.png")
+          }
           alt={item.title}
           className="w-full h-64 sm:h-64 md:h-72 object-cover"
-        />
+        />{" "}
         <span className="absolute top-3 left-3 bg-black/60 text-white px-3 py-1 text-xs rounded-full">
           جدید
         </span>
@@ -55,6 +45,7 @@ export default function ProductCard(item: IProductItemProps) {
 
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
+
         <p className="text-sm text-gray-500 mt-1">{item.description}</p>
 
         <div className="flex items-center justify-between mt-4">

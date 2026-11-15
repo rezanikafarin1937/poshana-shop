@@ -1,4 +1,5 @@
 "use client";
+import { publicPath } from "@/utils/path";
 import { useState, useRef, useEffect } from "react";
 import HorizontalScroll from "@/components/horizontal-scroll/HorizontalScroll";
 import styles from "./zoomimage.module.scss";
@@ -41,14 +42,19 @@ const ZoomImage = ({ images }) => {
               setActiveImage(() => index);
             }}
           >
-            <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />
+            <img
+              src={publicPath(`/uploads/${image}`)}
+              alt="فروشگاه لباس پوشانا"
+            />
           </div>
         ))}
       </div>
       <div
         ref={zoomImage}
         className={styles.parent__image}
-        style={{ backgroundImage: `url(/uploads/${images[activeImage]})` }}
+        style={{
+          backgroundImage: `url(${publicPath(`/uploads/${images[activeImage]}`)})`,
+        }}
       ></div>
       <div className={styles.parent__horizontalscroll}>
         <HorizontalScroll gap="1px">
@@ -60,7 +66,10 @@ const ZoomImage = ({ images }) => {
                 setActiveImage(() => index);
               }}
             >
-              <img src={`/uploads/${image}`} alt="فروشگاه لباس پوشانا" />
+              <img
+                src={publicPath(`/uploads/${image}`)}
+                alt="فروشگاه لباس پوشانا"
+              />
             </div>
           ))}
         </HorizontalScroll>

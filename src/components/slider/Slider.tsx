@@ -1,33 +1,40 @@
+
 "use client";
-import React from "react";
-import { useRef, useState } from "react";
+
+import React, { useRef, useState } from "react";
 import ArrowButtom from "@/components/arrow-buttom/ArrowButtom";
 
 type Direction = "ltr" | "rtl";
+
 export interface ChildrenProps {
   children: React.ReactNode;
   dir?: Direction;
 }
-// {children} : ChildrenProps
 
-const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
-  const containerRef = useRef<HTMLDivElement | null>(null); // برای نگهداری مرجع والد
-  const [isDragging, setIsDragging] = useState(false); // وضعیت درگ
-  const [startX, setStartX] = useState(0); // موقعیت شروع درگ
-  const [scrollLeft, setScrollLeft] = useState(0); // موقعیت اسکرول
+const Slider = ({
+  children,
+  dir = "rtl",
+}: ChildrenProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // برای شروع کشیدن موس
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const childrenArray = React.Children.toArray(children);
+
   const startDrag = (e: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
+
     const clientX =
       e.type === "mousedown"
         ? (e as React.MouseEvent).clientX
         : (e as React.TouchEvent).touches[0].clientX;
+
     setStartX(clientX);
-    setScrollLeft(containerRef.current?.scrollLeft || 0); // ذخیره اسکرول اولیه
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
   };
 
-  // در زمان کشیدن موس (move)
   const drag = (e: React.MouseEvent | React.TouchEvent) => {
     if (!isDragging) return;
 
@@ -35,7 +42,9 @@ const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
       e.type === "mousemove"
         ? (e as React.MouseEvent).clientX
         : (e as React.TouchEvent).touches[0].clientX;
+
     const distance = clientX - startX;
+
     if (containerRef.current) {
       containerRef.current.scrollLeft = scrollLeft - distance;
     }
@@ -55,7 +64,6 @@ const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
     });
   };
 
-  // برای پایان کشیدن موس
   const stopDrag = () => {
     setIsDragging(false);
   };
@@ -68,24 +76,29 @@ const Slider = ({ children, dir = "rtl"}: ChildrenProps) => {
       >
         <ArrowButtom left={true} />
       </div>
+
       <div
         ref={containerRef}
-        className="overflow-x-auto no-scrollbar  select-none py-4 flex justify-start gap-4" // اضافه کردن overflow-x-auto برای اسکرول مخفی
+        className="overflow-x-auto no-scrollbar select-none py-4 flex justify-start gap-4"
         onMouseDown={startDrag}
         onMouseMove={drag}
         onMouseUp={stopDrag}
-        onMouseLeave={stopDrag} // اگر موس از محدوده خارج شود
-        onTouchStart={startDrag} // پشتیبانی از تاچ موبایل
+        onMouseLeave={stopDrag}
+        onTouchStart={startDrag}
         onTouchMove={drag}
         onTouchEnd={stopDrag}
-        style={{ direction: dir, cursor: isDragging ? "grabbing" : "grab" }}
+        style={{
+          direction: dir,
+          cursor: isDragging ? "grabbing" : "grab",
+        }}
       >
-        {children?.map((child, index) => (
+        {childrenArray.map((child, index) => (
           <div key={index}>{child}</div>
         ))}
       </div>
+
       <div
-        className="absolute top-0 right-0 w-[50px] h-full  hover:cursor-pointer"
+        className="absolute top-0 right-0 w-[50px] h-full hover:cursor-pointer"
         onClick={scrollRightHandler}
       >
         <ArrowButtom />

@@ -11,6 +11,7 @@ interface ILayoutChildren {
 const Layout = ({ children }: ILayoutChildren) => {
   return (
     <>
+      <div className="mb-14"></div>
       <Navbar />
       <Container>{children}</Container>
       <MobileBottomNav />
