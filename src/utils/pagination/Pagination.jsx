@@ -2,14 +2,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./pagination.module.scss";
-// interface IPaginationProps {
-//   first?: number;
-//   items?: number;
-//   last?: number;
-//   next: number | null;
-//   pages: number | null;
-//   prev: number | null;
-// }
 
 const Pagination = ({
   next = null,

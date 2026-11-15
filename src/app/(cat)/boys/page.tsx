@@ -17,30 +17,6 @@ import {
   FaArrowLeftLong,
 } from "react-icons/fa6";
 
-// type PageProps = {
-//   searchParams: Promise<{
-//     page?: string;
-//     per_page?: string;
-//   }>;
-// };
-
-// async function Boys({ searchParams }: PageProps) {
-//   const params = await searchParams;
-
-//   const page = params.page ?? "1";
-//   const per_page = params.per_page ?? "10";
-//   const cat = "پسرانه";
-
-//   const result = await fetch(
-//     `${BaseUrl}/products?_page=${page}&_per_page=${per_page}&cat=${encodeURIComponent(cat)}`,
-//     { cache: "no-store" }
-//   );
-
-//   if (!result.ok) {
-//     throw new Error("دریافت محصولات با خطا مواجه شد.");
-//   }
-
-//   const items = await result.json();
 
 function BoysContent() {
   const searchParams = useSearchParams();
