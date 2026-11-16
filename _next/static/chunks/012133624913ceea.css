@@ -1,0 +1,1 @@
+.box{color:var(--global-text);border:2px solid var(--active-text);z-index:1;background-color:var(--bg-site);direction:rtl;border-radius:10px;margin-bottom:10px;padding:.5rem 1rem;font-size:1rem;display:inline-block;position:sticky;top:130px;left:20px}
