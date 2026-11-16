@@ -44,6 +44,11 @@
     text-overflow: ellipsis;
     max-width: 250px;
     overflow: hidden;
+    background-color: var(--active-text);
+    color: var(--bg-box);
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
   }
   &__price {
     width: 100%;
@@ -54,12 +59,32 @@
     align-items: center;
   }
 
+  &__disc{
+     color: #515151;
+     font-size: 14px;
+     font-weight: 100;
+
+  }
+
+  &__material {
+    font-size: 0.7rem;
+    color: var(--bg-communication);
+    padding-top: 0.25rem;
+  }
+
+  &__colors {
+    font-size: 0.7rem;
+    color: var(--color-site-two);
+    padding-top: 0.25rem;
+    font-weight: bold;
+  }
+
   &__discount {
     background-color: var(--active-text);
     color: #fff;
     border-radius: 0 15px 15px 0;
     padding: 3px 8px;
-    font-size: 14px;
+    font-size: 12px;
     position: absolute;
     left: 0;
     top: 1rem;

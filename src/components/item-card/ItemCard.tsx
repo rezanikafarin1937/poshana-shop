@@ -1,5 +1,4 @@
 import { publicPath } from "@/utils/path";
-import MiniGallery from "../mini-gallery/MiniGallery";
 import styles from "./item-card.module.css";
 
 export interface IProductItemProps {
@@ -9,6 +8,8 @@ export interface IProductItemProps {
   discount: number;
   images: string[];
   description: string;
+  material: string;
+  colors : string;
 }
 
 interface ISizeProps {
@@ -30,6 +31,8 @@ const ItemCard = ({
   height,
   borderColor,
   discount,
+  material,
+  colors,
 }: ItemCardProps) => {
   return (
     <div
@@ -46,7 +49,6 @@ const ItemCard = ({
             {Number(discount).toLocaleString("fa")} %
           </span>
         ) : null}
-
         <img
           src={
             images[0]
@@ -54,26 +56,22 @@ const ItemCard = ({
               : publicPath("/no-image.png")
           }
           alt={title}
-        />
+          loading="lazy"
+          decoding="async"
+        />{" "}
       </div>
 
       <div className={styles.card__intro}>
-        <MiniGallery
-          images={images}
-          width={40}
-          height={40}
-        />
 
-        <div className={styles.card__title}>
-          {title}
-        </div>
+        <div className={styles.card__title}>{title}</div>
+
+        <div className={styles.card__material}>{material}</div>
+        <div className={styles.card__colors}> <span>{colors.split("-").length.toLocaleString("fa")}</span> <span>رنگ</span></div>
 
         <div className={styles.card__price}>
-          <div style={{ color: "#515151" }}>
+          <div className={styles.card__disc}>
             {discount ? (
-              <del>
-                {Number(price).toLocaleString("fa")} تومان
-              </del>
+              <del>{Number(price).toLocaleString("fa")} تومان</del>
             ) : null}
           </div>
 
@@ -83,7 +81,8 @@ const ItemCard = ({
                   Number(price) -
                   (Number(price) * discount) / 100
                 ).toLocaleString("fa")
-              : Number(price).toLocaleString("fa")} تومان
+              : Number(price).toLocaleString("fa")}{" "}
+            تومان
           </div>
         </div>
       </div>

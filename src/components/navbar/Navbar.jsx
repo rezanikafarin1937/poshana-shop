@@ -82,7 +82,7 @@ const Navbar = () => {
                 </span>
               </Link>
               <span className="mx-2"></span>
-              <span className="flex items-center h-[50px]">
+              <span className="flex items-center h-[40px]">
                 <UserLogin width="15px" height="15px" color="#fff" />
               </span>
             </button>
