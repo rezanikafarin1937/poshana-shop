@@ -10,13 +10,15 @@ import {
   MenIcon,
   WomenIcon,
   ChildIcon,
+  UserLogin
 } from "@/icons";
 
 const navs = [
   { key: "store", title: "فروشگاه", icon: StoreIcon, link: "/" },
-  { key: "men", title: "مردانه", icon: MenIcon, link: "/menswear" },
-  { key: "women", title: "زنانه", icon: WomenIcon, link: "/feminine" },
-  { key: "child", title: "کودک", icon: ChildIcon, link: "/kidswear" },
+  { key: "men", title: "مردانه", icon: MenIcon, link: "/menswear/" },
+  { key: "women", title: "زنانه", icon: WomenIcon, link: "/feminine/" },
+  { key: "child", title: "کودک", icon: ChildIcon, link: "/kidswear/" },
+  { key: "login", title: "لاگین", icon: UserLogin, link: "/login/" },
 ];
 
 const MobileBottomNav = () => {
